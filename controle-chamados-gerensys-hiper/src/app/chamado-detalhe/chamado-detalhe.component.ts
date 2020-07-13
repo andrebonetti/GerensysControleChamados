@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ChamadoDTO } from '../chamado'
+import { Component, OnInit } from '@angular/core';
+import { ChamadoDTO } from '../chamado';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { ChamadoService } from '../chamado.service';
 
 @Component({
   selector: 'app-chamado-detalhe',
@@ -8,11 +11,26 @@ import { ChamadoDTO } from '../chamado'
 })
 export class ChamadoDetalheComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private chamadoService: ChamadoService,
+    private location: Location
+  ) { }
 
-  @Input() chamado: ChamadoDTO;
+  chamado: ChamadoDTO;
 
   ngOnInit(): void {
+    this.getChamado();
+  }
+
+  getChamado(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.chamadoService.getChamado(id)
+      .subscribe(chamado => this.chamado = chamado);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

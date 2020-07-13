@@ -11,11 +11,9 @@ import { MensagemService } from '../mensagem.service';
 })
 export class ChamadosComponent implements OnInit {
 
-  chamadoSelecionado: ChamadoDTO;
   chamados : ChamadoDTO[];
 
-  constructor(private chamadoService: ChamadoService,
-    private mensagemService: MensagemService) {}
+  constructor(private chamadoService: ChamadoService) {}
 
   ngOnInit(): void {
     this.getChamados();
@@ -23,11 +21,6 @@ export class ChamadosComponent implements OnInit {
 
   getChamados(): void {
     this.chamadoService.getChamados().subscribe(chamados => this.chamados = chamados);
-  }
-
-  onSelect(chamado: ChamadoDTO): void {
-    this.chamadoSelecionado = chamado;
-    this.mensagemService.add(`ChamadosComponent: chmado selecionado => id:${this.chamadoSelecionado.id}`);
   }
 
 }
