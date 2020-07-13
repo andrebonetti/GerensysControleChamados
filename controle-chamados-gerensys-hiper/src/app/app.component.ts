@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'controle-chamados-gerensys-hiper';
+  title = 'Controle de Chamados | Gerensys-Hiper';
 }

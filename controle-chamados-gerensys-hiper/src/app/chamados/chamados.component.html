@@ -1,0 +1,12 @@
+<h2>Chamados</h2>
+<ul class="chamados">
+  <li *ngFor="let chamado of chamados"
+    [class.selected]="chamado === chamadoSelecionado"
+    (click)="onSelect(chamado)">
+    <span class="badge">{{chamado.id}}</span> {{chamado.titulo}}
+  </li>
+</ul>
+
+<app-chamado-detalhe [chamado]="chamadoSelecionado"></app-chamado-detalhe>
+
+<!-- routerLink="/detail/{{chamado.id}}" -->
