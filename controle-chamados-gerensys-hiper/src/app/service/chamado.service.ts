@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ChamadoDTO } from './chamado';
-import { ChamadosMOCK } from './mock-chamados';
+import { ChamadoDTO } from '../models/chamado';
+import { ChamadosMOCK } from '../mock/mock-chamados';
 import { Observable, of } from 'rxjs';
 import { MensagemService } from './mensagem.service';
 

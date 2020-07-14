@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChamadoDTO } from '../chamado'
-import { ChamadosMOCK } from '../mock-chamados'
-import { ChamadoService } from '../chamado.service';
-import { MensagemService } from '../mensagem.service';
+import { FilaDTO } from '../models/fila'
+import { FilaService } from '../service/fila.service';
 
 @Component({
   selector: 'app-chamados',
@@ -11,16 +9,21 @@ import { MensagemService } from '../mensagem.service';
 })
 export class ChamadosComponent implements OnInit {
 
-  chamados : ChamadoDTO[];
+  filas : FilaDTO[];
 
-  constructor(private chamadoService: ChamadoService) {}
+  constructor(private filaService: FilaService) {}
 
   ngOnInit(): void {
-    this.getChamados();
+    this.getFilas();
+    console.log(this.filas);
   }
 
-  getChamados(): void {
-    this.chamadoService.getChamados().subscribe(chamados => this.chamados = chamados);
+  getFilas(): void {
+    this.filaService.getFilas().subscribe(filas => this.filas = filas);
+  }
+
+  collapse(){
+    console.log("collapse");
   }
 
 }
