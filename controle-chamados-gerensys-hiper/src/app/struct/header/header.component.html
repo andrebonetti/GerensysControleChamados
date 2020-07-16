@@ -1,0 +1,21 @@
+<header class="main-container">
+  <nav class="navbar navbar-static-top">
+    <div class="content">
+
+      <div class="navbar-header">
+        <a [routerLink]="['']" class="navbar-brand"><b>Hiper | Gerensys</b></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <i class="fa fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li routerLinkActive="active"><a routerLink="['/chamados']">Chamados</a></li>
+            <li routerLinkActive="active"><a [routerLink]="['/about']">Administrativo</a></li>
+          </ul>
+      </div>
+
+    </div>
+  </nav>
+</header>
