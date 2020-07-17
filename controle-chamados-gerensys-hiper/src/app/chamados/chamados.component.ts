@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilaDTO } from '../models/fila'
 import { FilaService } from '../service/fila.service';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-chamados',
@@ -9,17 +10,17 @@ import { FilaService } from '../service/fila.service';
 })
 export class ChamadosComponent implements OnInit {
 
-  filas : FilaDTO[];
+  faAngleRight = faAngleRight;
+  filasDTO : FilaDTO[];
 
   constructor(private filaService: FilaService) {}
 
   ngOnInit(): void {
     this.getFilas();
-    console.log(this.filas);
   }
 
   getFilas(): void {
-    this.filaService.getFilas().subscribe(filas => this.filas = filas);
+    this.filaService.getFilas().subscribe(filas => this.filasDTO = filas);
   }
 
   collapse(){

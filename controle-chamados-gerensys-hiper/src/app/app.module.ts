@@ -7,18 +7,24 @@ import { ChamadosComponent } from './chamados/chamados.component';
 import { FormsModule } from '@angular/forms';
 import { ChamadoDetalheComponent } from './chamado-detalhe/chamado-detalhe.component';
 import { MensagensComponent } from './mensagens/mensagens.component';
+import { HeaderComponent } from './struct/header/header.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChamadosComponent,
     ChamadoDetalheComponent,
-    MensagensComponent
+    MensagensComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

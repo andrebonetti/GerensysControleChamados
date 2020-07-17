@@ -1,67 +1,64 @@
-<section class="main-page page-chamados-lista">
+<h1>Lista de Chamados</h1>
+<form class="filtro">
+  <div class="item-formulario">
+    <label>Busca</label>
+    <input type="text" class="form-control" name="busca"/>
 
-  <h1>Lista de Chamados</h1>
+  </div>
+</form>
 
-  <form class="filtro">
-    <div class="item-formulario">
-      <label>Busca</label>
-      <input type="text" class="form-control" name="busca"/>
+<div class="filas">
+
+  <div class="fila" *ngFor="let itemFila of filasDTO">
+
+    <div class="cabecalho">
+
+      <span class="btn-collapse"
+        (click)="collapse()">
+        <fa-icon [icon]="faAngleRight"></fa-icon>
+      </span>
+
+      <span class="nome-fila">{{itemFila.nome}}</span>
+
+      <span class="qtde-lista">{{itemFila.quantidade}}</span>
+
+      <span class="btn-add-chamado"
+        routerLink="/chamado-detalhe/{{itemFila.id}}">
+        <i class="far fa-plus-square"></i>
+      </span>
 
     </div>
-  </form>
 
-  <div class="filas">
+    <div class="lista">
 
-    <div class="fila" *ngFor="let itemFila of getFilas()">
+      <div class="chamado" *ngFor="let itemChamado of itemFila.chamadosDTO">
 
-      <div class="cabecalho">
+        <div class="cliente">
 
-        <span class="btn-collapse"
-          (click)="collapse()">
-          <i class="fas fa-angle-right"></i>
-        </span>
+          <span class="nome-cliente">
+            {{itemChamado.clienteDTO.nome}}
+          </span>
 
-        <span class="nome-fila">{{itemFila.nome}}</span>
+        </div>
 
-        <span class="qtde-lista">{{itemFila.quantidade}}</span>
+        <div class="descricao">
 
-        <span class="btn-add-chamado"
-          routerLink="/chamado-detalhe/{{itemFila.id}}">
-          <i class="far fa-plus-square"></i>
-        </span>
+          <span class="titulo-chamado">
+            <a routerLink="/chamado-detalhe/{{itemChamado.id}}">
+              <span class="badge">{{itemChamado.id}}</span> {{itemChamado.titulo}}
+            </a>
+          </span>
 
-      </div>
+          <span class="codigo-chamado">
+            #{{itemChamado.id}}
+          </span>
 
-      <div class="lista">
+          <span class="sla">
+            {{itemChamado.sla}}
+          </span>
 
-        <div class="chamado" *ngFor="let itemChamado of itemFila.lista">
-
-          <div class="cliente">
-
-            <span class="nome-cliente">
-              {{itemChamado.cliente.descricao}}
-            </span>
-
-          </div>
-
-          <div class="descricao">
-
-            <span class="titulo-chamado">
-              {{itemChamado.titulo}}
-            </span>
-
-            <span class="codigo-chamado">
-              #{{itemChamado.id}}
-            </span>
-
-            <span class="sla">
-              {{itemChamado.sla}}
-            </span>
-
-            <div class="usuario-responsavel">
-              {{itemChamado.usuarioResponsavel.email}}
-            </div>
-
+          <div class="usuario-responsavel">
+            {{itemChamado.usuarioResponsavelDTO.email}}
           </div>
 
         </div>
@@ -72,15 +69,4 @@
 
   </div>
 
-</section>
-
-
-<!-- <ul class="chamados">
-  <li *ngFor="let chamado of chamados">
-    <a routerLink="/chamado-detalhe/{{chamado.id}}">
-      <span class="badge">{{chamado.id}}</span> {{chamado.titulo}}
-    </a>
-  </li>
-</ul> -->
-
-<!-- routerLink="/detail/{{chamado.id}}" -->
+</div>
