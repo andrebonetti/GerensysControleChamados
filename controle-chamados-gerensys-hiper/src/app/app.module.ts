@@ -9,7 +9,11 @@ import { ChamadoDetalheComponent } from './chamado-detalhe/chamado-detalhe.compo
 import { MensagensComponent } from './mensagens/mensagens.component';
 import { HeaderComponent } from './struct/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faSquare, faCheckSquare,faPlusSquare,faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faSquare as farSquare, faCheckSquare as farCheckSquare, faPlusSquare as farPlusSquare } from '@fortawesome/free-regular-svg-icons';
+import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
 
 @NgModule({
   declarations: [
@@ -29,4 +33,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faSquare, faCheckSquare, farSquare,faAngleRight, farCheckSquare,faPlusSquare,farPlusSquare, faStackOverflow, faGithub, faMedium);
+  }
+}

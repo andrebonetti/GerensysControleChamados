@@ -15,7 +15,7 @@
 
       <span class="btn-collapse"
         (click)="collapse()">
-        <fa-icon [icon]="faAngleRight"></fa-icon>
+        <fa-icon [icon]="['fas', 'angle-right']"></fa-icon>
       </span>
 
       <span class="nome-fila">{{itemFila.nome}}</span>
@@ -24,7 +24,7 @@
 
       <span class="btn-add-chamado"
         routerLink="/chamado-detalhe/{{itemFila.id}}">
-        <i class="far fa-plus-square"></i>
+        <fa-icon [icon]="['far', 'plus-square']"></fa-icon>
       </span>
 
     </div>
