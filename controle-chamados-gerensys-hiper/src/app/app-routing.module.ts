@@ -6,7 +6,8 @@ import { ChamadoDetalheComponent }  from './pages/chamado-detalhe/chamado-detalh
 const routes: Routes = [
   { path: '', redirectTo: '/chamados', pathMatch: 'full' },
   { path: 'chamados', component: ChamadosComponent },
-  { path: 'chamado-detalhe/:id', component: ChamadoDetalheComponent }
+  { path: 'chamado-detalhe/:id', component: ChamadoDetalheComponent },
+  { path: 'chamado-cadastro', component: ChamadoDetalheComponent }
 ];
 
 @NgModule({

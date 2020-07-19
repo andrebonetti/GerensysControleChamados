@@ -1,26 +1,77 @@
-<div class="chamado-detalhe" *ngIf="chamado">
+<section class="chamado-detalhe">
 
-  <h2>{{chamado.titulo | uppercase}} Details</h2>
-  <div><span>id: </span>{{chamado.id}}</div>
+  <div class="chamado-header" *ngIf="chamado.id">
+
+    <p class="fila-atual">
+      {{chamado.filaDTO.nome}}
+    </p>
+
+    <p class="sla">
+      {{chamado.sla}}
+    </p>
+
+    <div class="usuario-criacao">
+      <p>
+        Pelo cliente: <img src="{{chamado.clienteDTO.imagem}}"/> {{chamado.clienteDTO.nome}}
+      </p>
+
+      <p>
+        Pelo usuario: <img src="{{chamado.usuarioCriacaoDTO.imagem}}"/> {{chamado.usuarioCriacaoDTO.nome}}
+      </p>
+    </div>
+
+    <div class="checklist" *ngIf="getChecklistGeralCount()">
+      <p>Checklist</p>
+      <p>{{getChecklistConcluidoCount()}}/{{getChecklistGeralCount()}}</p>
+
+    </div>
+
+    <button (click)="fecharChamado()">Fechar Chamado</button>
+
+    <a routerLink="/chamado-cadastro/">
+      Novo Chamado
+    </a>
+
+  </div>
+
+  <div class="chamado-title"
+      *ngIf="chamado">
+
+      <h2>{{chamado.titulo | uppercase}} Details</h2>
+      <div><span>id: </span>{{chamado.id}}</div>
+  </div>
+
   <div>
     <label>name:
       <input [(ngModel)]="chamado.titulo" placeholder="name"/>
     </label>
 
-    <label>categoria:
+    <label *ngIf="chamado.subCategoriaDTO">categoria:
       <input [(ngModel)]="chamado.subCategoriaDTO.categoriaDTO.descricao" placeholder="categoria"/>
     </label>
 
-    <label>sub Categoria:
+    <label *ngIf="chamado.subCategoriaDTO">sub Categoria:
       <input [(ngModel)]="chamado.subCategoriaDTO.descricao" placeholder="subcategoria"/>
     </label>
 
-    <label>fila:
+    <label *ngIf="chamado.filaDTO">fila:
       <input [(ngModel)]="chamado.filaDTO.nome" placeholder="fila"/>
     </label>
 
+    <h3>Formulario Dados</h3>
+    <div class="chamado-detalhe" *ngFor="let itemFormularioInput of chamado.formularioInputsDTO">
+      <label>Tipo => {{itemFormularioInput.tipo}}:
+
+        <textarea *ngIf="itemFormularioInput.tipo == 'textArea'">
+          {{itemFormularioInput.valor}}
+        </textarea>
+
+        <input *ngIf="itemFormularioInput.tipo == 'text'" [(ngModel)]="itemFormularioInput.valor" placeholder="Formulario"/>
+      </label>
+    </div>
+
   </div>
 
-</div>
+</section>
 
 <button (click)="goBack()">go back</button>

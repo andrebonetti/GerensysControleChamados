@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChamadoDTO } from '../../models/chamado';
+import { ChamadoDTO,chamadoDTOClear } from '../../models/chamado';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ChamadoService } from '../../service/chamado.service';
@@ -17,20 +17,36 @@ export class ChamadoDetalheComponent implements OnInit {
     private location: Location
   ) { }
 
-  chamado: ChamadoDTO;
+  chamado: ChamadoDTO = chamadoDTOClear;
+
+  id = +this.route.snapshot.paramMap.get('id');
 
   ngOnInit(): void {
-    this.getChamado();
+    if(this.id){
+      this.getChamado();
+    }
+  }
+
+  getChecklistGeralCount() : Object {
+    return this.chamado.solucaoTecnica.checklistGeralDTO.length;
+  }
+
+  getChecklistConcluidoCount() : Object {
+    return this.chamado.solucaoTecnica.checklistGeralDTO.filter( itemChecklist => itemChecklist.concluido == true).length;
   }
 
   getChamado(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.chamadoService.getChamado(id)
+    this.chamadoService.getChamado(this.id)
       .subscribe(chamado => this.chamado = chamado);
   }
 
   goBack(): void {
     this.location.back();
   }
+
+  fecharChamado() : void {
+    console.log("Fechar chmado");
+  }
+
 
 }

@@ -1,7 +1,9 @@
 import { ClienteDTO } from '../models/cliente';
-import { UsuarioResponsavelDTO } from '../models/usuarioResponsavel';
+import { UsuarioDTO } from './usuario';
 import { ChamadoSubCategoriaDTO } from '../models/chamadoSubCategoria';
 import { FilaDTO } from '../models/fila';
+import { ChamadoFormularioInputDTO } from './chamadoFormularioInput';
+import { ChamadoSolucaoTecnicaDTO } from './chamadoSolucaoTecnica'
 
 export interface ChamadoDTO {
     id:number,
@@ -9,6 +11,24 @@ export interface ChamadoDTO {
     sla:string,
     clienteDTO : ClienteDTO,
     subCategoriaDTO: ChamadoSubCategoriaDTO,
-    usuarioResponsavelDTO : UsuarioResponsavelDTO,
-    filaDTO : FilaDTO
+    usuariosResponsaveisDTO : UsuarioDTO[],
+    usuarioCriacaoDTO : UsuarioDTO,
+    dataCriacao : Date,
+    filaDTO : FilaDTO,
+    formularioInputsDTO : ChamadoFormularioInputDTO[],
+    solucaoTecnica : ChamadoSolucaoTecnicaDTO
+}
+
+export const chamadoDTOClear : ChamadoDTO = {
+  id:null,
+  titulo: null,
+  sla:null,
+  clienteDTO : null,
+  subCategoriaDTO: null,
+  usuariosResponsaveisDTO : null,
+  usuarioCriacaoDTO : null,
+  dataCriacao : null,
+  filaDTO : null,
+  formularioInputsDTO : null,
+  solucaoTecnica : null
 }
