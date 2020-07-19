@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ChamadosComponent } from './chamados/chamados.component';
-import { ChamadoDetalheComponent }  from './chamado-detalhe/chamado-detalhe.component';
+import { ChamadosComponent } from './pages/chamados/chamados.component';
+import { ChamadoDetalheComponent }  from './pages/chamado-detalhe/chamado-detalhe.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/chamados', pathMatch: 'full' },

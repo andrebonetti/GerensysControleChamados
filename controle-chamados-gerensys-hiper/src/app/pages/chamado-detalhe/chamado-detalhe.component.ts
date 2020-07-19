@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ChamadoDTO } from '../models/chamado';
+import { ChamadoDTO } from '../../models/chamado';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ChamadoService } from '../service/chamado.service';
+import { ChamadoService } from '../../service/chamado.service';
 
 @Component({
   selector: 'app-chamado-detalhe',

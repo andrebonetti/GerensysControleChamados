@@ -1,0 +1,26 @@
+<div class="chamado-detalhe" *ngIf="chamado">
+
+  <h2>{{chamado.titulo | uppercase}} Details</h2>
+  <div><span>id: </span>{{chamado.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="chamado.titulo" placeholder="name"/>
+    </label>
+
+    <label>categoria:
+      <input [(ngModel)]="chamado.subCategoriaDTO.categoriaDTO.descricao" placeholder="categoria"/>
+    </label>
+
+    <label>sub Categoria:
+      <input [(ngModel)]="chamado.subCategoriaDTO.descricao" placeholder="subcategoria"/>
+    </label>
+
+    <label>fila:
+      <input [(ngModel)]="chamado.filaDTO.nome" placeholder="fila"/>
+    </label>
+
+  </div>
+
+</div>
+
+<button (click)="goBack()">go back</button>

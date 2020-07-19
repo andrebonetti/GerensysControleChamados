@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FilaDTO } from '../models/fila'
-import { FilaService } from '../service/fila.service';
+import { FilaDTO } from '../../models/fila'
+import { FilaService } from '../../service/fila.service';
 
 @Component({
   selector: 'app-chamados',

@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChamadosComponent } from './chamados/chamados.component';
+import { ChamadosComponent } from './pages/chamados/chamados.component';
 import { FormsModule } from '@angular/forms';
-import { ChamadoDetalheComponent } from './chamado-detalhe/chamado-detalhe.component';
+import { ChamadoDetalheComponent } from './pages/chamado-detalhe/chamado-detalhe.component';
 import { MensagensComponent } from './mensagens/mensagens.component';
 import { HeaderComponent } from './struct/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
