@@ -33,7 +33,7 @@ const checklistLista : ChecklistDTO[] = [
   checklist1MOCK,checklist2MOCK,checklist3MOCK,checklist4MOCK
 ]
 
-export const ChamadoSolucaoTecnicaDTO1MOCK : ChamadoSolucaoTecnicaDTO =
+export const chamadoSolucaoTecnicaMOCK : ChamadoSolucaoTecnicaDTO =
 {
   checklistCriteriosDTO : checklistLista.filter( itemChecklist => itemChecklist.tipo == ChecklistTipoEnum.CRITERIO_ACEITACAO),
   checklistTestesDTO : checklistLista.filter( itemChecklist => itemChecklist.tipo == ChecklistTipoEnum.TESTE),

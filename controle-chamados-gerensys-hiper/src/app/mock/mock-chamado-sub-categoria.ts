@@ -1,44 +1,53 @@
-import { ChamadoCategoria1MOCK,ChamadoCategoria2MOCK,ChamadoCategoria3MOCK,ChamadoCategoria4MOCK } from './mock-chamado-categoria';
+import { chamadoCategoriaMOCK } from './mock-chamado-categoria';
 import { ChamadoSubCategoriaDTO } from '../models/chamadoSubCategoria';
 
-export const ChamadoSubCategoria1MOCK : ChamadoSubCategoriaDTO =
+const ChamadoSubCategoria1MOCK : ChamadoSubCategoriaDTO =
 {
   id: 1,
-  categoriaDTO : ChamadoCategoria1MOCK,
+  categoriaDTO : chamadoCategoriaMOCK.case1,
   descricao: "SubCategoria 1"
 };
 
-export const ChamadoSubCategoria2MOCK : ChamadoSubCategoriaDTO =
+const ChamadoSubCategoria2MOCK : ChamadoSubCategoriaDTO =
 {
   id: 2,
-  categoriaDTO : ChamadoCategoria1MOCK,
+  categoriaDTO : chamadoCategoriaMOCK.case1,
   descricao: "SubCategoria 2"
 };
 
-export const ChamadoSubCategoria3MOCK : ChamadoSubCategoriaDTO =
+const ChamadoSubCategoria3MOCK : ChamadoSubCategoriaDTO =
 {
   id: 3,
-  categoriaDTO : ChamadoCategoria2MOCK,
+  categoriaDTO : chamadoCategoriaMOCK.case2,
   descricao: "SubCategoria 3"
 };
 
-export const ChamadoSubCategoria4MOCK : ChamadoSubCategoriaDTO =
+const ChamadoSubCategoria4MOCK : ChamadoSubCategoriaDTO =
 {
   id: 4,
-  categoriaDTO : ChamadoCategoria2MOCK,
+  categoriaDTO : chamadoCategoriaMOCK.case2,
   descricao: "SubCategoria 4"
 };
 
-export const ChamadoSubCategoria5MOCK : ChamadoSubCategoriaDTO =
+const ChamadoSubCategoria5MOCK : ChamadoSubCategoriaDTO =
 {
   id: 5,
-  categoriaDTO : ChamadoCategoria3MOCK,
+  categoriaDTO : chamadoCategoriaMOCK.case3,
   descricao: "SubCategoria 5"
 };
 
-export const ChamadoSubCategoria6MOCK : ChamadoSubCategoriaDTO =
+const ChamadoSubCategoria6MOCK : ChamadoSubCategoriaDTO =
 {
   id: 6,
-  categoriaDTO : ChamadoCategoria4MOCK,
+  categoriaDTO : chamadoCategoriaMOCK.case4,
   descricao: "SubCategoria 6"
 };
+
+export const chamadoSubCategoriaMOCK = {
+  case1 : ChamadoSubCategoria1MOCK,
+  case2 : ChamadoSubCategoria2MOCK,
+  case3 : ChamadoSubCategoria3MOCK,
+  case4 : ChamadoSubCategoria4MOCK,
+  case5 : ChamadoSubCategoria5MOCK,
+  case6 : ChamadoSubCategoria6MOCK
+}

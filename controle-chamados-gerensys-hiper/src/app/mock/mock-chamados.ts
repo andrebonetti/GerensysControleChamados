@@ -1,29 +1,12 @@
 import { ChamadoDTO } from '../models/chamado';
+import { empresaMOCK } from './mock-empresa';
+import { usuarioMOCK } from './mock-usuario';
 import { FilaDTO } from '../models/fila';
-import {
-  Cliente1MOCK,
-  Cliente2MOCK,
-  Cliente3MOCK
-} from '../mock/mock-cliente';
-import {
-  UsuariosResponsaveis1MOCK,
-  UsuariosResponsaveis2MOCK,
-  UsuariosResponsaveis3MOCK,
-  UsuariosResponsaveisMultiMOCK
-} from './mock-usuario-responsavel';
-import {
-  ChamadoSubCategoria1MOCK,
-  ChamadoSubCategoria2MOCK,
-  ChamadoSubCategoria3MOCK,
-  ChamadoSubCategoria4MOCK,
-  ChamadoSubCategoria5MOCK,
-  ChamadoSubCategoria6MOCK
-} from '../mock/mock-chamado-sub-categoria';
-import { ChamadoFormularioInputs1MOCK } from '../mock/mock-chamado-formulario-input'
-import { UsuarioCriacao1MOCK,UsuarioCriacao2MOCK,UsuarioCriacao3MOCK } from '../mock/mock-usuario-criacao'
-import { ChamadoSolucaoTecnicaDTO1MOCK } from '../mock/mock-chamado-solucao-tecnica'
+import { chamadoSubCategoriaMOCK } from '../mock/mock-chamado-sub-categoria';
+import { chamadoFormularioInputMOCK } from '../mock/mock-chamado-formulario-input'
+import { chamadoSolucaoTecnicaMOCK } from '../mock/mock-chamado-solucao-tecnica'
 
-const FilaEmAbertoMOCK : FilaDTO =
+const FilaEmAbertoMOCKPai : FilaDTO =
 {
   id:1,
   nome:"Em Aberto",
@@ -31,7 +14,7 @@ const FilaEmAbertoMOCK : FilaDTO =
   chamadosDTO : []
 }
 
-const FilaEmAndamentoMOCK : FilaDTO =
+const FilaEmAndamentoMOCKPai : FilaDTO =
 {
   id:2,
   nome:"Em Andamento",
@@ -39,7 +22,7 @@ const FilaEmAndamentoMOCK : FilaDTO =
   chamadosDTO : []
 }
 
-const FilaFinalizadosMOCK : FilaDTO =
+const FilaFinalizadosMOCKPai : FilaDTO =
 {
   id:3,
   nome:"Finalizados",
@@ -47,135 +30,141 @@ const FilaFinalizadosMOCK : FilaDTO =
   chamadosDTO : []
 }
 
-export const ChamadosMOCK : ChamadoDTO[] = [
+const filaMOCK = {
+  emAbertoPai : FilaEmAbertoMOCKPai,
+  emAndamentoPai : FilaEmAndamentoMOCKPai,
+  finalizadosPai : FilaFinalizadosMOCKPai
+}
+
+export const chamadosMOCK : ChamadoDTO[] = [
   {
     id:12345,
     titulo: "Titulo Chamado 1",
     sla:"1D 12:00h",
-    clienteDTO : Cliente1MOCK,
-    subCategoriaDTO : ChamadoSubCategoria1MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis1MOCK,
-    filaDTO : FilaEmAbertoMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao1MOCK,
+    clienteDTO : empresaMOCK.case1,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case1,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis1MOCK,
+    filaDTO : filaMOCK.emAbertoPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao1MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:6789,
     titulo: "Titulo Chamado 2",
     sla:"1D 13:00h",
-    clienteDTO : Cliente2MOCK,
-    subCategoriaDTO : ChamadoSubCategoria2MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis2MOCK,
-    filaDTO : FilaEmAbertoMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao2MOCK,
+    clienteDTO : empresaMOCK.case2,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case2,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis2MOCK,
+    filaDTO : filaMOCK.emAbertoPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao2MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:9876,
     titulo: "Titulo Chamado 3",
     sla:"1D 10:00h",
-    clienteDTO : Cliente3MOCK,
-    subCategoriaDTO : ChamadoSubCategoria3MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveisMultiMOCK,
-    filaDTO : FilaEmAbertoMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao3MOCK,
+    clienteDTO : empresaMOCK.case3,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case3,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveisMultiMOCK,
+    filaDTO : filaMOCK.emAbertoPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao3MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:2837,
     titulo: "Titulo Chamado 4",
     sla:"1D 17:00h",
-    clienteDTO : Cliente1MOCK,
-    subCategoriaDTO : ChamadoSubCategoria6MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis1MOCK,
-    filaDTO : FilaEmAndamentoMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao2MOCK,
+    clienteDTO : empresaMOCK.case1,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case6,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis1MOCK,
+    filaDTO : filaMOCK.emAndamentoPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao2MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:5123,
     titulo: "Titulo Chamado 5",
     sla:"1D 18:00h",
-    clienteDTO : Cliente2MOCK,
-    subCategoriaDTO : ChamadoSubCategoria5MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis2MOCK,
-    filaDTO : FilaEmAndamentoMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao2MOCK,
+    clienteDTO : empresaMOCK.case2,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case5,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis2MOCK,
+    filaDTO : filaMOCK.emAndamentoPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao2MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:1432,
     titulo: "Titulo Chamado 6",
     sla:"1D 19:00h",
-    clienteDTO : Cliente1MOCK,
-    subCategoriaDTO : ChamadoSubCategoria4MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis1MOCK,
-    filaDTO : FilaEmAndamentoMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao3MOCK,
+    clienteDTO : empresaMOCK.case1,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case4,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis1MOCK,
+    filaDTO : filaMOCK.emAndamentoPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao3MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:6512,
     titulo: "Titulo Chamado 7",
     sla:"1D 20:00h",
-    clienteDTO : Cliente2MOCK,
-    subCategoriaDTO : ChamadoSubCategoria3MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis2MOCK,
-    filaDTO : FilaFinalizadosMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao1MOCK,
+    clienteDTO : empresaMOCK.case2,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case3,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis2MOCK,
+    filaDTO : filaMOCK.finalizadosPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao1MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:12346,
     titulo: "Titulo Chamado 8",
     sla:"1D 21:00h",
-    clienteDTO : Cliente3MOCK,
-    subCategoriaDTO : ChamadoSubCategoria2MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis3MOCK,
-    filaDTO : FilaFinalizadosMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao2MOCK,
+    clienteDTO : empresaMOCK.case3,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case2,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis3MOCK,
+    filaDTO : filaMOCK.finalizadosPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao2MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:9532,
     titulo: "Titulo Chamado 9",
     sla:"1D 22:00h",
-    clienteDTO : Cliente1MOCK,
-    subCategoriaDTO : ChamadoSubCategoria1MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis1MOCK,
-    filaDTO : FilaFinalizadosMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao3MOCK,
+    clienteDTO : empresaMOCK.case1,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case1,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis1MOCK,
+    filaDTO : filaMOCK.finalizadosPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao3MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   },
   {
     id:4452,
     titulo: "Titulo Chamado 10",
     sla:"1D 23:00h",
-    clienteDTO : Cliente2MOCK,
-    subCategoriaDTO : ChamadoSubCategoria2MOCK,
-    usuariosResponsaveisDTO : UsuariosResponsaveis2MOCK,
-    filaDTO : FilaFinalizadosMOCK,
-    formularioInputsDTO : ChamadoFormularioInputs1MOCK,
-    usuarioCriacaoDTO : UsuarioCriacao1MOCK,
+    clienteDTO : empresaMOCK.case2,
+    subCategoriaDTO : chamadoSubCategoriaMOCK.case2,
+    usuariosResponsaveisDTO : usuarioMOCK.usuariosResponsaveis2MOCK,
+    filaDTO : filaMOCK.finalizadosPai,
+    formularioInputsDTO : chamadoFormularioInputMOCK.listaCase1,
+    usuarioCriacaoDTO : usuarioMOCK.usuarioCriacao1MOCK,
     dataCriacao : new Date(),
-    solucaoTecnica : ChamadoSolucaoTecnicaDTO1MOCK
+    solucaoTecnica : chamadoSolucaoTecnicaMOCK
   }
 ];

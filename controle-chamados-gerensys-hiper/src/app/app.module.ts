@@ -14,6 +14,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { faSquare, faCheckSquare,faPlusSquare,faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faSquare as farSquare, faCheckSquare as farCheckSquare, faPlusSquare as farPlusSquare } from '@fortawesome/free-regular-svg-icons';
 import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-sv
     ChamadosComponent,
     ChamadoDetalheComponent,
     MensagensComponent,
-    HeaderComponent
+    HeaderComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

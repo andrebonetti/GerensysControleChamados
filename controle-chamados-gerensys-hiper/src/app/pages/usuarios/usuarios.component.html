@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Perfil</th>
+      <th>Data Criação</th>
+      <th>Data Ultima Modificação</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usuario of usuariosDTO">
+      <td>{{usuario.nome}}</td>
+      <td>{{usuario.perfilDTO.nome}}</td>
+      <td>Data Criação</td>
+      <td>Data Ultima Modificação</td>
+      <td>Status</td>
+      <td>Ações</td>
+    </tr>
+  </tbody>
+</table>

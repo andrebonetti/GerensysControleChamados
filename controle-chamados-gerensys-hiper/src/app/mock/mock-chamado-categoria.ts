@@ -1,25 +1,32 @@
 import { ChamadoCategoriaDTO } from '../models/chamadoCategoria';
 
-export const ChamadoCategoria1MOCK : ChamadoCategoriaDTO =
+const ChamadoCategoria1MOCK : ChamadoCategoriaDTO =
 {
   id: 1,
   descricao: "Categoria 1"
 };
 
-export const ChamadoCategoria2MOCK : ChamadoCategoriaDTO =
+const ChamadoCategoria2MOCK : ChamadoCategoriaDTO =
 {
   id: 2,
   descricao: "Categoria 2"
 };
 
-export const ChamadoCategoria3MOCK : ChamadoCategoriaDTO =
+const ChamadoCategoria3MOCK : ChamadoCategoriaDTO =
 {
   id: 3,
   descricao: "Categoria 3"
 };
 
-export const ChamadoCategoria4MOCK : ChamadoCategoriaDTO =
+const ChamadoCategoria4MOCK : ChamadoCategoriaDTO =
 {
   id: 4,
   descricao: "Categoria 4"
 };
+
+export const chamadoCategoriaMOCK = {
+  case1 : ChamadoCategoria1MOCK,
+  case2 : ChamadoCategoria2MOCK,
+  case3 : ChamadoCategoria3MOCK,
+  case4 : ChamadoCategoria4MOCK
+}

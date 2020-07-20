@@ -1,4 +1,4 @@
-import { ClienteDTO } from '../models/cliente';
+import { EmpresaDTO } from './empresa';
 import { UsuarioDTO } from './usuario';
 import { ChamadoSubCategoriaDTO } from '../models/chamadoSubCategoria';
 import { FilaDTO } from '../models/fila';
@@ -9,7 +9,7 @@ export interface ChamadoDTO {
     id:number,
     titulo: string,
     sla:string,
-    clienteDTO : ClienteDTO,
+    clienteDTO : EmpresaDTO,
     subCategoriaDTO: ChamadoSubCategoriaDTO,
     usuariosResponsaveisDTO : UsuarioDTO[],
     usuarioCriacaoDTO : UsuarioDTO,

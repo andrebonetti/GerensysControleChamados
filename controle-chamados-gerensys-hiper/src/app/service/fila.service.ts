@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MensagemService } from './mensagem.service';
 import { FilaDTO } from '../models/fila';
-import { FilasMOCK } from '../mock/mock-filas';
+import { filaMOCK } from '../mock/mock-filas';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class FilaService {
 
   getFilas(): Observable<FilaDTO[]> {
     this.mensagemService.add('FilaService: filas obtidas');
-    return of(FilasMOCK);
+    return of(filaMOCK.lista);
   }
 
 }
