@@ -7,5 +7,8 @@ export interface UsuarioDTO {
     email:string,
     imagem:string,
     perfilDTO : UsuarioPerfilDTO,
-    empresaDTO : EmpresaDTO[]
+    empresaDTO : EmpresaDTO[],
+    dataCriacao : Date,
+    dataUltimaModificacao : Date,
+    ativo : boolean,
 }

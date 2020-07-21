@@ -21,4 +21,8 @@ export class UsuariosComponent implements OnInit {
     this.usuarioService.getUsuarios().subscribe(usuarios => this.usuariosDTO = usuarios);
   }
 
+  buscar(){
+    console.log("buscar");
+  }
+
 }

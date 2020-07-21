@@ -1,3 +1,57 @@
+<h1>Lista de Usuários</h1>
+<form class="filtro">
+
+  <div class="item-formulario">
+    <label>Busca</label>
+    <input type="text" class="form-control" name="busca"/>
+  </div>
+
+  <div class="item-formulario">
+    <label>Perfil</label>
+    <select class="form-control" name="perfil">
+
+    </select>
+  </div>
+
+  <div class="item-formulario">
+    <label>Status</label>
+    <select class="form-control" name="status">
+      <option value="1">Sim</option>
+      <option value="0">Não</option>
+    </select>
+  </div>
+
+  <div class="item-formulario">
+    <label>Parametro Data</label>
+    <select class="form-control" name="data">
+      <option value="dataCriacao">Data de Criação</option>
+      <option value="dataUltimaModificacao">Data de Ultima Modificação</option>
+    </select>
+  </div>
+
+  <div class="item-formulario">
+    <label>Periodo</label>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">De</span>
+      </div>
+      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Atá</span>
+      </div>
+      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  </div>
+
+  <button (click)="buscar()">
+    Buscar
+  </button>
+
+</form>
+
 <table>
   <thead>
     <tr>
@@ -13,9 +67,9 @@
     <tr *ngFor="let usuario of usuariosDTO">
       <td>{{usuario.nome}}</td>
       <td>{{usuario.perfilDTO.nome}}</td>
-      <td>Data Criação</td>
-      <td>Data Ultima Modificação</td>
-      <td>Status</td>
+      <td>{{usuario.dataCriacao | date:'dd/MM/yyyy hh:mm'}}</td>
+      <td>{{usuario.dataUltimaModificacao | date:'dd/MM/yyyy hh:mm'}}</td>
+      <td>{{usuario.ativo ? "Sim" : "Não"}}</td>
       <td>Ações</td>
     </tr>
   </tbody>
