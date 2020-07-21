@@ -12,7 +12,8 @@ const UsuarioCriacao1MOCK : UsuarioDTO =
   empresaDTO : [empresaMOCK.case1],
   dataCriacao : new Date("01/01/2000"),
   dataUltimaModificacao : new Date("01/02/2000"),
-  ativo:true
+  ativo:true,
+  senha:"a3dcb4d229de6fde0db5686dee47145d"
 };
 
 const UsuarioCriacao2MOCK : UsuarioDTO =
@@ -25,7 +26,8 @@ const UsuarioCriacao2MOCK : UsuarioDTO =
   empresaDTO : [empresaMOCK.case2],
   dataCriacao : new Date("01/01/2001"),
   dataUltimaModificacao : new Date("01/02/2001"),
-  ativo:true
+  ativo:true,
+  senha : "9c0e98885486450aeece88107a8f2e67"
 };
 
 
@@ -39,7 +41,8 @@ const UsuarioCriacao3MOCK : UsuarioDTO =
   empresaDTO : [empresaMOCK.case1],
   dataCriacao : new Date("01/01/2002"),
   dataUltimaModificacao : new Date("01/02/2002"),
-  ativo:true
+  ativo:true,
+  senha :  "eb8f69f64ddbe8f26fa9db44b28ce3e3"
 };
 
 const UsuarioResponsavel1MOCK : UsuarioDTO =
@@ -52,7 +55,8 @@ const UsuarioResponsavel1MOCK : UsuarioDTO =
   empresaDTO : [empresaMOCK.gerensys],
   dataCriacao : new Date("01/01/2003"),
   dataUltimaModificacao : new Date("01/02/2003"),
-  ativo:true
+  ativo:true,
+  senha: "34c8cef6b2237bc9b90ff16e1e029c52"
 };
 
 const UsuarioResponsavel2MOCK : UsuarioDTO =
@@ -65,7 +69,8 @@ const UsuarioResponsavel2MOCK : UsuarioDTO =
   empresaDTO : [empresaMOCK.gerensys],
   dataCriacao : new Date("01/01/2004"),
   dataUltimaModificacao : new Date("01/02/2004"),
-  ativo:false
+  ativo:false,
+  senha: "49bba4800a312eb02fdc64f98607e3e8"
 };
 
 const UsuarioResponsavel3MOCK : UsuarioDTO =
@@ -78,7 +83,8 @@ const UsuarioResponsavel3MOCK : UsuarioDTO =
   empresaDTO : [empresaMOCK.gerensys,empresaMOCK.case1],
   dataCriacao : new Date("01/01/2005"),
   dataUltimaModificacao : new Date("01/02/2005"),
-  ativo:true
+  ativo:true,
+  senha : "70577075671acbbb2b3650f256c85eb6"
 };
 
 const UsuariosResponsaveis1MOCK : UsuarioDTO[] =

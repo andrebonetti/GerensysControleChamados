@@ -1,4 +1,7 @@
 <h1>Lista de Usuários</h1>
+
+<button routerLink="/usuario-criacao">Novo</button>
+
 <form class="filtro">
 
   <div class="item-formulario">
@@ -70,7 +73,7 @@
       <td>{{usuario.dataCriacao | date:'dd/MM/yyyy hh:mm'}}</td>
       <td>{{usuario.dataUltimaModificacao | date:'dd/MM/yyyy hh:mm'}}</td>
       <td>{{usuario.ativo ? "Sim" : "Não"}}</td>
-      <td>Ações</td>
+      <td><button routerLink="/usuario-edicao/{{usuario.id}}">Editar</button></td>
     </tr>
   </tbody>
 </table>

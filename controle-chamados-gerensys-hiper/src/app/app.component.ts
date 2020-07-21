@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  } from '@fortawesome/free-solid-svg-icons';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,11 @@ import {  } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
+
   title = 'Controle de Chamados | Gerensys-Hiper';
+
+  constructor(
+    private location: Location
+  ) { }
+
 }

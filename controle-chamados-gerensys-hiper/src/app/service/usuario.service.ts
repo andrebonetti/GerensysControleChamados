@@ -16,4 +16,9 @@ export class UsuarioService {
     return of(usuarioMOCK.usuarios);
   }
 
+  getUsuario(id:number): Observable<UsuarioDTO>{
+    this.mensagemService.add(`UsuarioService: usuario obtido => id=${id}`);
+    return of(usuarioMOCK.usuarios.find(usuario => usuario.id === id))
+  }
+
 }
