@@ -1,0 +1,37 @@
+<p>usuario-crud works!</p>
+<section class="usuario-crud">
+
+  <div class="chamado-title"
+      *ngIf="usuario.id">
+
+      <h2>{{usuario.nome | uppercase}} Details</h2>
+      <div><span>id: </span>{{usuario.id}}</div>
+  </div>
+
+  <div>
+
+    <label>name:
+      <input [(ngModel)]="usuario.nome" placeholder="name"/>
+    </label>
+
+    <label>email:
+      <input [(ngModel)]="usuario.email" placeholder="email"/>
+    </label>
+
+    <div class="usuario" *ngIf="!usuario.id">
+      <label>senha:
+        <input type="password" name="senha"/>
+      </label>
+
+      <label>confirmação senha:
+        <input type="password" name="senhaConfirmacao"/>
+      </label>
+    </div>
+
+
+  </div>
+
+</section>
+
+<button (click)="goBack()">go back</button>
+

@@ -3,6 +3,7 @@ import { ChamadoDTO,chamadoDTOClear } from '../../models/chamado';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ChamadoService } from '../../service/chamado.service';
+import { MensagemService } from 'src/app/service/mensagem.service';
 
 @Component({
   selector: 'app-chamado-detalhe',
@@ -12,6 +13,7 @@ import { ChamadoService } from '../../service/chamado.service';
 export class ChamadoDetalheComponent implements OnInit {
 
   constructor(
+    private mensagemService: MensagemService,
     private route: ActivatedRoute,
     private chamadoService: ChamadoService,
     private location: Location
@@ -45,7 +47,7 @@ export class ChamadoDetalheComponent implements OnInit {
   }
 
   fecharChamado() : void {
-    console.log("Fechar chmado");
+    this.mensagemService.add("Fechar chamado");
   }
 
 

@@ -1,0 +1,21 @@
+<ul class="list-group">
+  <li *ngFor="let perfil of perfis"
+    (click)="filtarPerfil(perfil.id)"
+    class="list-group-item">
+    {{perfil.nome}}
+  </li>
+</ul>
+
+<button *ngFor="let tipo of tipos"
+        (click)="filtarTipo(tipo.chave)"
+        class="btn btn-primary" >
+  {{tipo.valor}}
+</button>
+
+<ul class="list-group list-group-flush">
+  <li *ngFor="let fila of filas"
+
+      class="list-group-item">
+      {{fila.nome}}
+  </li>
+</ul>

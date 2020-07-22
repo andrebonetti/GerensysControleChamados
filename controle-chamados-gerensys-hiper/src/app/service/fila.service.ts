@@ -11,6 +11,11 @@ export class FilaService {
 
   constructor(private mensagemService: MensagemService) { }
 
+  getFilasFull(): Observable<FilaDTO[]> {
+    this.mensagemService.add('FilaService: filas obtidas');
+    return of(filaMOCK.listaFull);
+  }
+
   getFilas(): Observable<FilaDTO[]> {
     this.mensagemService.add('FilaService: filas obtidas');
     return of(filaMOCK.lista);

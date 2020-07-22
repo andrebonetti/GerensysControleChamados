@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioDTO } from '../../models/usuario'
 import { UsuarioService } from '../../service/usuario.service'
+import { MensagemService } from 'src/app/service/mensagem.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -11,7 +12,9 @@ export class UsuariosComponent implements OnInit {
 
   usuariosDTO : UsuarioDTO[];
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(
+    private mensagemService: MensagemService,
+    private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
     this.getUsuarios();
@@ -22,7 +25,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   buscar(){
-    console.log("buscar");
+    this.mensagemService.add("buscar");
   }
 
 }

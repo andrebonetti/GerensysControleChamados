@@ -16,6 +16,7 @@ import { faSquare as farSquare, faCheckSquare as farCheckSquare, faPlusSquare as
 import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { UsuarioCrudComponent } from './pages/usuario-crud/usuario-crud.component';
+import { UsuarioPerfisComponent } from './pages/usuario-perfis/usuario-perfis.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UsuarioCrudComponent } from './pages/usuario-crud/usuario-crud.componen
     MensagensComponent,
     HeaderComponent,
     UsuariosComponent,
-    UsuarioCrudComponent
+    UsuarioCrudComponent,
+    UsuarioPerfisComponent
   ],
   imports: [
     BrowserModule,
