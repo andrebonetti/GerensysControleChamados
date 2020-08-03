@@ -1,14 +1,15 @@
 import { UsuarioPerfilPermissaoTipoDTO } from '../models/usuarioPerfilPermissaoTipo';
 import { usuariosPerfilPermissaoTipoCategoria } from '../storage-json/storage-usuario-perfil-permissao-tipo-categoria';
-import {PermissaoTipoEnum} from '../models/enums/permissao_tipo'
+import { PermissaoTipoEnum } from '../models/enums/permissao_tipo'
+import { usuariosPerfilPermissaoTipoEntitys } from "../storage-json/storage-usuario-perfil-permissao-tipo-entity";
 
 const tela : UsuarioPerfilPermissaoTipoDTO =
 {
   id: 1,
   categoria : usuariosPerfilPermissaoTipoCategoria.find( u => u.chave == "tela"),
   tipo : PermissaoTipoEnum.DB,
-  chave : "Tela",
-  valor : "id"
+  entity : usuariosPerfilPermissaoTipoEntitys.find( entity => entity.id == 1),
+  descricao : null
 };
 
 const fila : UsuarioPerfilPermissaoTipoDTO =
@@ -16,8 +17,8 @@ const fila : UsuarioPerfilPermissaoTipoDTO =
   id: 2,
   categoria : usuariosPerfilPermissaoTipoCategoria.find( u => u.chave == "fila"),
   tipo : PermissaoTipoEnum.DB,
-  chave : "Fila",
-  valor : "id"
+  entity : usuariosPerfilPermissaoTipoEntitys.find( entity => entity.id == 2 ),
+  descricao : null
 };
 
 const config_fila : UsuarioPerfilPermissaoTipoDTO =
@@ -25,8 +26,8 @@ const config_fila : UsuarioPerfilPermissaoTipoDTO =
   id: 3,
   categoria : usuariosPerfilPermissaoTipoCategoria.find( u => u.chave == "configuracao"),
   tipo : PermissaoTipoEnum.MANUAL,
-  chave : "filaCRUD",
-  valor : "Criar/Editar Fila"
+  entity : null,
+  descricao : "Criar/Editar Fila"
 };
 
 const config_usuario : UsuarioPerfilPermissaoTipoDTO =
@@ -34,8 +35,8 @@ const config_usuario : UsuarioPerfilPermissaoTipoDTO =
   id: 4,
   categoria : usuariosPerfilPermissaoTipoCategoria.find( u => u.chave == "configuracao"),
   tipo : PermissaoTipoEnum.MANUAL,
-  chave : "usuarioCRUD",
-  valor : "Criar/Editar Usuario"
+  entity : null,
+  descricao : "Criar/Editar Usuario"
 };
 
 const config_perfil : UsuarioPerfilPermissaoTipoDTO =
@@ -43,8 +44,8 @@ const config_perfil : UsuarioPerfilPermissaoTipoDTO =
   id: 5,
   categoria : usuariosPerfilPermissaoTipoCategoria.find( u => u.chave == "configuracao"),
   tipo : PermissaoTipoEnum.MANUAL,
-  chave : "perfilCRUD",
-  valor : "Criar/Editar Perfil"
+  entity : null,
+  descricao : "Criar/Editar Perfil"
 };
 
 export const tiposMOCK : UsuarioPerfilPermissaoTipoDTO[] = [

@@ -1,9 +1,10 @@
 import {ChaveValor} from '../models/chaveValor';
+import {UsuarioPerfilPermissaoTipoEntityDTO} from '../models/usuarioPerfilPermissaoTipoEntity';
 
 export interface UsuarioPerfilPermissaoTipoDTO {
     id:number,
     categoria : ChaveValor,
     tipo: string,
-    chave: string,
-    valor : any,
+    entity: UsuarioPerfilPermissaoTipoEntityDTO
+    descricao: string,
 }

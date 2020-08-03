@@ -44,7 +44,7 @@ export class UsuarioPerfisComponent implements OnInit {
   }
 
   setPermissoesPerfil():void {
-    this.permissaoService.setPermissoesPerfilFull(this.perfilActive).subscribe(permissoes => this.permissoes = permissoes );
+    this.permissaoService.getPermissoesPerfilFull(this.perfilActive).subscribe(permissoes => this.permissoes = permissoes );
   }
 
   filtarPerfil(id:number):void{

@@ -15,9 +15,9 @@
 <ul class="list-group list-group-flush">
   <li *ngFor="let permissao of permissoesActive"
       class="list-group-item">
-      {{permissao.id}}
-      {{permissao.usuarioPerfilDTO.id}}
-      {{permissao.usuarioPerfilPermissaoTipoDTO.chave}}
-      {{permissao.value}}
+      ID: {{permissao.id}}
+      PERFIL: {{permissao.usuarioPerfilDTO.id}}
+      DESC: {{permissao.usuarioPerfilPermissaoTipoDTO.descricao}}
+      ATIVO: {{permissao.ativo}}
   </li>
 </ul>
