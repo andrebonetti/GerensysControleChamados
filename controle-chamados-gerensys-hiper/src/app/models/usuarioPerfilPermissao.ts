@@ -5,5 +5,6 @@ export interface UsuarioPerfilPermissaoDTO {
     id:number,
     usuarioPerfilDTO: UsuarioPerfilDTO,
     usuarioPerfilPermissaoTipoDTO :  UsuarioPerfilPermissaoTipoDTO,
+    value : any
     ativo : Boolean
 }

@@ -6,16 +6,18 @@
   </li>
 </ul>
 
-<button *ngFor="let tipo of tipos"
-        (click)="filtarTipo(tipo.chave)"
+<button *ngFor="let categoria of categorias"
+        (click)="filtarCategoria(categoria.chave)"
         class="btn btn-primary" >
-  {{tipo.valor}}
+  {{categoria.valor}}
 </button>
 
 <ul class="list-group list-group-flush">
-  <li *ngFor="let fila of filas"
-
+  <li *ngFor="let permissao of permissoesActive"
       class="list-group-item">
-      {{fila.nome}}
+      {{permissao.id}}
+      {{permissao.usuarioPerfilDTO.id}}
+      {{permissao.usuarioPerfilPermissaoTipoDTO.chave}}
+      {{permissao.value}}
   </li>
 </ul>
