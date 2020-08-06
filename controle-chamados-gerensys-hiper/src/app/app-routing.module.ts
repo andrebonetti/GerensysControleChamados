@@ -5,9 +5,11 @@ import { ChamadoDetalheComponent }  from './pages/chamado-detalhe/chamado-detalh
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { UsuarioCrudComponent } from './pages/usuario-crud/usuario-crud.component';
 import { UsuarioPerfisComponent } from './pages/usuario-perfis/usuario-perfis.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/chamados', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'chamados', component: ChamadosComponent },
   { path: 'chamado-detalhe/:id', component: ChamadoDetalheComponent },
   { path: 'chamado-cadastro', component: ChamadoDetalheComponent },

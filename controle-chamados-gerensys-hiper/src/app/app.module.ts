@@ -17,6 +17,7 @@ import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-sv
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { UsuarioCrudComponent } from './pages/usuario-crud/usuario-crud.component';
 import { UsuarioPerfisComponent } from './pages/usuario-perfis/usuario-perfis.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UsuarioPerfisComponent } from './pages/usuario-perfis/usuario-perfis.co
     HeaderComponent,
     UsuariosComponent,
     UsuarioCrudComponent,
-    UsuarioPerfisComponent
+    UsuarioPerfisComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
