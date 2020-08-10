@@ -1,72 +1,39 @@
-<h1>Lista de Chamados</h1>
-<form class="filtro">
-  <div class="item-formulario">
-    <label>Busca</label>
-    <input type="text" class="form-control" name="busca"/>
+<section>
 
-  </div>
-</form>
+  <h1>Lista de Chamados</h1>
 
-<div class="filas">
+  <form class="filtro">
 
-  <div class="fila" *ngFor="let itemFila of filasDTO">
-
-    <div class="cabecalho">
-
-      <span class="btn-collapse"
-        (click)="collapse()">
-        <fa-icon [icon]="['fas', 'angle-right']"></fa-icon>
-      </span>
-
-      <span class="nome-fila">{{itemFila.nome}}</span>
-
-      <span class="qtde-lista">{{itemFila.quantidade}}</span>
-
-      <span class="btn-add-chamado"
-        routerLink="/chamado-detalhe/{{itemFila.id}}">
-        <fa-icon [icon]="['far', 'plus-square']"></fa-icon>
-      </span>
-
+    <div class="item-formulario">
+      <label>Busca</label>
+      <input type="text" class="form-control" name="busca"/>
     </div>
 
-    <div class="lista">
+  </form>
 
-      <div class="chamado" *ngFor="let itemChamado of itemFila.chamadosDTO">
+  <div class="filas-header">
 
-        <div class="cliente">
+    <span>{{chamados.length}} Chamados</span>
 
-          <span class="nome-cliente">
-            {{itemChamado.clienteDTO.nome}}
-          </span>
-
-        </div>
-
-        <div class="descricao">
-
-          <span class="titulo-chamado">
-            <a routerLink="/chamado-detalhe/{{itemChamado.id}}">
-              <span class="badge">{{itemChamado.id}}</span> {{itemChamado.titulo}}
-            </a>
-          </span>
-
-          <span class="codigo-chamado">
-            #{{itemChamado.id}}
-          </span>
-
-          <span class="sla">
-            {{itemChamado.sla}}
-          </span>
-
-          <div class="usuarios-responsaveis" *ngFor="let usuarioResponsavel of itemChamado.usuariosResponsaveisDTO">
-            {{usuarioResponsavel.email}}
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
+    <button
+      class="btn btn-default"
+      (click)="changeGridType()">
+      <fa-icon [icon]="['fas', gridType]"></fa-icon>
+    </button>
 
   </div>
 
-</div>
+  <div class="grid">
+
+    <app-fila-grid
+      *ngIf="gridType === 'grip-lines-vertical'">
+    </app-fila-grid>
+
+    <app-chamados-list
+      *ngIf="gridType === 'list'"
+      [listaChamados]="chamados">
+    </app-chamados-list>
+
+  </div>
+
+</section>

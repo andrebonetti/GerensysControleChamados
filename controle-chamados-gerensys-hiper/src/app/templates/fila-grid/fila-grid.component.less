@@ -1,0 +1,140 @@
+@fontTitle : #6a4b9d;
+@backOpacity: #c4bad6;
+
+@white_10 : #fff;
+@white_9 : #f4f4f4;
+@white_8 : #f0f0f0;
+@white_0 : #dbdbdb;
+
+@black_10 : black;
+@black_9 : #606060;
+@black_8: #a3a2a2;
+
+.filas{
+  display: table;
+  width: 100%;
+  margin-top: 30px;
+
+  .fila{
+      display: inline-grid;
+      width: 350px;
+      margin-right: 20px;
+      @radiusPx : 6px;
+
+      .cabecalho{
+          display: table;
+          width: 100%;
+          background-color: @white_9;
+          padding: 12px 8px;
+          border-radius: @radiusPx @radiusPx 0 0;
+          border: solid 1px @white_0;
+          position: relative;
+          color: @black_9;
+
+          .btn-collapse{
+              padding-right: 5px;
+              position: absolute;
+              width: 30px;
+              top: 0;
+              height: 100%;
+              cursor: pointer;
+              padding-top: 12px;
+              padding-left: 4px;
+
+              i{
+                  font-size: 18px;
+                  font-weight: 900;
+                  cursor: pointer;
+              }
+          }
+
+          .btn-collapse:hover{
+              color: @black_8;
+          }
+
+          .nome-fila{
+              border: solid 1px #dbdbdb;
+              border-width: 0 0 0 1px;
+              padding-left: 8px;
+              margin-left: 25px;
+              font-weight: 600;
+          }
+
+          .qtde-lista{
+              float: right;
+              float: right;
+              padding-right: 30px;
+          }
+
+          .btn-add-chamado{
+              position: absolute;
+              right: 8px;
+              top: 5px;
+              font-size: 25px;
+              cursor: pointer;
+          }
+
+          .btn-add-chamado:hover{
+              color: @black_8;
+          }
+      }
+
+      .lista{
+          background-color: @white_8;
+          padding: 3px;
+          border-radius: 0 0 @radiusPx @radiusPx;
+          border: solid 1px @white_0;
+          border-width: 0 1px 1px 1px;
+
+          .chamado{
+              background-color: white;
+              padding: 8px;
+              border: solid 1px @white_0;
+              border-radius: 4px;
+              width: 100%;
+              display: table;
+
+              .cliente{
+                  float: left;
+                  text-align: center;
+                  width: 100px;
+                  padding: 3px;
+                  border: solid 1px #f0f0f0;
+                  border-width: 0 1px 0 0;
+
+                  .nome-cliente{
+
+                  }
+              }
+
+              .descricao{
+                  padding: 3px;
+                  float: left;
+
+                  span{
+                      display: block;
+                  };
+
+                  .titulo-chamado{
+
+                  }
+
+                  .codigo-chamado{
+
+                  }
+
+                  .sla{
+
+                  }
+
+                  .usuario-responsavel{
+
+                  }
+              }
+
+
+          }
+
+      }
+  }
+}

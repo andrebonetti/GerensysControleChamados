@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'usuario-edicao/:id', component: UsuarioCrudComponent },
   { path: 'usuario-criacao', component: UsuarioCrudComponent },
-  { path: 'perfis', component: UsuarioPerfisComponent }
+  { path: 'perfis', component: UsuarioPerfisComponent },
+  { path: '**', redirectTo: '/chamados', pathMatch: 'full' }
 ];
 
 @NgModule({

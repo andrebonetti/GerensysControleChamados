@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FilaDTO } from '../../models/fila'
-import { FilaService } from '../../service/fila.service';
-import { MensagemService } from 'src/app/service/mensagem.service';
+import { GridTypeEnum } from '../../models/enums/grid_type'
+import { ChamadoService } from 'src/app/service/chamado.service';
+import { ChamadoDTO } from 'src/app/models/chamado';
 
 @Component({
   selector: 'app-chamados',
@@ -10,22 +10,26 @@ import { MensagemService } from 'src/app/service/mensagem.service';
 })
 export class ChamadosComponent implements OnInit {
 
-  filasDTO : FilaDTO[];
+  chamados : ChamadoDTO[];
+  gridType : String = GridTypeEnum.GRIP.valueOf();
 
   constructor(
-    private mensagemService: MensagemService,
-    private filaService: FilaService) {}
+    private chamadoService: ChamadoService) {}
 
   ngOnInit(): void {
-    this.getFilas();
+    this.getChamados();
   }
 
-  getFilas(): void {
-    this.filaService.getFilasFull().subscribe(filas => this.filasDTO = filas);
+  getChamados() : void{
+    this.chamadoService.getChamados().subscribe(chamados => this.chamados = chamados);
   }
 
-  collapse(){
-    this.mensagemService.add("collapse");
+  changeGridType() : void{
+    if(this.gridType == GridTypeEnum.LIST.valueOf()){
+      this.gridType = GridTypeEnum.GRIP.valueOf();
+    }else{
+      this.gridType = GridTypeEnum.LIST.valueOf();
+    }
   }
 
 }
