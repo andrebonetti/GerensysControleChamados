@@ -2,14 +2,7 @@
 
   <h1>Lista de Chamados</h1>
 
-  <form class="filtro">
-
-    <div class="item-formulario">
-      <label>Busca</label>
-      <input type="text" class="form-control" name="busca"/>
-    </div>
-
-  </form>
+  <app-chamados-filtro></app-chamados-filtro>
 
   <div class="filas-header">
 
@@ -18,7 +11,7 @@
     <button
       class="btn btn-default"
       (click)="changeGridType()">
-      <fa-icon [icon]="['fas', gridType]"></fa-icon>
+      <fa-icon [icon]="['fas', getOtherGridType()]"></fa-icon>
     </button>
 
   </div>
@@ -26,11 +19,11 @@
   <div class="grid">
 
     <app-fila-grid
-      *ngIf="gridType === 'grip-lines-vertical'">
+      *ngIf="showGridType('grip-lines-vertical')">
     </app-fila-grid>
 
     <app-chamados-list
-      *ngIf="gridType === 'list'"
+      *ngIf="showGridType('list')"
       [listaChamados]="chamados">
     </app-chamados-list>
 

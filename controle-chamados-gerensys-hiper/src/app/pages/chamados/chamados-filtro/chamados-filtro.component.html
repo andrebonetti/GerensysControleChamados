@@ -1,0 +1,39 @@
+<form class="filtro">
+
+  <div class="item-formulario input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Busca</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+
+  </div>
+
+  <div class="item-formulario input-group">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Prioridade</label>
+    </div>
+    <select
+      class="custom-select"
+      id="inputGroupSelect01"
+      name="prioridade">
+      <option selected>Escolha...</option>
+      <option *ngFor="let prioridade of chamadoPrioridades"
+        value="{{prioridade.chave}}">{{prioridade.valor}}</option>
+    </select>
+  </div>
+
+  <div class="item-formulario input-group">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Fila</label>
+    </div>
+    <select
+      class="custom-select"
+      id="inputGroupSelect01"
+      name="fila">
+      <option selected>Escolha...</option>
+      <option *ngFor="let fila of chamadoFilas"
+        value="{{fila.id}}">{{fila.nome}}</option>
+    </select>
+  </div>
+
+</form>

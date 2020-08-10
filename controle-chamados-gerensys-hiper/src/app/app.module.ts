@@ -34,8 +34,9 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { UsuarioCrudComponent } from './pages/usuario-crud/usuario-crud.component';
 import { UsuarioPerfisComponent } from './pages/usuario-perfis/usuario-perfis.component';
 import { LoginComponent } from './pages/login/login.component';
-import { ChamadosListComponent } from './templates/chamados-list/chamados-list.component';
-import { FilaGridComponent } from './templates/fila-grid/fila-grid.component';
+import { ChamadosListComponent } from './pages/chamados/chamados-list/chamados-list.component';
+import { FilaGridComponent } from './pages/chamados/fila-grid/fila-grid.component';
+import { ChamadosFiltroComponent } from './pages/chamados/chamados-filtro/chamados-filtro.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FilaGridComponent } from './templates/fila-grid/fila-grid.component';
     UsuarioPerfisComponent,
     LoginComponent,
     ChamadosListComponent,
-    FilaGridComponent
+    FilaGridComponent,
+    ChamadosFiltroComponent
   ],
   imports: [
     BrowserModule,

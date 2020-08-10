@@ -24,12 +24,26 @@ export class ChamadosComponent implements OnInit {
     this.chamadoService.getChamados().subscribe(chamados => this.chamados = chamados);
   }
 
-  changeGridType() : void{
+  getOtherGridType() : String{
     if(this.gridType == GridTypeEnum.LIST.valueOf()){
-      this.gridType = GridTypeEnum.GRIP.valueOf();
+      console.log(GridTypeEnum.GRIP.valueOf());
+      return GridTypeEnum.GRIP.valueOf();
     }else{
-      this.gridType = GridTypeEnum.LIST.valueOf();
+      console.log(GridTypeEnum.LIST.valueOf());
+      return GridTypeEnum.LIST.valueOf();
     }
+  }
+
+  changeGridType() : void{
+    this.gridType = this.getOtherGridType();
+  }
+
+  showGridType(type:String) : Boolean{
+    if(type == this.gridType){
+      return true;
+    }
+
+    return false;
   }
 
 }

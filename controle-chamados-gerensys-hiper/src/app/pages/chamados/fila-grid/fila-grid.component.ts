@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FilaService } from '../../service/fila.service';
+import { FilaService } from '../../../service/fila.service';
 import { MensagemService } from 'src/app/service/mensagem.service';
-import { FilaDTO } from '../../models/fila'
+import { FilaDTO } from '../../../models/fila'
 
 @Component({
   selector: 'app-fila-grid',
