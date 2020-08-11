@@ -29,6 +29,7 @@ const Empresa3MOCK : EmpresaDTO =
 };
 
 export const empresaMOCK = {
+  empresas : [Empresa1MOCK,Empresa2MOCK,Empresa3MOCK],
   gerensys : gerensys,
   case1 : Empresa1MOCK,
   case2 : Empresa2MOCK,
