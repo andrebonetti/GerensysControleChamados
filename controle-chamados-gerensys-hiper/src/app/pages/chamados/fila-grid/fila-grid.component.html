@@ -2,6 +2,9 @@
 
   <div class="fila" *ngFor="let itemFila of filasDTO">
 
+    <div class="fila-style"
+    [ngStyle]="{'background-color': itemFila.colorStyle}"></div>
+
     <div class="cabecalho">
 
       <span class="btn-collapse"
@@ -26,9 +29,7 @@
 
         <div class="cliente">
 
-          <span class="nome-cliente">
-            {{itemChamado.clienteDTO.nome}}
-          </span>
+          <img src="assets/img/logo_exemplo.gif" alt="logo" class="logo-default">
 
         </div>
 
@@ -36,20 +37,18 @@
 
           <span class="titulo-chamado">
             <a routerLink="/chamado-detalhe/{{itemChamado.id}}">
-              <span class="badge">{{itemChamado.id}}</span> {{itemChamado.titulo}}
+              <span class="id-chamado">#{{itemChamado.id}}</span>
+              {{itemChamado.titulo}}
             </a>
-          </span>
-
-          <span class="codigo-chamado">
-            #{{itemChamado.id}}
           </span>
 
           <span class="sla">
             {{itemChamado.sla}}
           </span>
 
-          <div class="usuarios-responsaveis" *ngFor="let usuarioResponsavel of itemChamado.usuariosResponsaveisDTO">
-            {{usuarioResponsavel.email}}
+          <div class="usuarios-responsaveis"
+              title="">
+            <fa-icon [icon]="['fas', 'user']"></fa-icon>
           </div>
 
         </div>

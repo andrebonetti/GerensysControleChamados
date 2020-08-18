@@ -1,32 +1,40 @@
 @dark : #222336;
-@green : #05e4bc;
+@logoCor1 : #694ca0;
+@logoCor1_1 : #3a1a78;
+@logoCor2 : #3ba0ca;
+@logoCor2_1 : #00b4ff;
+
+@white_10 : #fff;
+@black_9 : #606060;
 
 header.main-container{
   background-color: @dark;
 
   nav{
+    background-color: @logoCor1;
 
     .navbar-collapse{
 
       form{
 
         button{
-          color: @green;
-          border-color: @green;
+          color: @white_10;
+          border-color: @white_10;
         }
         button:hover{
-          color: white;
-          background-color: @green;
+          border-color: @logoCor1_1;
+          background-color: @logoCor1_1;
         }
       }
     }
   }
+
   a{
-    color: @green;
+    color: @white_10;
   }
 
-  // a:hover{
-  //   background-color: @green;
-  //   color: @dark;
-  // }
+  a:hover{
+    color: @white_10;
+  }
+
 }

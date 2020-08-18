@@ -11,21 +11,21 @@ const Empresa1MOCK : EmpresaDTO =
 {
   id: 2,
   imagem : "src",
-  nome: "Nome Empresa 1"
+  nome: "Empresa 1"
 };
 
 const Empresa2MOCK : EmpresaDTO =
 {
   id: 3,
   imagem : "src",
-  nome: "Nome Empresa 2"
+  nome: "Empresa 2"
 };
 
 const Empresa3MOCK : EmpresaDTO =
 {
   id: 4,
   imagem : "src",
-  nome: "Nome Empresa 3"
+  nome: "Empresa 3"
 };
 
 export const empresaMOCK = {

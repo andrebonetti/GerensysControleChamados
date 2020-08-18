@@ -11,6 +11,7 @@ const FilaEmAbertoMOCKPai : FilaDTO =
   id:1,
   nome:"Em Aberto",
   quantidade:3,
+  colorStyle: "#ffc107",
   chamadosDTO : []
 }
 
@@ -19,6 +20,7 @@ const FilaEmAndamentoMOCKPai : FilaDTO =
   id:2,
   nome:"Em Andamento",
   quantidade:2,
+  colorStyle: "#17a2b8",
   chamadosDTO : []
 }
 
@@ -27,6 +29,7 @@ const FilaFinalizadosMOCKPai : FilaDTO =
   id:3,
   nome:"Finalizados",
   quantidade:5,
+  colorStyle: "#28a745",
   chamadosDTO : []
 }
 

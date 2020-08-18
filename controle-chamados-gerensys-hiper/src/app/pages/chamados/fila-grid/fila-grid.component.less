@@ -1,6 +1,12 @@
 @fontTitle : #6a4b9d;
 @backOpacity: #c4bad6;
 
+@dark : #222336;
+@logoCor1 : #694ca0;
+@logoCor1_1 : #3a1a78;
+@logoCor2 : #3ba0ca;
+@logoCor2_1 : #00b4ff;
+
 @white_10 : #fff;
 @white_9 : #f4f4f4;
 @white_8 : #f0f0f0;
@@ -18,8 +24,16 @@
   .fila{
       display: inline-grid;
       width: 350px;
-      margin-right: 20px;
+      margin-right: 25px;
       @radiusPx : 6px;
+
+      .fila-style{
+        border-radius: 6px 6px 0 0;
+        margin-bottom: -6px;
+        background-color:#ff8f07 ;
+        height: 10px;
+        width: 100%;
+      }
 
       .cabecalho{
           display: table;
@@ -40,16 +54,18 @@
               cursor: pointer;
               padding-top: 12px;
               padding-left: 4px;
+              color: @black_8;
 
               i{
                   font-size: 18px;
                   font-weight: 900;
                   cursor: pointer;
+                  color:@black_8;
               }
           }
 
           .btn-collapse:hover{
-              color: @black_8;
+              color: @black_9;
           }
 
           .nome-fila{
@@ -72,19 +88,25 @@
               top: 5px;
               font-size: 25px;
               cursor: pointer;
+              color: @black_8;
           }
 
           .btn-add-chamado:hover{
-              color: @black_8;
+            color: @black_8;
+
+            i{
+              color: @black_9;
+            }
           }
       }
 
       .lista{
-          background-color: @white_8;
+          background-color: @white_9;
           padding: 3px;
           border-radius: 0 0 @radiusPx @radiusPx;
           border: solid 1px @white_0;
           border-width: 0 1px 1px 1px;
+          height: 700px;
 
           .chamado{
               background-color: white;
@@ -93,23 +115,28 @@
               border-radius: 4px;
               width: 100%;
               display: table;
+              margin: 5px 0;
+              position: relative;
 
               .cliente{
                   float: left;
                   text-align: center;
-                  width: 100px;
+                  width: 30%;
                   padding: 3px;
                   border: solid 1px #f0f0f0;
                   border-width: 0 1px 0 0;
 
-                  .nome-cliente{
-
+                  img{
+                    width: 100%;
+                    padding: 8px;
                   }
+
               }
 
               .descricao{
-                  padding: 3px;
-                  float: left;
+                  padding: 3px 3px 3px 6px;
+                  float: right;
+                  width: 70%;
 
                   span{
                       display: block;
@@ -117,18 +144,37 @@
 
                   .titulo-chamado{
 
-                  }
+                    a{
+                      color: @logoCor2;
+                      font-size: 14px;
+                      font-weight: 600;
 
-                  .codigo-chamado{
-
+                      .id-chamado{
+                        font-size: 12px;
+                      }
+                    }
                   }
 
                   .sla{
-
+                    position: absolute;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: @black_9;
+                    bottom: 5px;
                   }
 
-                  .usuario-responsavel{
+                  .usuarios-responsaveis{
+                    position: absolute;
+                    right: 8px;
+                    bottom: 5px;
+                    color: @logoCor2;
+                    opacity: 0.8;
+                    cursor: pointer;
+                  }
 
+                  .usuarios-responsaveis:hover{
+                    opacity: 1;
+                    color: @logoCor2_1;
                   }
               }
 

@@ -1,83 +1,53 @@
 <form class="filtro">
 
-  <div class="item-formulario input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1">Busca</span>
+  <div class="campos">
+
+    <div class="item-formulario">
+      <app-input-text
+        [options]="inputBusca">
+      </app-input-text>
     </div>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+
+    <div class="item-formulario">
+      <app-input-select
+        [options]="inputPrioridade">
+      </app-input-select>
+    </div>
+
+    <div class="item-formulario">
+      <app-input-select
+        [options]="inputFila">
+      </app-input-select>
+    </div>
+
+    <div class="item-formulario">
+      <app-input-select
+        [options]="inputEmpresas">
+      </app-input-select>
+    </div>
+
+    <div class="item-formulario">
+      <app-input-select
+        [options]="inputUsuarios">
+      </app-input-select>
+    </div>
+
+
+    <!-- <div class="item-formulario input-group data-param">
+
+      <app-ngb-date-picker-range
+        [tiposDatas]="tiposDatas">
+      </app-ngb-date-picker-range>
+
+    </div> -->
 
   </div>
 
-  <div class="item-formulario input-group">
-    <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">Prioridade</label>
+  <div class="opcoes">
+    <div class="btn-group" role="group" aria-label="First group">
+      <button type="button" class="btn btn-dark btn-busca">Buscar</button>
+      <button type="button" class="btn btn-outline-secondary btn-clean">Limpar</button>
     </div>
-    <select
-      class="custom-select"
-      id="inputGroupSelect01"
-      name="prioridade">
-      <option selected>Escolha...</option>
-      <option *ngFor="let prioridade of chamadoPrioridades"
-        value="{{prioridade.chave}}">{{prioridade.valor}}</option>
-    </select>
-  </div>
-
-  <div class="item-formulario input-group">
-    <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">Fila</label>
-    </div>
-    <select
-      class="custom-select"
-      id="inputGroupSelect01"
-      name="fila">
-      <option selected>Escolha...</option>
-      <option *ngFor="let fila of chamadoFilas"
-        value="{{fila.id}}">{{fila.nome}}</option>
-    </select>
-  </div>
-
-  <div class="item-formulario input-group">
-    <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">Usuarios</label>
-    </div>
-    <select
-      class="custom-select"
-      id="inputGroupSelect01"
-      name="usuario">
-      <option selected>Escolha...</option>
-      <option *ngFor="let usuario of usuarios"
-        value="{{usuario.id}}">{{usuario.nome}}</option>
-    </select>
-  </div>
-
-  <div class="item-formulario input-group">
-    <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelect01">Empresas</label>
-    </div>
-    <select
-      class="custom-select"
-      id="inputGroupSelect01"
-      name="usuario">
-      <option selected>Escolha...</option>
-      <option *ngFor="let empresa of empresas"
-        value="{{empresa.id}}">{{empresa.nome}}</option>
-    </select>
-  </div>
-
-  <div class="item-formulario input-group data-param">
-
-    <div ngbDropdown class="d-inline-block">
-      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{parametroData.valor}}</button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button ngbDropdownItem
-        *ngFor="let tipoData of tiposDatas"
-        (click)="mudarParametroData(tipoData)"
-        >{{tipoData.valor}}</button>
-      </div>
-    </div>
-
-    <app-ngb-date-picker-range></app-ngb-date-picker-range>
-
   </div>
 
 </form>

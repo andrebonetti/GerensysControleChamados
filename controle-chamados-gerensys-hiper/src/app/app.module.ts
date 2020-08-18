@@ -18,7 +18,8 @@ import { faSquare,
   faAngleRight,
   faList,
   faGripLinesVertical,
-  faCalendarAlt }
+  faCalendarAlt,
+  faUser }
 from '@fortawesome/free-solid-svg-icons';
 import { faSquare as farSquare,
   faCheckSquare as farCheckSquare,
@@ -39,6 +40,8 @@ import { ChamadosListComponent } from './pages/chamados/chamados-list/chamados-l
 import { FilaGridComponent } from './pages/chamados/fila-grid/fila-grid.component';
 import { ChamadosFiltroComponent } from './pages/chamados/chamados-filtro/chamados-filtro.component';
 import { NgbDatePickerRangeComponent } from './templates/form/ngb-date-picker-range/ngb-date-picker-range.component';
+import { InputTextComponent } from './templates/form/input-text/input-text.component';
+import { InputSelectComponent } from './templates/form/input-select/input-select.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,9 @@ import { NgbDatePickerRangeComponent } from './templates/form/ngb-date-picker-ra
     ChamadosListComponent,
     FilaGridComponent,
     ChamadosFiltroComponent,
-    NgbDatePickerRangeComponent
+    NgbDatePickerRangeComponent,
+    InputTextComponent,
+    InputSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +87,8 @@ export class AppModule {
       farListAlt,
       faAngellist,
       faGripLinesVertical,
-      faCalendarAlt
+      faCalendarAlt,
+      faUser
     );
   }
 }

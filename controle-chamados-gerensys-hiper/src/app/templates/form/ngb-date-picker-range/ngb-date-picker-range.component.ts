@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import { ChaveValor } from 'src/app/models/chaveValor';
 
 @Component({
   selector: 'app-ngb-date-picker-range',
@@ -7,6 +8,13 @@ import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-boo
   styleUrls: ['./ngb-date-picker-range.component.less']
 })
 export class NgbDatePickerRangeComponent implements OnInit {
+
+  @Input("tiposDatas") tiposDatas:ChaveValor[];
+
+  parametroData :  ChaveValor = {
+    chave : "dataCadastro",
+    valor : "Data Cadastro"
+  }
 
   hoveredDate: NgbDate | null = null;
 
@@ -47,6 +55,10 @@ export class NgbDatePickerRangeComponent implements OnInit {
   validateInput(currentValue: NgbDate | null, input: string): NgbDate | null {
     const parsed = this.formatter.parse(input);
     return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
+  }
+
+  mudarParametroData(tipoData:ChaveValor) : void{
+    this.parametroData = tipoData;
   }
 
 }

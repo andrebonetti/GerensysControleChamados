@@ -7,6 +7,8 @@ import { EmpresaDTO } from "../../../models/empresa";
 import { FilaService } from "../../../service/fila.service";
 import { FilaDTO } from "../../../models/fila";
 import { ChaveValor } from "../../../models/chaveValor";
+import { InputText } from 'src/app/models/form/input-text';
+import { InputSelect } from 'src/app/models/form/input-select';
 
 @Component({
   selector: 'app-chamados-filtro',
@@ -15,10 +17,57 @@ import { ChaveValor } from "../../../models/chaveValor";
 })
 export class ChamadosFiltroComponent implements OnInit {
 
-  chamadoPrioridades : ChaveValor[];
-  chamadoFilas : FilaDTO[];
-  usuarios : UsuarioDTO[];
-  empresas : EmpresaDTO[];
+  inputBusca : InputText = {
+    id: "busca",
+    label: "Busca",
+    name: "busca",
+    placeholder: "",
+    prepend: true
+  };
+
+  inputPrioridade : InputSelect = {
+    id: "prioridade",
+    label: "Prioridade",
+    name: "prioridade",
+    placeholder: "Escolha...",
+    prepend: true,
+    content : [],
+    optionId : "chave",
+    optionText: "valor"
+  }
+
+  inputFila : InputSelect = {
+    id: "fila",
+    label: "Fila",
+    name: "fila",
+    placeholder: "Escolha...",
+    prepend: true,
+    content : [],
+    optionId : "id",
+    optionText: "nome"
+  }
+
+  inputUsuarios : InputSelect = {
+    id: "usuario",
+    label: "Usuario",
+    name: "usuario",
+    placeholder: "Escolha...",
+    prepend: true,
+    content : [],
+    optionId : "id",
+    optionText: "nome"
+  }
+
+  inputEmpresas : InputSelect = {
+    id: "empresa",
+    label: "Empresa",
+    name: "empresa",
+    placeholder: "Escolha...",
+    prepend: true,
+    content : [],
+    optionId : "id",
+    optionText: "nome"
+  }
 
   parametroData :  ChaveValor = {
     chave : "dataCadastro",
@@ -51,22 +100,19 @@ export class ChamadosFiltroComponent implements OnInit {
   }
 
   getChamadoPrioridades() : void{
-    this.chamadoPrioridadeService.getChamadoPrioridades().subscribe( prioridades => this.chamadoPrioridades = prioridades );
+    this.chamadoPrioridadeService.getChamadoPrioridades().subscribe( prioridades => this.inputPrioridade.content = prioridades );
   }
 
   getChamadoFilas() : void{
-    this.chamadoFilasService.getFilas().subscribe( filas => this.chamadoFilas = filas );
+    this.chamadoFilasService.getFilas().subscribe( filas => this.inputFila.content = filas );
   }
 
   getUsuarios() : void{
-    this.usuarioService.getUsuarios().subscribe( usuarios => this.usuarios = usuarios );
+    this.usuarioService.getUsuarios().subscribe( usuarios => this.inputUsuarios.content = usuarios );
   }
 
   getEmpresas() : void{
-    this.empresaService.getEmpresas().subscribe( empresas => this.empresas = empresas );
+    this.empresaService.getEmpresas().subscribe( empresas => this.inputEmpresas.content = empresas );
   }
 
-  mudarParametroData(tipoData:ChaveValor) : void{
-    this.parametroData = tipoData;
-  }
 }
