@@ -1,0 +1,16 @@
+<div class="input-group">
+  <div class="input-group-prepend">
+    <label class="input-group-text"
+      for="inputGroupSelect01">
+      {{options.label}}
+    </label>
+  </div>
+  <select
+    class="custom-select"
+    id="{{options.id}}"
+    name="{{options.name}}">
+    <option selected>{{options.placeholder}}</option>
+    <option *ngFor="let itemContent of options.content"
+      value="{{itemContent[options.optionId]}}">{{itemContent[options.optionText]}}</option>
+  </select>
+</div>
