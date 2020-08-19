@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChamadoDTO,chamadoDTOClear } from '../../models/chamado';
+import { VisualizacaoTipoEnum } from '../../models/enums/visualizacao_tipo';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ChamadoService } from '../../service/chamado.service';
@@ -22,6 +23,8 @@ export class ChamadoDetalheComponent implements OnInit {
   chamado: ChamadoDTO = chamadoDTOClear;
 
   id = +this.route.snapshot.paramMap.get('id');
+
+  tipoVisualizacao : String = VisualizacaoTipoEnum.DETALHES.valueOf();
 
   ngOnInit(): void {
     if(this.id){

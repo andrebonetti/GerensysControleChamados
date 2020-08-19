@@ -6,6 +6,7 @@
       <th scope="col">Descriçãoo</th>
       <th scope="col">Status</th>
       <th scope="col">Usuario Responsável</th>
+      <th scope="col" class="acoes">Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,31 @@
       <td>{{chamado.titulo}}</td>
       <td>{{chamado.filaDTO.nome}}</td>
       <td>{{chamado.usuariosResponsaveisDTO[0].nome}}</td>
+      <td class="acoes">
+        <div class="btn-group" role="group">
+          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+              <button type="button" class="btn btn-secondary">
+                <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+              </button>
+              <button type="button" class="btn btn-secondary">
+                <fa-icon [icon]="['fas', 'trash']"></fa-icon>
+              </button>
+
+              <div ngbDropdown class="d-inline-block drop-inline">
+                <button class="btn btn-secondary dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>Alterar Status</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button ngbDropdownItem>
+                    Em Andamento
+                  </button>
+                  <button ngbDropdownItem>
+                    Finalizados
+                  </button>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

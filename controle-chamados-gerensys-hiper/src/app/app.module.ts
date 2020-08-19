@@ -19,7 +19,9 @@ import { faSquare,
   faList,
   faGripLinesVertical,
   faCalendarAlt,
-  faUser }
+  faUser,
+  faEdit,
+  faTrash }
 from '@fortawesome/free-solid-svg-icons';
 import { faSquare as farSquare,
   faCheckSquare as farCheckSquare,
@@ -88,7 +90,9 @@ export class AppModule {
       faAngellist,
       faGripLinesVertical,
       faCalendarAlt,
-      faUser
+      faUser,
+      faEdit,
+      faTrash
     );
   }
 }

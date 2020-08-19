@@ -1,0 +1,158 @@
+@dark : #222336;
+@logoCor1 : #694ca0;
+@logoCor1_1 : #3a1a78;
+@logoCor2 : #3ba0ca;
+@logoCor2_1 : #00b4ff;
+
+.btn-principal{
+  background-color: @logoCor1;
+  color: white;
+}
+
+.btn-principal:hover{
+  background-color: @logoCor1_1;
+}
+
+.btn-secundario{
+  background-color: @logoCor2;
+  color: white;
+}
+
+.btn-secundario:hover{
+  background-color: @logoCor2_1;
+}
+
+.chamado-detalhe{
+  width: 100%;
+  display: table;
+
+  .chamado-header{
+    width: 100%;
+    display: table;
+
+    .info{
+      display: flex;
+      float: left;
+
+      .header-content {
+        margin-right: 30px;
+      }
+
+      .fila-atual{
+        text-align: center;
+        padding: 4px 8px;
+        font-size: 14px;
+        border-radius: 6px;
+        width: fit-content;
+        height: fit-content;
+      }
+
+      .sla{
+
+      }
+
+      .usuario-criacao{
+
+        span{
+          float: left;
+        }
+
+        img{
+          width: 90px;
+          padding: 0 8px 8px 8px;
+          margin-top: -15px;
+        }
+
+        .usuario{
+          margin-top: -8px;
+
+          .nome-usuario{
+            float: right;
+            margin-left: 10px;
+            font-size: 14px;
+            margin-top: 4px;
+            font-weight: 600;
+          }
+
+          fa-icon{
+            margin-left: 10px;
+            margin-top: -4px;
+          }
+
+        }
+      }
+
+      .checklist{
+        text-align: center;
+
+        .checklist-status{
+          display: block;
+          font-weight: 600;
+          margin-top: 12px;
+        }
+      }
+
+    }
+
+    .opcoes{
+      float: right;
+
+      .opcao{
+        margin-left: 10px;
+
+        .label-button{
+          width: 153px;
+        }
+      }
+    }
+
+  }
+
+  .chamado-principal{
+    display: table;
+    width: 100%;
+    border-top:solid 1px whitesmoke;
+    margin-top: 30px;
+    padding: 10px;
+
+    .chamado-title{
+      float: left;
+
+      h2{
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+
+    .chamado-info{
+      clear: both;
+      float: left;
+
+      .detalhes-categoria{
+        padding: 5px;
+        height: fit-content;
+        background-color: whitesmoke;
+        border-radius: 6px;
+        margin-right: 8px;
+        font-size: 14px;
+      }
+
+    }
+
+    .opcoes{
+      float: right;
+    }
+
+    .formulario{
+      float: left;
+      clear: both;
+      margin-top: 20px;
+      h3{
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
+
+  }
+
+}

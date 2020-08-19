@@ -2,72 +2,136 @@
 
   <div class="chamado-header" *ngIf="chamado.id">
 
-    <p class="fila-atual">
-      {{chamado.filaDTO.nome}}
-    </p>
+    <div class="info">
 
-    <p class="sla">
-      {{chamado.sla}}
-    </p>
-
-    <div class="usuario-criacao">
-      <p>
-        Pelo cliente: <img src="{{chamado.clienteDTO.imagem}}"/> {{chamado.clienteDTO.nome}}
+      <p class="header-content fila-atual"
+        [ngStyle]="{'background-color': chamado.filaDTO.colorStyle}">
+        {{chamado.filaDTO.nome}}
       </p>
 
-      <p>
-        Pelo usuario: <img src="{{chamado.usuarioCriacaoDTO.imagem}}"/> {{chamado.usuarioCriacaoDTO.nome}}
+      <p class="header-content sla">
+        aberto à:
+        <b>{{chamado.sla}}</b>
       </p>
+
+      <div class="header-content usuario-criacao">
+
+        <div class="empresa">
+          <span class="label">Pelo cliente: </span>
+          <img src="assets/img/empresa/{{chamado.clienteDTO.imagem}}"/>
+        </div>
+
+        <div class="usuario">
+          <span class="label">Pelo usuario: </span>
+          <fa-icon [icon]="['fas', 'user']"></fa-icon>
+          <span class="nome-usuario">
+            {{chamado.usuarioCriacaoDTO.nome}}
+          </span>
+        </div>
+
+      </div>
+
+      <div class="header-content checklist" *ngIf="getChecklistGeralCount()">
+        <span>Checklist</span>
+        <span class="checklist-status">{{getChecklistConcluidoCount()}}/{{getChecklistGeralCount()}}</span>
+
+      </div>
+
     </div>
 
-    <div class="checklist" *ngIf="getChecklistGeralCount()">
-      <p>Checklist</p>
-      <p>{{getChecklistConcluidoCount()}}/{{getChecklistGeralCount()}}</p>
+    <div class="opcoes">
+
+      <div ngbDropdown class="d-inline-block drop-inline opcao">
+        <button class="btn btn-secundario dropdown-toggle label-button" id="dropdownBasic1" ngbDropdownToggle>Alterar Status</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>
+            Em Andamento
+          </button>
+          <button ngbDropdownItem>
+            Finalizados
+          </button>
+        </div>
+      </div>
+
+      <button class="btn btn-principal opcao" routerLink="/chamado-cadastro/">
+        Novo Chamado
+      </button>
 
     </div>
-
-    <button (click)="fecharChamado()">Fechar Chamado</button>
-
-    <a routerLink="/chamado-cadastro/">
-      Novo Chamado
-    </a>
 
   </div>
 
-  <div class="chamado-title"
-      *ngIf="chamado">
+  <div class="chamado-principal">
 
-      <h2>{{chamado.titulo | uppercase}} Details</h2>
-      <div><span>id: </span>{{chamado.id}}</div>
-  </div>
+    <div class="chamado-title"
+        *ngIf="chamado">
 
-  <div>
-    <label>name:
-      <input [(ngModel)]="chamado.titulo" placeholder="name"/>
-    </label>
+        <h2>#{{chamado.id}} - {{chamado.titulo | uppercase}}</h2>
+    </div>
 
-    <label *ngIf="chamado.subCategoriaDTO">categoria:
-      <input [(ngModel)]="chamado.subCategoriaDTO.categoriaDTO.descricao" placeholder="categoria"/>
-    </label>
+    <div class="opcoes">
 
-    <label *ngIf="chamado.subCategoriaDTO">sub Categoria:
-      <input [(ngModel)]="chamado.subCategoriaDTO.descricao" placeholder="subcategoria"/>
-    </label>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button class="btn btn-light" (click)="fecharChamado()">
+          <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+        </button>
+        <button class="btn btn-light" (click)="fecharChamado()">
+          <fa-icon [icon]="['fas', 'trash']"></fa-icon>
+        </button>
+      </div>
 
-    <label *ngIf="chamado.filaDTO">fila:
-      <input [(ngModel)]="chamado.filaDTO.nome" placeholder="fila"/>
-    </label>
+    </div>
 
-    <h3>Formulario Dados</h3>
-    <div class="chamado-detalhe" *ngFor="let itemFormularioInput of chamado.formularioInputsDTO">
-      <label>Tipo => {{itemFormularioInput.tipo}}:
+    <div class="chamado-info">
 
-        <textarea *ngIf="itemFormularioInput.tipo == 'textArea'">
-          {{itemFormularioInput.valor}}
-        </textarea>
-
-        <input *ngIf="itemFormularioInput.tipo == 'text'" [(ngModel)]="itemFormularioInput.valor" placeholder="Formulario"/>
+      <label class="detalhes-categoria"
+        *ngIf="chamado.subCategoriaDTO && tipoVisualizacao === 'detalhes'">
+        {{chamado.subCategoriaDTO.categoriaDTO.descricao}}
       </label>
+
+      <label class="detalhes-categoria"
+        *ngIf="chamado.subCategoriaDTO && tipoVisualizacao === 'detalhes'">
+        {{chamado.subCategoriaDTO.descricao}}
+      </label>
+
+      <label class="edit-categoria"
+        *ngIf="chamado.subCategoriaDTO && tipoVisualizacao === 'edicao'">
+        categoria:
+        <input [(ngModel)]="chamado.subCategoriaDTO.categoriaDTO.descricao" placeholder="categoria"/>
+      </label>
+
+      <label class="edit-categoria"
+        *ngIf="chamado.subCategoriaDTO && tipoVisualizacao === 'edicao'">sub Categoria:
+        <input [(ngModel)]="chamado.subCategoriaDTO.descricao" placeholder="subcategoria"/>
+      </label>
+    </div>
+
+    <div class="formulario">
+
+      <h3>Dados</h3>
+
+      <div
+          class="chamado-detalhe"
+          *ngFor="let itemFormularioInput of chamado.formularioInputsDTO">
+
+          <p
+            *ngIf="itemFormularioInput.tipo == 'textArea'
+            || itemFormularioInput.tipo == 'text'
+            && tipoVisualizacao === 'detalhes'">
+            {{itemFormularioInput.valor}}
+          </p>
+
+          <textarea
+            *ngIf="itemFormularioInput.tipo == 'textArea' && tipoVisualizacao === 'edicao'">
+            {{itemFormularioInput.valor}}
+          </textarea>
+
+          <input
+            *ngIf="itemFormularioInput.tipo == 'text' && tipoVisualizacao === 'edicao'"
+            [(ngModel)]="itemFormularioInput.valor" placeholder="Formulario"/>
+
+      </div>
+
     </div>
 
   </div>
