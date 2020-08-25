@@ -1,0 +1,63 @@
+@dark : #222336;
+@logoCor1 : #694ca0;
+@logoCor1_1 : #3a1a78;
+@logoCor2 : #3ba0ca;
+@logoCor2_1 : #00b4ff;
+
+@white_10 : #fff;
+@white_9 : #f4f4f4;
+@white_8 : #f0f0f0;
+@white_0 : #dbdbdb;
+
+section{
+  width: 100%;
+  display: table;
+
+  .lista-perfis{
+    float: left;
+    width: 20%;
+
+    a{
+      cursor: pointer;
+    }
+
+    a.active{
+      background-color: @logoCor1;
+      border-color: @logoCor1;
+    }
+
+    a.active:hover{
+      color: @white_10;
+    }
+  }
+
+  .conteudo{
+    float: right;
+    width: 78%;
+
+    .nav-pills .nav-link.active{
+      background-color: #c5c8cb;
+      color: @white_10;
+    }
+
+    .nav-link{
+      color: #7d7f81;
+      height: 50px;
+      line-height: 30px;
+    }
+
+    .list-group-item{
+      display: table;
+      width: 100%;
+
+      .descricao{
+        float: left;
+      }
+
+      .toggle-ativado{
+        float: right;
+      }
+    }
+  }
+
+}

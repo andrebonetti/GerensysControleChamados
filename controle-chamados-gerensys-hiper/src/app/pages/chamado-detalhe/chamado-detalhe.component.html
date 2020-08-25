@@ -42,7 +42,10 @@
     <div class="opcoes">
 
       <div ngbDropdown class="d-inline-block drop-inline opcao">
-        <button class="btn btn-secundario dropdown-toggle label-button" id="dropdownBasic1" ngbDropdownToggle>Alterar Status</button>
+        <button class="btn btn-secundario dropdown-toggle label-button" id="dropdownBasic1" ngbDropdownToggle>
+          <fa-icon [icon]="['fas', 'exchange-alt']"></fa-icon>
+          Alterar Status
+        </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <button ngbDropdownItem>
             Em Andamento
@@ -54,6 +57,7 @@
       </div>
 
       <button class="btn btn-principal opcao" routerLink="/chamado-cadastro/">
+        <fa-icon [icon]="['fas', 'plus']"></fa-icon>
         Novo Chamado
       </button>
 
@@ -138,4 +142,7 @@
 
 </section>
 
-<button class="btn btn-secondary" (click)="goBack()">go back</button>
+<button class="btn btn-secondary" (click)="goBack()">
+  <fa-icon [icon]="['fas', 'angle-left']"></fa-icon>
+  Voltar
+</button>

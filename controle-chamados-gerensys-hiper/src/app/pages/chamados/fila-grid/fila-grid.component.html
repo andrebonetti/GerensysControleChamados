@@ -8,7 +8,8 @@
     <div class="cabecalho">
 
       <span class="btn-collapse"
-        (click)="collapse()">
+        (click)="collapse()"
+        ngbTooltip="Minimizar">
         <fa-icon [icon]="['fas', 'angle-right']"></fa-icon>
       </span>
 
@@ -17,7 +18,8 @@
       <span class="qtde-lista">{{itemFila.quantidade}}</span>
 
       <span class="btn-add-chamado"
-        routerLink="/chamado-detalhe/{{itemFila.id}}">
+        routerLink="/chamado-detalhe/{{itemFila.id}}"
+        ngbTooltip="Adicionar Chamado">
         <fa-icon [icon]="['far', 'plus-square']"></fa-icon>
       </span>
 

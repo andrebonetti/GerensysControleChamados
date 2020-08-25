@@ -1,5 +1,12 @@
 <div class="input-group">
-  <div class="input-group-prepend">
+
+  <label
+    *ngIf="options.labelType == inputLabelTypeEnum.DEFAULT">
+    {{options.label}}:
+  </label>
+
+  <div class="input-group-prepend"
+    *ngIf="options.labelType == inputLabelTypeEnum.PREPEND">
     <label class="input-group-text"
       for="inputGroupSelect01">
       {{options.label}}
@@ -11,6 +18,9 @@
     name="{{options.name}}">
     <option selected>{{options.placeholder}}</option>
     <option *ngFor="let itemContent of options.content"
-      value="{{itemContent[options.optionId]}}">{{itemContent[options.optionText]}}</option>
+      value="{{itemContent[options.optionId]}}"
+      [selected]="itemContent[options.optionId] == options.selected">
+        {{itemContent[options.optionText]}}
+      </option>
   </select>
 </div>

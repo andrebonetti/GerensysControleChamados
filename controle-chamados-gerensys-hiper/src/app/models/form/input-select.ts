@@ -2,9 +2,10 @@ export interface InputSelect{
     id: string,
     name: string
     label : string,
-    prepend : Boolean,
+    labelType : string,
     placeholder : string,
     content : any[],
     optionId: string,
-    optionText: string
+    optionText: string,
+    selected : any
 }

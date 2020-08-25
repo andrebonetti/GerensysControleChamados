@@ -65,4 +65,9 @@ export class UsuarioPerfisComponent implements OnInit {
       permissao.usuarioPerfilPermissaoTipoDTO.categoria.chave == this.categoriaActive.chave );
   }
 
+  getPermissoesCategoria(categoria:ChaveValor):UsuarioPerfilPermissaoDTO[]{
+    return this.permissoes.filter(permissao =>
+      permissao.usuarioPerfilPermissaoTipoDTO.categoria.chave == categoria.chave)
+  }
+
 }

@@ -9,6 +9,7 @@ import { FilaDTO } from "../../../models/fila";
 import { ChaveValor } from "../../../models/chaveValor";
 import { InputText } from 'src/app/models/form/input-text';
 import { InputSelect } from 'src/app/models/form/input-select';
+import { InputLabelTypeEnum } from 'src/app/models/enums/input_label_type';
 
 @Component({
   selector: 'app-chamados-filtro',
@@ -22,7 +23,8 @@ export class ChamadosFiltroComponent implements OnInit {
     label: "Busca",
     name: "busca",
     placeholder: "",
-    prepend: true
+    labelType : InputLabelTypeEnum.PREPEND,
+    value:""
   };
 
   inputPrioridade : InputSelect = {
@@ -30,10 +32,11 @@ export class ChamadosFiltroComponent implements OnInit {
     label: "Prioridade",
     name: "prioridade",
     placeholder: "Escolha...",
-    prepend: true,
+    labelType : InputLabelTypeEnum.PREPEND,
     content : [],
     optionId : "chave",
-    optionText: "valor"
+    optionText: "valor",
+    selected:null
   }
 
   inputFila : InputSelect = {
@@ -41,10 +44,11 @@ export class ChamadosFiltroComponent implements OnInit {
     label: "Fila",
     name: "fila",
     placeholder: "Escolha...",
-    prepend: true,
+    labelType : InputLabelTypeEnum.PREPEND,
     content : [],
     optionId : "id",
-    optionText: "nome"
+    optionText: "nome",
+    selected:null
   }
 
   inputUsuarios : InputSelect = {
@@ -52,10 +56,11 @@ export class ChamadosFiltroComponent implements OnInit {
     label: "Usuario",
     name: "usuario",
     placeholder: "Escolha...",
-    prepend: true,
+    labelType : InputLabelTypeEnum.PREPEND,
     content : [],
     optionId : "id",
-    optionText: "nome"
+    optionText: "nome",
+    selected:null
   }
 
   inputEmpresas : InputSelect = {
@@ -63,10 +68,11 @@ export class ChamadosFiltroComponent implements OnInit {
     label: "Empresa",
     name: "empresa",
     placeholder: "Escolha...",
-    prepend: true,
+    labelType : InputLabelTypeEnum.PREPEND,
     content : [],
     optionId : "id",
-    optionText: "nome"
+    optionText: "nome",
+    selected:null
   }
 
   parametroData :  ChaveValor = {

@@ -1,37 +1,61 @@
-<p>usuario-crud works!</p>
 <section class="usuario-crud">
 
-  <div class="chamado-title"
-      *ngIf="usuario.id">
+  <h1>#{{usuario.id}} {{usuario.nome | uppercase}}</h1>
 
-      <h2>{{usuario.nome | uppercase}} Details</h2>
-      <div><span>id: </span>{{usuario.id}}</div>
-  </div>
+  <div class="campos">
 
-  <div>
-
-    <label>name:
-      <input [(ngModel)]="usuario.nome" placeholder="name"/>
-    </label>
-
-    <label>email:
-      <input [(ngModel)]="usuario.email" placeholder="email"/>
-    </label>
-
-    <div class="usuario" *ngIf="!usuario.id">
-      <label>senha:
-        <input type="password" name="senha"/>
-      </label>
-
-      <label>confirmação senha:
-        <input type="password" name="senhaConfirmacao"/>
-      </label>
+    <div class="item-formulario">
+      <app-input-text
+        [options]="inputNome">
+      </app-input-text>
     </div>
 
+    <div class="item-formulario">
+      <app-input-text
+        [options]="inputEmail">
+      </app-input-text>
+    </div>
 
+    <div class="item-formulario">
+      <app-input-select
+        [options]="inputPerfis">
+      </app-input-select>
+    </div>
+
+    <div class="item-formulario">
+      <app-input-password
+        [options]="inputPassword">
+      </app-input-password>
+    </div>
+
+    <div class="item-formulario" *ngIf="!usuario.id">
+      <app-input-password
+        [options]="inputPasswordConfirm">
+      </app-input-password>
+    </div>
+
+  </div>
+
+  <div class="acoes">
+    <div class="btn-group" role="group">
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-principal"
+          (click)="showSuccess()">
+          <fa-icon [icon]="['fas', 'save']"></fa-icon>
+          Salvar
+        </button>
+        <button type="button" class="btn btn-outline-secondary btn-clean">
+          <fa-icon [icon]="['fas', 'eraser']"></fa-icon>
+          Limpar
+        </button>
+      </div>
+    </div>
   </div>
 
 </section>
 
-<button (click)="goBack()">go back</button>
-
+<button class="btn btn-secondary"
+  (click)="goBack()">
+  <fa-icon [icon]="['fas', 'angle-left']"></fa-icon>
+  Voltar
+</button>

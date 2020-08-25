@@ -16,6 +16,7 @@ import { faSquare,
   faCheckSquare,
   faPlusSquare,
   faAngleRight,
+  faAngleLeft,
   faList,
   faGripLinesVertical,
   faCalendarAlt,
@@ -24,7 +25,9 @@ import { faSquare,
   faTrash,
   faPlus,
   faSearch,
-  faEraser }
+  faEraser,
+  faExchangeAlt,
+  faSave }
 from '@fortawesome/free-solid-svg-icons';
 import { faSquare as farSquare,
   faCheckSquare as farCheckSquare,
@@ -48,6 +51,8 @@ import { NgbDatePickerRangeComponent } from './templates/form/ngb-date-picker-ra
 import { InputTextComponent } from './templates/form/input-text/input-text.component';
 import { InputSelectComponent } from './templates/form/input-select/input-select.component';
 import { UsuarioFiltroComponent } from './pages/usuarios/usuario-filtro/usuario-filtro.component';
+import { InputPasswordComponent } from './templates/form/input-password/input-password.component';
+import { ToastComponent } from './templates/form/ngb-toast/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +71,9 @@ import { UsuarioFiltroComponent } from './pages/usuarios/usuario-filtro/usuario-
     NgbDatePickerRangeComponent,
     InputTextComponent,
     InputSelectComponent,
-    UsuarioFiltroComponent
+    UsuarioFiltroComponent,
+    InputPasswordComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +107,10 @@ export class AppModule {
       faTrash,
       faPlus,
       faSearch,
-      faEraser
+      faEraser,
+      faExchangeAlt,
+      faAngleLeft,
+      faSave
     );
   }
 }

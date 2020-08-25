@@ -4,6 +4,7 @@ import { InputText } from 'src/app/models/form/input-text';
 import { InputSelect } from 'src/app/models/form/input-select';
 import { UsuarioPerfilService } from "src/app/service/usuario-perfil.service";
 import { ChaveValor } from 'src/app/models/chaveValor';
+import { InputLabelTypeEnum } from 'src/app/models/enums/input_label_type';
 
 @Component({
   selector: 'app-usuario-filtro',
@@ -17,7 +18,8 @@ export class UsuarioFiltroComponent implements OnInit {
     label: "Busca",
     name: "busca",
     placeholder: "",
-    prepend: true
+    labelType : InputLabelTypeEnum.PREPEND,
+    value:""
   };
 
   inputPerfis : InputSelect = {
@@ -25,10 +27,11 @@ export class UsuarioFiltroComponent implements OnInit {
     label: "Perfil",
     name: "perfil",
     placeholder: "Escolha...",
-    prepend: true,
+    labelType : InputLabelTypeEnum.PREPEND,
     content : [],
     optionId : "id",
-    optionText: "nome"
+    optionText: "nome",
+    selected:null
   }
 
   inputAtivo : InputSelect = {
@@ -36,10 +39,11 @@ export class UsuarioFiltroComponent implements OnInit {
     label: "Ativo",
     name: "ativo",
     placeholder: "Escolha...",
-    prepend: true,
+    labelType : InputLabelTypeEnum.PREPEND,
     content : [],
     optionId : "chave",
-    optionText: "valor"
+    optionText: "valor",
+    selected:null
   }
 
   constructor(

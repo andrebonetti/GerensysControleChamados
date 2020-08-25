@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { InputSelect } from 'src/app/models/form/input-select';
+import { InputLabelTypeEnum } from 'src/app/models/enums/input_label_type';
 
 @Component({
   selector: 'app-input-select',
@@ -9,6 +10,8 @@ import { InputSelect } from 'src/app/models/form/input-select';
 export class InputSelectComponent implements OnInit {
 
   @Input("options") options:InputSelect;
+
+  inputLabelTypeEnum = InputLabelTypeEnum;
 
   constructor() { }
 

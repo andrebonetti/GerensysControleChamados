@@ -1,23 +1,39 @@
-<ul class="list-group">
-  <li *ngFor="let perfil of perfis"
-    (click)="filtarPerfil(perfil.id)"
-    class="list-group-item">
-    {{perfil.nome}}
-  </li>
-</ul>
+<section>
 
-<button *ngFor="let categoria of categorias"
-        (click)="filtarCategoria(categoria.chave)"
-        class="btn btn-primary" >
-  {{categoria.valor}}
-</button>
+    <div class="list-group lista-perfis">
+      <a class="list-group-item list-group-item-action"
+        *ngFor="let perfil of perfis"
+        (click)="filtarPerfil(perfil.id)"
+        [class.active]="perfil.id === perfilActive.id">
+          {{perfil.nome}}
+      </a>
+    </div>
 
-<ul class="list-group list-group-flush">
-  <li *ngFor="let permissao of permissoesActive"
-      class="list-group-item">
-      ID: {{permissao.id}}
-      PERFIL: {{permissao.usuarioPerfilDTO.id}}
-      DESC: {{permissao.usuarioPerfilPermissaoTipoDTO.descricao}}
-      ATIVO: {{permissao.ativo}}
-  </li>
-</ul>
+    <div class="conteudo">
+
+      <ul ngbNav #nav="ngbNav" class="nav nav-tabs nav-pills nav-fill">
+        <li ngbNavItem *ngFor="let categoria of categorias">
+          <a ngbNavLink class="nav-link">
+              {{categoria.valor}}
+          </a>
+          <ng-template ngbNavContent>
+            <ul class="list-group list-group-flush">
+              <li *ngFor="let permissao of getPermissoesCategoria(categoria)"
+                  class="list-group-item">
+                  <span class="descricao">
+                    {{permissao.usuarioPerfilPermissaoTipoDTO.descricao}}
+                  </span>
+                  <span class="toggle-ativado">
+                    {{permissao.ativo}}
+                  </span>
+              </li>
+            </ul>
+          </ng-template>
+        </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
+
+    </div>
+
+</section>
+
