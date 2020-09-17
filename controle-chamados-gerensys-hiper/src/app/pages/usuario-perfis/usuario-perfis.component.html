@@ -24,7 +24,11 @@
                     {{permissao.usuarioPerfilPermissaoTipoDTO.descricao}}
                   </span>
                   <span class="toggle-ativado">
-                    {{permissao.ativo}}
+                    <ui-switch [checked]="permissao.ativo"
+                      size="small"
+                      color="#3ba0ca"
+                      (change)="switchPermissao($event,permissao)">
+                    </ui-switch>
                   </span>
               </li>
             </ul>

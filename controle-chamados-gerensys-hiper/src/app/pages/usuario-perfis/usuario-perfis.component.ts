@@ -70,4 +70,9 @@ export class UsuarioPerfisComponent implements OnInit {
       permissao.usuarioPerfilPermissaoTipoDTO.categoria.chave == categoria.chave)
   }
 
+  switchPermissao(event,usuarioPerfilPermissao:UsuarioPerfilPermissaoDTO):void{
+    console.log("event",event);
+    console.log("usuarioPerfilPermissao",usuarioPerfilPermissao);
+  }
+
 }

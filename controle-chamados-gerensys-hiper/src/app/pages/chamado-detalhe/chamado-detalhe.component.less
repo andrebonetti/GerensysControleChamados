@@ -33,6 +33,7 @@
     background-color: #f8f9fa;
     padding: 10px;
     border-radius: 6px;
+    margin-bottom: 0;
 
     .info{
       display: flex;
@@ -112,8 +113,6 @@
   .chamado-principal{
     display: table;
     width: 100%;
-    border-top:solid 1px whitesmoke;
-    margin-top: 30px;
     padding: 15px 0;
 
     .chamado-title{
@@ -147,11 +146,34 @@
     .formulario{
       float: left;
       clear: both;
-      margin-top: 20px;
+      margin: 20px 0 0 0;
+      display: table;
+
       h3{
         font-size: 15px;
         font-weight: 600;
       }
+
+      .item-formulario{
+        width: 300px;
+        margin-bottom: 10px;
+        float: left;
+        padding: 5px 10px;
+      }
+
+      .item-formulario:first-child{
+        padding-left: 0;
+      }
+
+      .clear{
+        clear: both;
+      }
+
+      .item-formulario-extra-large{
+        width: 900px;
+        padding-left: 0;
+      }
+
     }
 
   }

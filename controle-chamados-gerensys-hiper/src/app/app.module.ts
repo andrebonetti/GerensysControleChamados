@@ -9,6 +9,7 @@ import { ChamadoDetalheComponent } from './pages/chamado-detalhe/chamado-detalhe
 import { MensagensComponent } from './mensagens/mensagens.component';
 import { HeaderComponent } from './struct/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 import { FontAwesomeModule,FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
@@ -53,6 +54,7 @@ import { InputSelectComponent } from './templates/form/input-select/input-select
 import { UsuarioFiltroComponent } from './pages/usuarios/usuario-filtro/usuario-filtro.component';
 import { InputPasswordComponent } from './templates/form/input-password/input-password.component';
 import { ToastComponent } from './templates/form/ngb-toast/toast/toast.component';
+import { InputTextAreaComponent } from './templates/form/input-text-area/input-text-area.component';
 
 @NgModule({
   declarations: [
@@ -73,14 +75,16 @@ import { ToastComponent } from './templates/form/ngb-toast/toast/toast.component
     InputSelectComponent,
     UsuarioFiltroComponent,
     InputPasswordComponent,
-    ToastComponent
+    ToastComponent,
+    InputTextAreaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    UiSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -49,5 +49,7 @@ export const chamadoSubCategoriaMOCK = {
   case3 : ChamadoSubCategoria3MOCK,
   case4 : ChamadoSubCategoria4MOCK,
   case5 : ChamadoSubCategoria5MOCK,
-  case6 : ChamadoSubCategoria6MOCK
+  case6 : ChamadoSubCategoria6MOCK,
+  lista : [ChamadoSubCategoria1MOCK,ChamadoSubCategoria2MOCK,ChamadoSubCategoria3MOCK,ChamadoSubCategoria4MOCK,
+  ChamadoSubCategoria5MOCK,ChamadoSubCategoria6MOCK]
 }

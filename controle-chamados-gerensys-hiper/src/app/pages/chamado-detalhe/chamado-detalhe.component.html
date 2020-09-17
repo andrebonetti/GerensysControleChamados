@@ -67,13 +67,12 @@
 
   <div class="chamado-principal">
 
-    <div class="chamado-title"
-        *ngIf="chamado">
-
-        <h2>#{{chamado.id}} - {{chamado.titulo | uppercase}}</h2>
+    <div class="chamado-title">
+        <h2 *ngIf="chamado.id">#{{chamado.id}} - {{chamado.titulo | uppercase}}</h2>
+        <h2 *ngIf="!chamado.id">Cadastro Chamado</h2>
     </div>
 
-    <div class="opcoes">
+    <div class="opcoes" *ngIf="chamado.id">
 
       <div class="btn-group" role="group" aria-label="Basic example">
         <button class="btn btn-light" (click)="fecharChamado()">
@@ -86,7 +85,7 @@
 
     </div>
 
-    <div class="chamado-info">
+    <div class="chamado-info" *ngIf="chamado.id">
 
       <label class="detalhes-categoria"
         *ngIf="chamado.subCategoriaDTO && tipoVisualizacao === 'detalhes'">
@@ -112,7 +111,54 @@
 
     <div class="formulario">
 
-      <h3>Dados</h3>
+      <h3 *ngIf="chamado.id">Dados</h3>
+
+      <div
+          class="chamado-informacao"
+          *ngIf="!chamado.id">
+
+          <div class="item-formulario">
+            <app-input-text
+              [options]="inputTitulo">
+            </app-input-text>
+          </div>
+
+          <div class="item-formulario">
+            <app-input-select
+              [options]="inputCategoria"
+              (change)="changeCategoria($event)">
+            </app-input-select>
+          </div>
+
+          <div class="item-formulario">
+            <app-input-select
+              [options]="inputSubCategoria">
+            </app-input-select>
+          </div>
+
+          <div class="item-formulario clear item-formulario-extra-large">
+            <app-input-text-area
+              [options]="inputDetalhe">
+            </app-input-text-area>
+          </div>
+
+          <div class="acoes">
+            <div class="btn-group" role="group">
+              <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button class="btn btn-principal"
+                  (click)="showSuccess()">
+                  <fa-icon [icon]="['fas', 'save']"></fa-icon>
+                  Salvar
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-clean">
+                  <fa-icon [icon]="['fas', 'eraser']"></fa-icon>
+                  Limpar
+                </button>
+              </div>
+            </div>
+          </div>
+
+      </div>
 
       <div
           class="chamado-detalhe"

@@ -15,7 +15,8 @@
   <select
     class="custom-select"
     id="{{options.id}}"
-    name="{{options.name}}">
+    name="{{options.name}}"
+    (change)="changeInput($event)">
     <option selected>{{options.placeholder}}</option>
     <option *ngFor="let itemContent of options.content"
       value="{{itemContent[options.optionId]}}"

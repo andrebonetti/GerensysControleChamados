@@ -17,7 +17,6 @@ export class ChamadoService {
   }
 
   getChamado(id: number): Observable<ChamadoDTO> {
-    // TODO: send the message _after_ fetching the hero
     this.mensagemService.add(`ChamadoService: chamado obtido => id=${id}`);
     return of(chamadosMOCK.find(chamado => chamado.id === id));
   }

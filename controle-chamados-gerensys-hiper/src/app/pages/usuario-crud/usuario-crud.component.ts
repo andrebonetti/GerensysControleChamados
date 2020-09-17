@@ -68,7 +68,7 @@ export class UsuarioCrudComponent implements OnInit {
     private usuarioService: UsuarioService,
     private usuarioPerfilService: UsuarioPerfilService,
     private location: Location,
-    public toastService: ToastService
+    private toastService: ToastService
   ) { }
 
   usuario: UsuarioDTO = usuarioDTOClear;
