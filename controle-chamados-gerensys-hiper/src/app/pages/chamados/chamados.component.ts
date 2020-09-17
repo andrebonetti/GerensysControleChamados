@@ -26,10 +26,8 @@ export class ChamadosComponent implements OnInit {
 
   getOtherGridType() : String{
     if(this.gridType == GridTypeEnum.LIST.valueOf()){
-      console.log(GridTypeEnum.GRIP.valueOf());
       return GridTypeEnum.GRIP.valueOf();
     }else{
-      console.log(GridTypeEnum.LIST.valueOf());
       return GridTypeEnum.LIST.valueOf();
     }
   }

@@ -55,6 +55,7 @@ import { UsuarioFiltroComponent } from './pages/usuarios/usuario-filtro/usuario-
 import { InputPasswordComponent } from './templates/form/input-password/input-password.component';
 import { ToastComponent } from './templates/form/ngb-toast/toast/toast.component';
 import { InputTextAreaComponent } from './templates/form/input-text-area/input-text-area.component';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { InputTextAreaComponent } from './templates/form/input-text-area/input-t
     FormsModule,
     NgbModule,
     FontAwesomeModule,
-    UiSwitchModule
+    UiSwitchModule,
+    NgDragDropModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

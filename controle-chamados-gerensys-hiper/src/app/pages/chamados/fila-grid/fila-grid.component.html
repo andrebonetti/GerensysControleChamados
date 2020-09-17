@@ -1,6 +1,8 @@
 <div class="filas">
 
-  <div class="fila" *ngFor="let itemFila of filasDTO">
+  <div class="fila"
+    *ngFor="let itemFila of filasDTO"
+    [ngClass]="itemFila.cssClass">
 
     <div class="fila-style"
     [ngStyle]="{'background-color': itemFila.colorStyle}"></div>
@@ -25,9 +27,20 @@
 
     </div>
 
-    <div class="lista">
+    <div class="lista"
+      droppable
+      [dropScope]="['fila-lista-'+itemFila.id]"
+      [dragOverClass]="'drag-target-border'"
+      [dragHintClass]="'drag-hint'"
+      (onDrop)="dropItemOnDragCard($event,itemFila)">
 
-      <div class="chamado" *ngFor="let itemChamado of itemFila.chamadosDTO">
+      <div class="chamado"
+        *ngFor="let itemChamado of itemFila.chamadosDTO"
+        draggable
+        [dragScope]="getDragScope(itemChamado.filaDTO.id)"
+        [dragClass]="'drag-over'"
+        [dragData]="itemChamado"
+        [dragTransitClass]="'drag-transit'">
 
         <div class="cliente">
 
