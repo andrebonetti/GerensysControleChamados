@@ -1,6 +1,6 @@
-package com.controlefinanceiro.chamado;
+package com.controlechamados.chamado;
 
-import com.controlefinanceiro.chamado.dto.ChamadoDTO;
+import com.controlechamados.chamado.dto.ChamadoDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

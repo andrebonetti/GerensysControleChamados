@@ -1,4 +1,4 @@
-package com.controlefinanceiro.commons;
+package message.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

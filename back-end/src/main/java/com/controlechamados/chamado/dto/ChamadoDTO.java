@@ -1,4 +1,4 @@
-package com.controlefinanceiro.chamado.dto;
+package com.controlechamados.chamado.dto;
 
 import java.util.UUID;
 

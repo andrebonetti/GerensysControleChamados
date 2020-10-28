@@ -1,8 +1,8 @@
 package config;
 
-import com.controlefinanceiro.commons.MyRestControllerAdvice;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import message.component.MyRestControllerAdvice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

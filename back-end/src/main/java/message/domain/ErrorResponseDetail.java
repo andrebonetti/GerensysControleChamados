@@ -1,4 +1,4 @@
-package com.controlefinanceiro.commons;
+package message.domain;
 
 import java.util.List;
 

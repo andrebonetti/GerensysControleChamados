@@ -1,7 +1,11 @@
-package com.controlefinanceiro.commons;
+package message.component;
 
-import com.google.api.server.spi.response.ConflictException;
-import com.google.api.server.spi.response.NotFoundException;
+import message.domain.ErrorResponse;
+import message.domain.ErrorResponseDetail;
+import message.domain.FieldError;
+import message.domain.Response;
+import message.exception.ConflictException;
+import message.exception.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -18,11 +22,11 @@ import static org.springframework.http.HttpStatus.*;
 @RestControllerAdvice
 public class MyRestControllerAdvice {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MyRestControllerAdvice.class);
+    private static final Logger LOG = LoggerFactory.getLogger( MyRestControllerAdvice.class);
     private static final String GENERIC_ERROR = "messages.generic.error";
     private static final String FIELDS_VALIDATION_ERROR = "messages.fields.validation.error";
     private static final String HANDLING_MESSAGE_TO_ERROR = "Handling message to error: {}";
-        private final MyMessageSourceAccessor accessor;
+    private final MyMessageSourceAccessor accessor;
 
     public MyRestControllerAdvice(MyMessageSourceAccessor accessor) {
         this.accessor = accessor;

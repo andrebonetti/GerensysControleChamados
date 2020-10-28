@@ -1,13 +1,13 @@
-package com.controlefinanceiro;
+package com.controlechamados;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ControleFinanceiroApplication {
+public class ControleChamadosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ControleFinanceiroApplication.class, args);
+		SpringApplication.run( ControleChamadosApplication.class, args);
 	}
 
 }
