@@ -1,17 +1,20 @@
-package com.controlefinanceiro.occurrence;
+package com.controlefinanceiro.chamado;
 
-import org.springframework.data.domain.PageImpl;
+import com.controlefinanceiro.chamado.dto.ChamadoDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-public class OccurrenceController {
+import java.util.UUID;
 
-    @GetMapping("/users")
+@RestController
+public class ChamadoController {
+
+    @GetMapping("/chamados")
     public ResponseEntity findAll(Pageable pageable) {
-        return ResponseEntity.ok("Restaa");
+        ChamadoDTO chamadoDTO = new ChamadoDTO( UUID.randomUUID(),"Teste");
+        return ResponseEntity.ok(chamadoDTO);
     }
 
 }
