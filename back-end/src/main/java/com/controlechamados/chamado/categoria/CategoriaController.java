@@ -1,5 +1,6 @@
 package com.controlechamados.chamado.categoria;
 
+import com.controlechamados.chamado.Chamado;
 import com.controlechamados.chamado.dto.ChamadoDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
