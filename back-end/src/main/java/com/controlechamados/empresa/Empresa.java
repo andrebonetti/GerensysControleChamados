@@ -8,4 +8,21 @@ public class Empresa {
     private String imagem;
     private String nome;
 
+    public Empresa(UUID id, String imagem, String nome) {
+        this.id = id;
+        this.imagem = imagem;
+        this.nome = nome;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public String getNome() {
+        return nome;
+    }
 }

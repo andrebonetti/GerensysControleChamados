@@ -1,13 +1,14 @@
 package com.controlechamados.chamado;
 
 import com.controlechamados.chamado.categoria.subcategoria.SubCategoria;
-import com.controlechamados.chamado.formulario.Formulario;
+import com.controlechamados.chamado.formularioinput.FormularioInput;
 import com.controlechamados.chamado.solucaoTecnica.SolucaoTecnica;
 import com.controlechamados.empresa.Empresa;
 import com.controlechamados.fila.Fila;
 import com.controlechamados.usuario.Usuario;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 public class Chamado {
@@ -19,8 +20,8 @@ public class Chamado {
     private Usuario usuarioResponsavel;
     private Usuario usuarioCriacao;
     private Fila fila;
-    private Formulario formulario;
-    private SolucaoTecnica solucaoTecnica;
+    private List<FormularioInput> formularioInput;
+    private List<SolucaoTecnica> solucaoTecnicaChecklist;
     private LocalDate dataCriacao;
     private LocalDate dataModificacao;
 
@@ -36,8 +37,8 @@ public class Chamado {
         this.usuarioResponsavel = builder.usuarioResponsavel;
         this.usuarioCriacao = builder.usuarioCriacao;
         this.fila = builder.fila;
-        this.formulario = builder.formulario;
-        this.solucaoTecnica = builder.solucaoTecnica;
+        this.formularioInput = builder.formularioInput;
+        this.solucaoTecnicaChecklist = builder.solucaoTecnica;
         this.dataCriacao = builder.dataCriacao;
         this.dataModificacao = builder.dataModificacao;
 
@@ -56,8 +57,8 @@ public class Chamado {
         private Usuario usuarioResponsavel;
         private Usuario usuarioCriacao;
         private Fila fila;
-        private Formulario formulario;
-        private SolucaoTecnica solucaoTecnica;
+        private List<FormularioInput> formularioInput;
+        private List<SolucaoTecnica> solucaoTecnica;
         private LocalDate dataCriacao;
         private LocalDate dataModificacao;
 
@@ -96,12 +97,12 @@ public class Chamado {
             return this;
         }
 
-        public Builder withFormulario(Formulario formulario) {
-            this.formulario = formulario;
+        public Builder withFormularioInput(List<FormularioInput> formularioInput) {
+            this.formularioInput = formularioInput;
             return this;
         }
 
-        public Builder withSolucaoTecnica(SolucaoTecnica solucaoTecnica) {
+        public Builder withSolucaoTecnica(List<SolucaoTecnica> solucaoTecnica) {
             this.solucaoTecnica = solucaoTecnica;
             return this;
         }
@@ -128,4 +129,39 @@ public class Chamado {
         return titulo;
     }
 
+    public SubCategoria getSubCategoria() {
+        return subCategoria;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public Usuario getUsuarioResponsavel() {
+        return usuarioResponsavel;
+    }
+
+    public Usuario getUsuarioCriacao() {
+        return usuarioCriacao;
+    }
+
+    public Fila getFila() {
+        return fila;
+    }
+
+    public List<FormularioInput> getFormularioInput() {
+        return formularioInput;
+    }
+
+    public List<SolucaoTecnica> getSolucaoTecnicaChecklist() {
+        return solucaoTecnicaChecklist;
+    }
+
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public LocalDate getDataModificacao() {
+        return dataModificacao;
+    }
 }

@@ -1,4 +1,4 @@
-package com.controlechamados.chamado.formulario.enums;
+package com.controlechamados.chamado.formularioinput.enums;
 
 public enum InputTypeEnum {
 
