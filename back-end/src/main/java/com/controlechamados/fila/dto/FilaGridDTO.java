@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FilaGridDTO {
 
-    private String  id;
+    private String id;
     private String nome;
     private List<String> cssClass;
     private Integer quantidade;
@@ -14,7 +14,7 @@ public class FilaGridDTO {
         //to serialize
     }
 
-    public FilaGridDTO(Builder builder){
+    public FilaGridDTO(Builder builder) {
         this.id = builder.id;
         this.nome = builder.nome;
         this.cssClass = builder.cssClass;
@@ -22,13 +22,13 @@ public class FilaGridDTO {
         this.colorStyle = builder.colorStyle;
     }
 
-    public static Builder builder(){
+    public static Builder builder() {
         return new Builder();
     }
 
-    public static final class Builder{
+    public static final class Builder {
 
-        private String  id;
+        private String id;
         private String nome;
         private List<String> cssClass;
         private Integer quantidade;
@@ -59,8 +59,8 @@ public class FilaGridDTO {
             return this;
         }
 
-        public FilaGridDTO build(){
-            return new FilaGridDTO(this);
+        public FilaGridDTO build() {
+            return new FilaGridDTO( this );
         }
     }
 }

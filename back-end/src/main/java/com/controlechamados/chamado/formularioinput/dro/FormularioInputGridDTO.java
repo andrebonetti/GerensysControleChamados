@@ -1,9 +1,5 @@
 package com.controlechamados.chamado.formularioinput.dro;
 
-import com.controlechamados.chamado.formularioinput.enums.InputTypeEnum;
-
-import java.util.UUID;
-
 public class FormularioInputGridDTO {
 
     private String id;

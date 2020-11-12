@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 
-import static org.hamcrest.Matchers.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasSize;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -27,22 +27,22 @@ public class ChamadoControllerTest {
 
     @BeforeEach
     void before() {
-        mockMvc.standaloneSetup(controller);
+        mockMvc.standaloneSetup( controller );
     }
 
     @Test
     void should_list_chamados() throws Exception {
-        ChamadoGridDTO chamadoGridDTO = ChamadoMock.correctChamado() ;
+        ChamadoGridDTO chamadoGridDTO = ChamadoMock.correctChamado();
 
 //        when(userService.findAll(any( Pageable.class)))
 //                .thenReturn(new PageImpl( Arrays.asList(simpleUserDTO), PageRequest.of(1, 10), 1));
 
-        mockMvc.perform(get("/chmados?page=0&size=10")
-                .contentType( MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.content", hasSize(1)))
-                .andExpect(jsonPath("$.content[*].name", hasItem("Leandro")));
+        mockMvc.perform( get( "/chmados?page=0&size=10" )
+                .contentType( MediaType.APPLICATION_JSON ) )
+                .andDo( print() )
+                .andExpect( status().isOk() )
+                .andExpect( jsonPath( "$.content", hasSize( 1 ) ) )
+                .andExpect( jsonPath( "$.content[*].name", hasItem( "Leandro" ) ) );
     }
 
 }

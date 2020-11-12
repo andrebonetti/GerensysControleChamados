@@ -4,9 +4,9 @@ import java.util.UUID;
 
 public class CategoriaMock {
 
-    public static Categoria correctCategoria(){
+    public static Categoria correctCategoria() {
 
-        return new Categoria( UUID.randomUUID(),"Descricao MOCK" );
+        return new Categoria( UUID.randomUUID(), "Descricao MOCK" );
 
     }
 

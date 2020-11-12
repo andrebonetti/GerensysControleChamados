@@ -6,13 +6,13 @@ import com.controlechamados.chamado.categoria.subcategoria.dto.SubCategoriaGridD
 
 public class SubCategoriaConverter {
 
-    public static SubCategoriaGridDTO toGridDTO(SubCategoria subCategoria){
+    public static SubCategoriaGridDTO toGridDTO(SubCategoria subCategoria) {
 
         CategoriaGridDTO categoriaGridDTO = CategoriaConverter.toDto( subCategoria.getCategoria() );
 
-        return new SubCategoriaGridDTO(subCategoria.getId().toString(),
+        return new SubCategoriaGridDTO( subCategoria.getId().toString(),
                 categoriaGridDTO,
-                subCategoria.getDescricao());
+                subCategoria.getDescricao() );
 
     }
 

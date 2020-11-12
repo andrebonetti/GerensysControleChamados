@@ -1,6 +1,5 @@
 package com.controlechamados.usuario.dto;
 
-import com.controlechamados.usuario.Usuario;
 import com.controlechamados.usuario.perfil.dto.PerfilGridDTO;
 
 public class UsuarioGridDTO {
@@ -18,7 +17,7 @@ public class UsuarioGridDTO {
         // to serialize
     }
 
-    public UsuarioGridDTO(Builder builder){
+    public UsuarioGridDTO(Builder builder) {
 
         this.id = builder.id;
         this.nome = builder.nome;
@@ -35,7 +34,39 @@ public class UsuarioGridDTO {
         return new Builder();
     }
 
-    public static final class Builder{
+    public String getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public PerfilGridDTO getPerfilGridDTO() {
+        return perfilGridDTO;
+    }
+
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public String getDataModificacao() {
+        return dataModificacao;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public static final class Builder {
 
         private String id;
         private String nome;
@@ -86,41 +117,9 @@ public class UsuarioGridDTO {
             return this;
         }
 
-        public UsuarioGridDTO build(){
-            return new UsuarioGridDTO(this);
+        public UsuarioGridDTO build() {
+            return new UsuarioGridDTO( this );
         }
 
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getImagem() {
-        return imagem;
-    }
-
-    public PerfilGridDTO getPerfilGridDTO() {
-        return perfilGridDTO;
-    }
-
-    public String getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public String getDataModificacao() {
-        return dataModificacao;
-    }
-
-    public Boolean getAtivo() {
-        return ativo;
     }
 }

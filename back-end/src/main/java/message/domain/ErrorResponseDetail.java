@@ -66,7 +66,7 @@ public class ErrorResponseDetail {
         }
 
         public ErrorResponseDetail build() {
-            return new ErrorResponseDetail(this);
+            return new ErrorResponseDetail( this );
         }
     }
 

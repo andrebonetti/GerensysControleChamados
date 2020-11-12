@@ -27,7 +27,7 @@ public class ChamadoGridDTO {
         //to serialize
     }
 
-    private ChamadoGridDTO(Builder builder){
+    private ChamadoGridDTO(Builder builder) {
         this.id = builder.id;
         this.titulo = builder.titulo;
         this.subCategoria = builder.subCategoria;
@@ -45,7 +45,51 @@ public class ChamadoGridDTO {
         return new Builder();
     }
 
-    public static final class Builder{
+    public String getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public SubCategoriaGridDTO getSubCategoria() {
+        return subCategoria;
+    }
+
+    public EmpresaGridDTO getEmpresa() {
+        return empresa;
+    }
+
+    public UsuarioGridDTO getUsuarioResponsavel() {
+        return usuarioResponsavel;
+    }
+
+    public UsuarioGridDTO getUsuarioCriacao() {
+        return usuarioCriacao;
+    }
+
+    public FilaGridDTO getFila() {
+        return fila;
+    }
+
+    public List<FormularioInputGridDTO> getFormularioInputGridDTOs() {
+        return formularioInputGridDTOs;
+    }
+
+    public List<SolucaoTecnicaGridDTO> getSolucaoTecnicaChecklist() {
+        return solucaoTecnicaChecklist;
+    }
+
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public String getDataModificacao() {
+        return dataModificacao;
+    }
+
+    public static final class Builder {
 
         private String id;
         private String titulo;
@@ -114,51 +158,9 @@ public class ChamadoGridDTO {
             return this;
         }
 
-        public ChamadoGridDTO build(){return new ChamadoGridDTO(this);}
+        public ChamadoGridDTO build() {
+            return new ChamadoGridDTO( this );
+        }
 
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public SubCategoriaGridDTO getSubCategoria() {
-        return subCategoria;
-    }
-
-    public EmpresaGridDTO getEmpresa() {
-        return empresa;
-    }
-
-    public UsuarioGridDTO getUsuarioResponsavel() {
-        return usuarioResponsavel;
-    }
-
-    public UsuarioGridDTO getUsuarioCriacao() {
-        return usuarioCriacao;
-    }
-
-    public FilaGridDTO getFila() {
-        return fila;
-    }
-
-    public List<FormularioInputGridDTO> getFormularioInputGridDTOs() {
-        return formularioInputGridDTOs;
-    }
-
-    public List<SolucaoTecnicaGridDTO> getSolucaoTecnicaChecklist() {
-        return solucaoTecnicaChecklist;
-    }
-
-    public String getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public String getDataModificacao() {
-        return dataModificacao;
     }
 }

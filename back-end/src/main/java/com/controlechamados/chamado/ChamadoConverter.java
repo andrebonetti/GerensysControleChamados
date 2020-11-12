@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 public class ChamadoConverter {
 
-    public static ChamadoGridDTO toGridDto(Chamado chamado){
+    public static ChamadoGridDTO toGridDto(Chamado chamado) {
 
         SubCategoriaGridDTO subCategoriaGridDTO = SubCategoriaConverter.toGridDTO( chamado.getSubCategoria() );
         EmpresaGridDTO empresaGridDTO = EmpresaConverter.toGridDTO( chamado.getEmpresa() );
@@ -48,12 +48,6 @@ public class ChamadoConverter {
                 .withDataCriacao( chamado.getDataCriacao().toString() )
                 .withDataModificacao( chamado.getDataModificacao().toString() )
                 .build();
-
-
-
-
-
-
 
 
     }

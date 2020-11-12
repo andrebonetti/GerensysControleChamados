@@ -1,7 +1,5 @@
 package com.controlechamados.fila;
 
-import com.controlechamados.chamado.Chamado;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -17,7 +15,7 @@ public class Fila {
         //to serialize
     }
 
-    private Fila(Builder builder){
+    private Fila(Builder builder) {
         this.id = builder.id;
         this.nome = builder.nome;
         this.cssClass = builder.cssClass;
@@ -29,7 +27,27 @@ public class Fila {
         return new Builder();
     }
 
-    public static final class Builder{
+    public UUID getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public List<String> getCssClass() {
+        return cssClass;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public String getColorStyle() {
+        return colorStyle;
+    }
+
+    public static final class Builder {
 
         private UUID id;
         private String nome;
@@ -62,26 +80,8 @@ public class Fila {
             return this;
         }
 
-        public Fila build(){return new Fila(this);}
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public List<String> getCssClass() {
-        return cssClass;
-    }
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    public String getColorStyle() {
-        return colorStyle;
+        public Fila build() {
+            return new Fila( this );
+        }
     }
 }

@@ -11,7 +11,7 @@ public class LocaleProperties {
     private String country;
 
     public Locale locale() {
-        return new Locale(language, country);
+        return new Locale( language, country );
     }
 
     public void setCountry(String country) {

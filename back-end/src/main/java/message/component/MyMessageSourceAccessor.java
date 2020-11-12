@@ -15,12 +15,12 @@ public class MyMessageSourceAccessor {
 
     public MyMessageSourceAccessor(LocaleProperties localeProperties, MessageSource accessor) {
         this.localeProperties = localeProperties;
-        this.accessor = new MessageSourceAccessor(accessor);
+        this.accessor = new MessageSourceAccessor( accessor );
     }
 
     public String get(String code) {
         Locale locale = localeProperties.locale();
-        return accessor.getMessage(code, locale);
+        return accessor.getMessage( code, locale );
     }
 
 }

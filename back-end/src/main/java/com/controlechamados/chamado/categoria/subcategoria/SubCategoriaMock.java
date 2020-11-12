@@ -7,11 +7,11 @@ import java.util.UUID;
 
 public class SubCategoriaMock {
 
-    public static SubCategoria correctSubCategoria(){
+    public static SubCategoria correctSubCategoria() {
 
         Categoria categoria = CategoriaMock.correctCategoria();
 
-        return new SubCategoria( UUID.randomUUID(),categoria, "Descricao MOCK" );
+        return new SubCategoria( UUID.randomUUID(), categoria, "Descricao MOCK" );
     }
 
 }

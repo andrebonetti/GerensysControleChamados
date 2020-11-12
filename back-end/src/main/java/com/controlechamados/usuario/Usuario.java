@@ -1,7 +1,6 @@
 package com.controlechamados.usuario;
 
 import com.controlechamados.empresa.Empresa;
-import com.controlechamados.fila.Fila;
 import com.controlechamados.usuario.perfil.Perfil;
 
 import java.time.LocalDate;
@@ -41,7 +40,43 @@ public class Usuario {
         return new Builder();
     }
 
-    public static final class Builder{
+    public UUID getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public LocalDate getDataModificacao() {
+        return dataModificacao;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public static final class Builder {
 
         private UUID id;
         private String nome;
@@ -102,42 +137,10 @@ public class Usuario {
             return this;
         }
 
-        public Usuario build(){return new Usuario(this);};
-    }
+        public Usuario build() {
+            return new Usuario( this );
+        }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getImagem() {
-        return imagem;
-    }
-
-    public Perfil getPerfil() {
-        return perfil;
-    }
-
-    public LocalDate getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public LocalDate getDataModificacao() {
-        return dataModificacao;
-    }
-
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public String getSenha() {
-        return senha;
+        ;
     }
 }

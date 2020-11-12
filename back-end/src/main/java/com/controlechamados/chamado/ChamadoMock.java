@@ -39,8 +39,12 @@ public class ChamadoMock {
                 .withFila( filaEmAberto )
                 .withFormularioInput( formularioInputs )
                 .withSolucaoTecnica( solucaoTecnicas )
-                .withDataCriacao( LocalDate.of(2020,11,1) )
-                .withDataModificacao( LocalDate.of(2020,11,2) )
+                .withDataCriacao( LocalDate.of( 2020, 11, 1 ) )
+                .withDataModificacao( LocalDate.of( 2020, 11, 2 ) )
                 .build();
+    }
+
+    public static List<Chamado> chamadosCase() {
+        return List.of( chamadoCase1() );
     }
 }

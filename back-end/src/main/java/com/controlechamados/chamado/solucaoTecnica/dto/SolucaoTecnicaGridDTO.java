@@ -1,7 +1,5 @@
 package com.controlechamados.chamado.solucaoTecnica.dto;
 
-import java.util.UUID;
-
 public class SolucaoTecnicaGridDTO {
 
     private String id;

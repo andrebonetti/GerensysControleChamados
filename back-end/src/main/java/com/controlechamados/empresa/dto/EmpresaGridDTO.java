@@ -1,7 +1,5 @@
 package com.controlechamados.empresa.dto;
 
-import java.util.UUID;
-
 public class EmpresaGridDTO {
 
     private String id;

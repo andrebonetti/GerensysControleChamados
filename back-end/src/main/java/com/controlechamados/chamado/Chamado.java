@@ -29,7 +29,7 @@ public class Chamado {
         //to serialize
     }
 
-    private Chamado(Builder builder){
+    private Chamado(Builder builder) {
         this.id = builder.id;
         this.titulo = builder.titulo;
         this.subCategoria = builder.subCategoria;
@@ -48,7 +48,51 @@ public class Chamado {
         return new Builder();
     }
 
-    public static final class Builder{
+    public UUID getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public SubCategoria getSubCategoria() {
+        return subCategoria;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public Usuario getUsuarioResponsavel() {
+        return usuarioResponsavel;
+    }
+
+    public Usuario getUsuarioCriacao() {
+        return usuarioCriacao;
+    }
+
+    public Fila getFila() {
+        return fila;
+    }
+
+    public List<FormularioInput> getFormularioInput() {
+        return formularioInput;
+    }
+
+    public List<SolucaoTecnica> getSolucaoTecnicaChecklist() {
+        return solucaoTecnicaChecklist;
+    }
+
+    public LocalDate getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public LocalDate getDataModificacao() {
+        return dataModificacao;
+    }
+
+    public static final class Builder {
 
         private UUID id;
         private String titulo;
@@ -117,51 +161,9 @@ public class Chamado {
             return this;
         }
 
-        public Chamado build(){return new Chamado(this);}
+        public Chamado build() {
+            return new Chamado( this );
+        }
 
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public SubCategoria getSubCategoria() {
-        return subCategoria;
-    }
-
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    public Usuario getUsuarioResponsavel() {
-        return usuarioResponsavel;
-    }
-
-    public Usuario getUsuarioCriacao() {
-        return usuarioCriacao;
-    }
-
-    public Fila getFila() {
-        return fila;
-    }
-
-    public List<FormularioInput> getFormularioInput() {
-        return formularioInput;
-    }
-
-    public List<SolucaoTecnica> getSolucaoTecnicaChecklist() {
-        return solucaoTecnicaChecklist;
-    }
-
-    public LocalDate getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public LocalDate getDataModificacao() {
-        return dataModificacao;
     }
 }

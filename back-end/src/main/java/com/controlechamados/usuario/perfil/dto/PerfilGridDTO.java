@@ -1,7 +1,5 @@
 package com.controlechamados.usuario.perfil.dto;
 
-import java.util.UUID;
-
 public class PerfilGridDTO {
 
     private String id;

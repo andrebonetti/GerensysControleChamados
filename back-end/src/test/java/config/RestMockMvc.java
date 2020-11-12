@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 @Component
 public class RestMockMvc {
 
-    private static final Logger LOG = LoggerFactory.getLogger(RestMockMvc.class);
+    private static final Logger LOG = LoggerFactory.getLogger( RestMockMvc.class );
 
     @Autowired
     private MyRestControllerAdvice restControllerAdvice;
@@ -27,24 +27,24 @@ public class RestMockMvc {
     private MockMvc mockMvc;
 
     public void standaloneSetup(Object controller) {
-        mockMvc = MockMvcBuilders.standaloneSetup(controller)
-                .setMessageConverters(new MappingJackson2HttpMessageConverter())
-                .setControllerAdvice(restControllerAdvice)
-                .setCustomArgumentResolvers(new PageableHandlerMethodArgumentResolver())
+        mockMvc = MockMvcBuilders.standaloneSetup( controller )
+                .setMessageConverters( new MappingJackson2HttpMessageConverter() )
+                .setControllerAdvice( restControllerAdvice )
+                .setCustomArgumentResolvers( new PageableHandlerMethodArgumentResolver() )
                 .build();
     }
 
     public ResultActions perform(RequestBuilder requestBuilder) throws Exception {
-        return mockMvc.perform(requestBuilder);
+        return mockMvc.perform( requestBuilder );
     }
 
     public String toJson(Object object) {
         try {
-            String json = objectMapper.writeValueAsString(object);
-            LOG.info("Converted json {} ", json);
+            String json = objectMapper.writeValueAsString( object );
+            LOG.info( "Converted json {} ", json );
             return json;
         } catch (JsonProcessingException ex) {
-            LOG.error("Error to convert object, return an empty object", ex);
+            LOG.error( "Error to convert object, return an empty object", ex );
             return "{}";
         }
     }
