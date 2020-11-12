@@ -1,41 +1,35 @@
-package com.controlechamados.usuario;
+package com.controlechamados.usuario.dto;
 
-import com.controlechamados.empresa.Empresa;
-import com.controlechamados.fila.Fila;
-import com.controlechamados.usuario.perfil.Perfil;
+import com.controlechamados.usuario.Usuario;
+import com.controlechamados.usuario.perfil.dto.PerfilGridDTO;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.UUID;
+public class UsuarioGridDTO {
 
-public class Usuario {
-
-    private UUID id;
+    private String id;
     private String nome;
     private String email;
     private String imagem;
-    private Perfil perfil;
-    private LocalDate dataCriacao;
-    private LocalDate dataModificacao;
+    private PerfilGridDTO perfilGridDTO;
+    private String dataCriacao;
+    private String dataModificacao;
     private Boolean ativo;
-    private String senha;
 
-    public Usuario() {
-        //serialize
+    public UsuarioGridDTO() {
+        // to serialize
     }
 
-    public Usuario(Builder builder) {
+    public UsuarioGridDTO(Builder builder){
+
         this.id = builder.id;
         this.nome = builder.nome;
         this.email = builder.email;
         this.imagem = builder.imagem;
-        this.perfil = builder.perfil;
+        this.perfilGridDTO = builder.perfilGridDTO;
         this.dataCriacao = builder.dataCriacao;
         this.dataModificacao = builder.dataModificacao;
         this.ativo = builder.ativo;
-        this.senha = builder.senha;
-    }
 
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -43,17 +37,16 @@ public class Usuario {
 
     public static final class Builder{
 
-        private UUID id;
+        private String id;
         private String nome;
         private String email;
         private String imagem;
-        private Perfil perfil;
-        private LocalDate dataCriacao;
-        private LocalDate dataModificacao;
+        private PerfilGridDTO perfilGridDTO;
+        private String dataCriacao;
+        private String dataModificacao;
         private Boolean ativo;
-        private String senha;
 
-        public Builder withId(UUID id) {
+        public Builder withId(String id) {
             this.id = id;
             return this;
         }
@@ -73,21 +66,17 @@ public class Usuario {
             return this;
         }
 
-        public Builder withPerfil(Perfil perfil) {
-            this.perfil = perfil;
+        public Builder withPerfilGridDTO(PerfilGridDTO perfilGridDTO) {
+            this.perfilGridDTO = perfilGridDTO;
             return this;
         }
 
-        public Builder withEmpresas(List<Empresa> empresas) {
-            return this;
-        }
-
-        public Builder withDataCriacao(LocalDate dataCriacao) {
+        public Builder withDataCriacao(String dataCriacao) {
             this.dataCriacao = dataCriacao;
             return this;
         }
 
-        public Builder withDataModificacao(LocalDate dataModificacao) {
+        public Builder withDataModificacao(String dataModificacao) {
             this.dataModificacao = dataModificacao;
             return this;
         }
@@ -97,15 +86,13 @@ public class Usuario {
             return this;
         }
 
-        public Builder withSenha(String senha) {
-            this.senha = senha;
-            return this;
+        public UsuarioGridDTO build(){
+            return new UsuarioGridDTO(this);
         }
 
-        public Usuario build(){return new Usuario(this);};
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
@@ -121,23 +108,19 @@ public class Usuario {
         return imagem;
     }
 
-    public Perfil getPerfil() {
-        return perfil;
+    public PerfilGridDTO getPerfilGridDTO() {
+        return perfilGridDTO;
     }
 
-    public LocalDate getDataCriacao() {
+    public String getDataCriacao() {
         return dataCriacao;
     }
 
-    public LocalDate getDataModificacao() {
+    public String getDataModificacao() {
         return dataModificacao;
     }
 
     public Boolean getAtivo() {
         return ativo;
-    }
-
-    public String getSenha() {
-        return senha;
     }
 }

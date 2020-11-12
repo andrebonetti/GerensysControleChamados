@@ -2,7 +2,6 @@ package com.controlechamados.chamado;
 
 import com.controlechamados.chamado.categoria.subcategoria.SubCategoria;
 import com.controlechamados.chamado.categoria.subcategoria.SubCategoriaMock;
-import com.controlechamados.chamado.dto.ChamadoDTO;
 import com.controlechamados.chamado.formularioinput.FormularioInput;
 import com.controlechamados.chamado.formularioinput.FormularioInputMock;
 import com.controlechamados.chamado.solucaoTecnica.SolucaoTecnica;
@@ -20,7 +19,7 @@ import java.util.UUID;
 
 public class ChamadoMock {
 
-    public static Chamado correctChamado() {
+    public static Chamado chamadoCase1() {
 
         SubCategoria subCategoria = SubCategoriaMock.correctSubCategoria();
         Empresa empresa = EmpresaMock.correctEmpresa();

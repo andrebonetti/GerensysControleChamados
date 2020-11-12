@@ -1,18 +1,18 @@
-package com.controlechamados.usuario.perfil;
+package com.controlechamados.usuario.perfil.dto;
 
 import java.util.UUID;
 
-public class Perfil {
+public class PerfilGridDTO {
 
-    private UUID id;
+    private String id;
     private String nome;
 
-    public Perfil(UUID id, String nome) {
+    public PerfilGridDTO(String id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
