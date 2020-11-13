@@ -25,4 +25,13 @@ public class SubCategoriaGridDTO {
     public String getDescricao() {
         return descricao;
     }
+
+    @Override
+    public String toString() {
+        return "SubCategoriaGridDTO{" +
+                "id='" + id + '\'' +
+                ", categoriaGridDTO=" + categoriaGridDTO +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
 }

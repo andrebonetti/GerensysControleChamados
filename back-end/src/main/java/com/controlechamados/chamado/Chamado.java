@@ -166,4 +166,21 @@ public class Chamado {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "Chamado{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", subCategoria=" + subCategoria +
+                ", empresa=" + empresa +
+                ", usuarioResponsavel=" + usuarioResponsavel +
+                ", usuarioCriacao=" + usuarioCriacao +
+                ", fila=" + fila +
+                ", formularioInput=" + formularioInput +
+                ", solucaoTecnicaChecklist=" + solucaoTecnicaChecklist +
+                ", dataCriacao=" + dataCriacao +
+                ", dataModificacao=" + dataModificacao +
+                '}';
+    }
 }

@@ -122,4 +122,18 @@ public class UsuarioGridDTO {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "UsuarioGridDTO{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", imagem='" + imagem + '\'' +
+                ", perfilGridDTO=" + perfilGridDTO +
+                ", dataCriacao='" + dataCriacao + '\'' +
+                ", dataModificacao='" + dataModificacao + '\'' +
+                ", ativo=" + ativo +
+                '}';
+    }
 }

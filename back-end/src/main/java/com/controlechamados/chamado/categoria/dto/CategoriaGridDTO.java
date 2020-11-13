@@ -17,4 +17,12 @@ public class CategoriaGridDTO {
     public String getDescricao() {
         return descricao;
     }
+
+    @Override
+    public String toString() {
+        return "CategoriaGridDTO{" +
+                "id='" + id + '\'' +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
 }

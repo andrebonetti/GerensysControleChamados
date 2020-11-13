@@ -163,4 +163,21 @@ public class ChamadoGridDTO {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "ChamadoGridDTO{" +
+                "id='" + id + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", subCategoria=" + subCategoria +
+                ", empresa=" + empresa +
+                ", usuarioResponsavel=" + usuarioResponsavel +
+                ", usuarioCriacao=" + usuarioCriacao +
+                ", fila=" + fila +
+                ", formularioInputGridDTOs=" + formularioInputGridDTOs +
+                ", solucaoTecnicaChecklist=" + solucaoTecnicaChecklist +
+                ", dataCriacao='" + dataCriacao + '\'' +
+                ", dataModificacao='" + dataModificacao + '\'' +
+                '}';
+    }
 }

@@ -27,4 +27,13 @@ public class SubCategoria {
     public String getDescricao() {
         return descricao;
     }
+
+    @Override
+    public String toString() {
+        return "SubCategoria{" +
+                "id=" + id +
+                ", categoria=" + categoria +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
 }

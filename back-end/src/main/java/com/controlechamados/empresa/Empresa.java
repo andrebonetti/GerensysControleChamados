@@ -25,4 +25,13 @@ public class Empresa {
     public String getNome() {
         return nome;
     }
+
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "id=" + id +
+                ", imagem='" + imagem + '\'' +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 }

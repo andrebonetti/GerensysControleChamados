@@ -27,4 +27,13 @@ public class FormularioInput {
     public String getValor() {
         return valor;
     }
+
+    @Override
+    public String toString() {
+        return "FormularioInput{" +
+                "id=" + id +
+                ", tipo=" + tipo +
+                ", valor='" + valor + '\'' +
+                '}';
+    }
 }

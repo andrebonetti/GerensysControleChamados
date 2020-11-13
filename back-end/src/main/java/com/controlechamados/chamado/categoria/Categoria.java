@@ -19,4 +19,12 @@ public class Categoria {
     public String getDescricao() {
         return descricao;
     }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "id=" + id +
+                ", descricao='" + descricao + '\'' +
+                '}';
+    }
 }

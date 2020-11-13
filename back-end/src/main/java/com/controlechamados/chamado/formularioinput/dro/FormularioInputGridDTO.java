@@ -23,4 +23,13 @@ public class FormularioInputGridDTO {
     public String getValor() {
         return valor;
     }
+
+    @Override
+    public String toString() {
+        return "FormularioInputGridDTO{" +
+                "id='" + id + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", valor='" + valor + '\'' +
+                '}';
+    }
 }

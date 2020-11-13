@@ -140,7 +140,20 @@ public class Usuario {
         public Usuario build() {
             return new Usuario( this );
         }
+    }
 
-        ;
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", imagem='" + imagem + '\'' +
+                ", perfil=" + perfil +
+                ", dataCriacao=" + dataCriacao +
+                ", dataModificacao=" + dataModificacao +
+                ", ativo=" + ativo +
+                ", senha='" + senha + '\'' +
+                '}';
     }
 }

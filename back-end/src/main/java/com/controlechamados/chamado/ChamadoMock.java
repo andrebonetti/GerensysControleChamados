@@ -22,7 +22,7 @@ public class ChamadoMock {
     public static Chamado chamadoCase1() {
 
         SubCategoria subCategoria = SubCategoriaMock.correctSubCategoria();
-        Empresa empresa = EmpresaMock.correctEmpresa();
+        Empresa empresa = EmpresaMock.empresaCase1();
         Usuario usuarioResponsavel = UsuarioMock.usuarioResponsavel();
         Usuario usuarioCriacao = UsuarioMock.usuarioCriacao();
         Fila filaEmAberto = FilaMock.filaEmAberto();

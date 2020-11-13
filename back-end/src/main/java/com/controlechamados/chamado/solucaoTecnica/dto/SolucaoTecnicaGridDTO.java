@@ -29,4 +29,14 @@ public class SolucaoTecnicaGridDTO {
     public Boolean getConcluido() {
         return concluido;
     }
+
+    @Override
+    public String toString() {
+        return "SolucaoTecnicaGridDTO{" +
+                "id='" + id + '\'' +
+                ", tipo='" + tipo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", concluido=" + concluido +
+                '}';
+    }
 }

@@ -63,4 +63,35 @@ public class FilaGridDTO {
             return new FilaGridDTO( this );
         }
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public List<String> getCssClass() {
+        return cssClass;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public String getColorStyle() {
+        return colorStyle;
+    }
+
+    @Override
+    public String toString() {
+        return "FilaGridDTO{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", cssClass=" + cssClass +
+                ", quantidade=" + quantidade +
+                ", colorStyle='" + colorStyle + '\'' +
+                '}';
+    }
 }

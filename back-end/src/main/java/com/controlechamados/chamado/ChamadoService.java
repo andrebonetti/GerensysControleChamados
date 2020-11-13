@@ -18,4 +18,11 @@ public class ChamadoService {
         return chamadoGridDTOS;
     }
 
+    public ChamadoGridDTO findById(String id){
+        Chamado chamado = ChamadoMock.chamadoCase1();
+        ChamadoGridDTO chamadoGridDTO = ChamadoConverter.toGridDto( chamado );
+
+        return chamadoGridDTO;
+    }
+
 }

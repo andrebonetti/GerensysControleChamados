@@ -19,4 +19,12 @@ public class Perfil {
     public String getNome() {
         return nome;
     }
+
+    @Override
+    public String toString() {
+        return "Perfil{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 }

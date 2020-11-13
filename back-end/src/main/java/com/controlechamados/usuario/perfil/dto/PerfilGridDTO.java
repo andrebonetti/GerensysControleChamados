@@ -17,4 +17,12 @@ public class PerfilGridDTO {
     public String getNome() {
         return nome;
     }
+
+    @Override
+    public String toString() {
+        return "PerfilGridDTO{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                '}';
+    }
 }

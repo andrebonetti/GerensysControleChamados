@@ -31,6 +31,16 @@ public class SolucaoTecnica {
     public Boolean getConcluido() {
         return concluido;
     }
+
+    @Override
+    public String toString() {
+        return "SolucaoTecnica{" +
+                "id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", concluido=" + concluido +
+                '}';
+    }
 }
 
 

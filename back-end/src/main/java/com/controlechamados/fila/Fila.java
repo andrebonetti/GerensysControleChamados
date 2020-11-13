@@ -84,4 +84,15 @@ public class Fila {
             return new Fila( this );
         }
     }
+
+    @Override
+    public String toString() {
+        return "Fila{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", cssClass=" + cssClass +
+                ", quantidade=" + quantidade +
+                ", colorStyle='" + colorStyle + '\'' +
+                '}';
+    }
 }
