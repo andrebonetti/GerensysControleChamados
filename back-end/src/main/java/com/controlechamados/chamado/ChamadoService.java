@@ -1,6 +1,10 @@
 package com.controlechamados.chamado;
 
+import com.controlechamados.chamado.dto.ChamadoFormDTO;
+import com.controlechamados.chamado.dto.ChamadoFormUpdFilaDTO;
 import com.controlechamados.chamado.dto.ChamadoGridDTO;
+import com.controlechamados.fila.Fila;
+import com.controlechamados.fila.FilaMock;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +27,17 @@ public class ChamadoService {
         ChamadoGridDTO chamadoGridDTO = ChamadoConverter.toGridDto( chamado );
 
         return chamadoGridDTO;
+    }
+
+    public void criarChamado(ChamadoFormDTO chamadoFormDTO){
+
+    }
+
+    public void alterarFila(ChamadoFormUpdFilaDTO chamadoFormUpdFilaDTO){
+        Chamado chamado = ChamadoMock.chamadoCase1();
+        Fila filaEmAndamento = FilaMock.filaEmAndamento();
+
+        chamado.alterarFila(filaEmAndamento);
     }
 
 }

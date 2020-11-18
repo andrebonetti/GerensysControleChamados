@@ -15,4 +15,14 @@ public class FilaMock {
                 .build();
     }
 
+    public static Fila filaEmAndamento() {
+        return new Fila().builder()
+                .withId( UUID.randomUUID() )
+                .withNome( "Nome Em Andamento MOCK" )
+                .withCssClass( List.of( "Css 3 MOCK", "Css 4 MOCK" ) )
+                .withQuantidade( 1 )
+                .withColorStyle( "#17a2b8" )
+                .build();
+    }
+
 }

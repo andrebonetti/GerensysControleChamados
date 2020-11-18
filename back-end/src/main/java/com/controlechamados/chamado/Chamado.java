@@ -41,7 +41,6 @@ public class Chamado {
         this.solucaoTecnicaChecklist = builder.solucaoTecnica;
         this.dataCriacao = builder.dataCriacao;
         this.dataModificacao = builder.dataModificacao;
-
     }
 
     public static Builder builder() {
@@ -182,5 +181,12 @@ public class Chamado {
                 ", dataCriacao=" + dataCriacao +
                 ", dataModificacao=" + dataModificacao +
                 '}';
+    }
+
+    public void alterarFila(Fila fila){
+
+        this.fila = fila;
+        this.dataModificacao = LocalDate.now();
+
     }
 }

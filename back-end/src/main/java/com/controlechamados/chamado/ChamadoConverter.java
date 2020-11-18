@@ -2,6 +2,7 @@ package com.controlechamados.chamado;
 
 import com.controlechamados.chamado.categoria.subcategoria.SubCategoriaConverter;
 import com.controlechamados.chamado.categoria.subcategoria.dto.SubCategoriaGridDTO;
+import com.controlechamados.chamado.dto.ChamadoFormDTO;
 import com.controlechamados.chamado.dto.ChamadoGridDTO;
 import com.controlechamados.chamado.formularioinput.FormularioInputConverter;
 import com.controlechamados.chamado.formularioinput.dro.FormularioInputGridDTO;
@@ -50,6 +51,12 @@ public class ChamadoConverter {
                 .build();
 
 
+    }
+
+    public static Chamado toEntity(ChamadoFormDTO chamadoFormDTO){
+
+
+        return null;
     }
 
 }
