@@ -2,18 +2,12 @@ package com.controlechamados.chamado.formularioinput.dro;
 
 public class FormularioInputFormDTO {
 
-    private String id;
     private String tipo;
     private String valor;
 
-    public FormularioInputFormDTO(String id, String tipo, String valor) {
-        this.id = id;
+    public FormularioInputFormDTO(String tipo, String valor) {
         this.tipo = tipo;
         this.valor = valor;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getTipo() {
@@ -27,7 +21,6 @@ public class FormularioInputFormDTO {
     @Override
     public String toString() {
         return "FormularioInputGridDTO{" +
-                "id='" + id + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", valor='" + valor + '\'' +
                 '}';
