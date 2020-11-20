@@ -28,15 +28,14 @@ public class UsuarioMock {
     }
 
     public static Usuario usuarioCriacao() {
+
         Perfil perfilOperador = PerfilMock.perfilOperador();
-        List<Empresa> empresas = EmpresaMock.empresaCases();
 
         return new Usuario().builder()
                 .withId( UUID.randomUUID() )
                 .withNome( "Nome Operador MOCK" )
                 .withEmail( "Email Operador MOCK" )
                 .withImagem( "Imagem Operador MOCK" )
-                .withEmpresas( empresas )
                 .withPerfil( perfilOperador )
                 .withDataCriacao( LocalDate.of( 2020, 11, 2 ) )
                 .withDataModificacao( LocalDate.of( 2020, 12, 12 ) )

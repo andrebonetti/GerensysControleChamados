@@ -2,6 +2,7 @@ package com.controlechamados.historico.dto;
 
 import com.controlechamados.historico.enums.AcaoEnum;
 import com.controlechamados.historico.enums.TabelaEnum;
+import com.controlechamados.interfaces.Entity;
 
 import java.util.UUID;
 
@@ -9,14 +10,11 @@ public class HistoricoParam {
 
     private TabelaEnum tabelaEnum;
     private AcaoEnum acaoEnum;
-    private UUID id;
-    private String dados;
+    private Entity entity;
 
-    public HistoricoParam(TabelaEnum tabelaEnum, AcaoEnum acaoEnum, UUID id, String dados) {
+    public HistoricoParam(TabelaEnum tabelaEnum, AcaoEnum acaoEnum, Entity entity) {
         this.tabelaEnum = tabelaEnum;
         this.acaoEnum = acaoEnum;
-        this.id = id;
-        this.dados = dados;
     }
 
     public TabelaEnum getTabelaEnum() {
@@ -27,12 +25,8 @@ public class HistoricoParam {
         return acaoEnum;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public String getDados() {
-        return dados;
+    public Entity getEntity() {
+        return entity;
     }
 
     @Override
@@ -40,8 +34,7 @@ public class HistoricoParam {
         return "HistoricoParam{" +
                 "tabelaEnum=" + tabelaEnum +
                 ", acaoEnum=" + acaoEnum +
-                ", id=" + id +
-                ", dados='" + dados + '\'' +
+                ", entity=" + entity +
                 '}';
     }
 }

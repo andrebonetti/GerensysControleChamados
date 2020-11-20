@@ -45,8 +45,7 @@ public class EmpresaService {
         historicoService.criarHistoricoRegistro( new HistoricoParam(
             TabelaEnum.EMPRESA,
             AcaoEnum.CRIACAO,
-            empresa.getId(),
-            empresa.toString()
+            empresa
         ));
 
     }
@@ -60,8 +59,7 @@ public class EmpresaService {
         historicoService.criarHistoricoRegistro( new HistoricoParam(
             TabelaEnum.EMPRESA,
             AcaoEnum.ALTERACAO,
-            empresa.getId(),
-            empresa.toString()
+            empresa
         ));
 
     }
@@ -70,14 +68,13 @@ public class EmpresaService {
 
         Empresa empresa = EmpresaMock.empresaCase1();
 
-//        empresa.atualizar( empresaFormAtualizacaoDTO );
-//
-//        historicoService.criarHistoricoRegistro( new HistoricoParam(
-//                TabelaEnum.EMPRESA,
-//                AcaoEnum.ALTERACAO,
-//                empresa.getId(),
-//                empresa.toString()
-//        ));
+        empresa.inativar();
+
+        historicoService.criarHistoricoRegistro( new HistoricoParam(
+                TabelaEnum.EMPRESA,
+                AcaoEnum.INATIVACAO,
+                empresa
+        ));
 
     }
 

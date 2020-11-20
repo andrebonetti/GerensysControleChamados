@@ -1,16 +1,16 @@
 package com.controlechamados.chamado;
 
-import com.controlechamados.chamado.dto.ChamadoFilterDTO;
 import com.controlechamados.chamado.dto.ChamadoFormDTO;
-import com.controlechamados.chamado.dto.ChamadoFormUpdFilaDTO;
 import com.controlechamados.chamado.dto.ChamadoGridDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 public class ChamadoController {
@@ -36,12 +36,6 @@ public class ChamadoController {
     @PostMapping("/chamados/alterarFila")
     public ResponseEntity criarChamado(@RequestBody @Valid ChamadoFormDTO form) {
         service.criarChamado( form );
-        return ResponseEntity.noContent().build();
-    }
-
-    @PostMapping("/chamados/alterarFila")
-    public ResponseEntity alterarFila(@RequestBody @Valid ChamadoFormUpdFilaDTO form) {
-        service.alterarFila( form );
         return ResponseEntity.noContent().build();
     }
 

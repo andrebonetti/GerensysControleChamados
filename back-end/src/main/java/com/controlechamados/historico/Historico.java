@@ -108,4 +108,16 @@ public class Historico {
         return dados;
     }
 
+    @Override
+    public String toString() {
+        return "Historico{" +
+                "id=" + id +
+                ", tabela=" + tabela +
+                ", idRegistro=" + idRegistro +
+                ", tipoAcao=" + tipoAcao +
+                ", dataAcao=" + dataAcao +
+                ", usuarioAcao=" + usuarioAcao +
+                ", dados='" + dados + '\'' +
+                '}';
+    }
 }

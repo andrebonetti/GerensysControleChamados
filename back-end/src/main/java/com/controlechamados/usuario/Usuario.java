@@ -35,7 +35,6 @@ public class Usuario {
         this.senha = builder.senha;
     }
 
-
     public static Builder builder() {
         return new Builder();
     }
@@ -110,10 +109,6 @@ public class Usuario {
 
         public Builder withPerfil(Perfil perfil) {
             this.perfil = perfil;
-            return this;
-        }
-
-        public Builder withEmpresas(List<Empresa> empresas) {
             return this;
         }
 

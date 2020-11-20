@@ -2,33 +2,27 @@ package com.controlechamados.empresa;
 
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
+import com.controlechamados.interfaces.BuilderEntity;
+import com.controlechamados.interfaces.Entity;
 import com.controlechamados.usuario.Usuario;
 import com.controlechamados.usuario.UsuarioMock;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
-public class Empresa {
+public class Empresa extends Entity {
 
-    private UUID id;
     private String imagem;
     private String nome;
-    private Usuario usuarioCriacao;
-    private Usuario usuarioModificaocao;
-    private LocalDate dataCriacao;
-    private LocalDate dataModificacao;
 
     public Empresa() {
     }
 
     public Empresa(Builder builder){
-        this.id = builder.id;
         this.imagem = builder.imagem;
         this.nome = builder.nome;
-        this.usuarioCriacao = builder.usuarioCriacao;
-        this.usuarioModificaocao = builder.usuarioModificaocao;
-        this.dataCriacao = builder.dataCriacao;
-        this.dataModificacao = builder.dataModificacao;
+
+        this.constructor( builder );
     }
 
     public Empresa(EmpresaFormCriacaoDTO empresaFormCriacaoDTO){
@@ -39,6 +33,7 @@ public class Empresa {
         this.imagem = empresaFormCriacaoDTO.getImagem();
 
         this.id = UUID.randomUUID();
+        this.ativo = Boolean.TRUE;
         this.usuarioCriacao = usuarioCriacao;
         this.dataCriacao = LocalDate.of(2020,11,19);
 
@@ -57,19 +52,13 @@ public class Empresa {
 
     public static Builder builder(){return new Builder();}
 
-    public final static class Builder{
+    public final static class Builder extends BuilderEntity {
 
-        private UUID id;
         private String imagem;
         private String nome;
-        private Usuario usuarioCriacao;
-        private Usuario usuarioModificaocao;
-        private LocalDate dataCriacao;
-        private LocalDate dataModificacao;
 
-        public Builder withId(UUID id) {
-            this.id = id;
-            return this;
+        public Builder() {
+            setBuilder( this );
         }
 
         public Builder withImagem(String imagem) {
@@ -82,33 +71,9 @@ public class Empresa {
             return this;
         }
 
-        public Builder withUsuarioCriacao(Usuario usuarioCriacao) {
-            this.usuarioCriacao = usuarioCriacao;
-            return this;
-        }
-
-        public Builder withUsuarioModificaocao(Usuario usuarioModificaocao) {
-            this.usuarioModificaocao = usuarioModificaocao;
-            return this;
-        }
-
-        public Builder withDataCriacao(LocalDate dataCriacao) {
-            this.dataCriacao = dataCriacao;
-            return this;
-        }
-
-        public Builder withDataModificacao(LocalDate dataModificacao) {
-            this.dataModificacao = dataModificacao;
-            return this;
-        }
-
         public Empresa build(){
             return new Empresa(this);
         }
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public String getImagem() {
@@ -119,19 +84,17 @@ public class Empresa {
         return nome;
     }
 
-    public Usuario getUsuarioCriacao() {
-        return usuarioCriacao;
-    }
-
-    public Usuario getUsuarioModificaocao() {
-        return usuarioModificaocao;
-    }
-
-    public LocalDate getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public LocalDate getDataModificacao() {
-        return dataModificacao;
+    @Override
+    public String toString() {
+        return "Empresa{" +
+                "imagem='" + imagem + '\'' +
+                ", nome='" + nome + '\'' +
+                ", id=" + id +
+                ", ativo=" + ativo +
+                ", usuarioCriacao=" + usuarioCriacao +
+                ", usuarioModificaocao=" + usuarioModificaocao +
+                ", dataCriacao=" + dataCriacao +
+                ", dataModificacao=" + dataModificacao +
+                '}';
     }
 }

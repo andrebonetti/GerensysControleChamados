@@ -32,14 +32,15 @@ public class EmpresaMock {
         Usuario usuarioResponsavel = UsuarioMock.usuarioResponsavel();
 
         return Empresa.builder()
-                .withId( UUID.randomUUID() )
                 .withNome( "Nome case 2 MOCK" )
-                .withImagem ( "Imagem case 2 MOCK" )
+                .withImagem( "Imagem case 2 MOCK" )
+                .withId( UUID.randomUUID() )
                 .withUsuarioCriacao ( usuarioCriacao )
                 .withUsuarioModificaocao ( usuarioResponsavel )
                 .withDataCriacao ( LocalDate.now() )
                 .withDataModificacao ( LocalDate.now() )
                 .build();
+
     }
 
     public static List<Empresa> empresaCases(){

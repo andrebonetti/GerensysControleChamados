@@ -20,11 +20,11 @@ public class HistoricoService {
         new Historico().builder()
             .withId( UUID.randomUUID() )
             .withTabela( historicoParam.getTabelaEnum() )
-            .withIdRegistro( historicoParam.getId() )
+            .withIdRegistro( historicoParam.getEntity().getId() )
             .withTipoAcao( historicoParam.getAcaoEnum() )
             .withDataAcao( LocalDate.now() )
             .withUsuarioAcao( usuarioCriacao )
-            .withDados( historicoParam.getDados() )
+            .withDados( historicoParam.getEntity().toString() )
             .build();
 
     }
