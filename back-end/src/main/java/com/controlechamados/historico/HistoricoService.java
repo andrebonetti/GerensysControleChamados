@@ -1,8 +1,6 @@
 package com.controlechamados.historico;
 
 import com.controlechamados.historico.dto.HistoricoParam;
-import com.controlechamados.historico.enums.AcaoEnum;
-import com.controlechamados.historico.enums.TabelaEnum;
 import com.controlechamados.usuario.Usuario;
 import com.controlechamados.usuario.UsuarioMock;
 import org.springframework.stereotype.Service;

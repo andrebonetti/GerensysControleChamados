@@ -4,12 +4,22 @@ import com.controlechamados.empresa.dto.EmpresaGridDTO;
 
 public class EmpresaConverter {
 
-    public static EmpresaGridDTO toGridDTO(Empresa empresa) {
+    public static EmpresaGridDTO toSimpleGridDTO(Empresa empresa) {
 
-        return new EmpresaGridDTO( empresa.getId().toString(),
-                empresa.getImagem(),
-                empresa.getNome() );
+        return EmpresaGridDTO.builder()
+                .withNome( empresa.getNome() )
+                .withImagem( empresa.getImagem() )
+                .withPropertiesGridDto ( empresa )
+                .build();
+    }
 
+    public static EmpresaGridDTO toCompleteGridDTO(Empresa empresa) {
+
+        return EmpresaGridDTO.builder()
+                .withNome( empresa.getNome() )
+                .withImagem( empresa.getImagem() )
+                .withPropertiesGridDto ( empresa )
+                .build();
     }
 
 }

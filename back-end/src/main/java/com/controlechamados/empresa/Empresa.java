@@ -2,8 +2,7 @@ package com.controlechamados.empresa;
 
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
-import com.controlechamados.interfaces.BuilderEntity;
-import com.controlechamados.interfaces.Entity;
+import com.controlechamados.entity.Entity;
 import com.controlechamados.usuario.Usuario;
 import com.controlechamados.usuario.UsuarioMock;
 
@@ -16,13 +15,12 @@ public class Empresa extends Entity {
     private String nome;
 
     public Empresa() {
+        //to serialize
     }
 
     public Empresa(Builder builder){
         this.imagem = builder.imagem;
         this.nome = builder.nome;
-
-        this.constructor( builder );
     }
 
     public Empresa(EmpresaFormCriacaoDTO empresaFormCriacaoDTO){
@@ -46,20 +44,18 @@ public class Empresa extends Entity {
         this.nome = empresaFormAtualizacaoDTO.getNome();
         this.imagem = empresaFormAtualizacaoDTO.getImagem();
 
-        this.usuarioModificaocao = usuarioModificacao;
+        this.usuarioModificacao = usuarioModificacao;
         this.dataModificacao = LocalDate.of(2020,11,19);
     }
 
-    public static Builder builder(){return new Builder();}
+    public static Builder builder(){
+        return new Builder();
+    }
 
-    public final static class Builder extends BuilderEntity {
+    public final static class Builder{
 
         private String imagem;
         private String nome;
-
-        public Builder() {
-            setBuilder( this );
-        }
 
         public Builder withImagem(String imagem) {
             this.imagem = imagem;
@@ -92,7 +88,7 @@ public class Empresa extends Entity {
                 ", id=" + id +
                 ", ativo=" + ativo +
                 ", usuarioCriacao=" + usuarioCriacao +
-                ", usuarioModificaocao=" + usuarioModificaocao +
+                ", usuarioModificaocao=" + usuarioModificacao +
                 ", dataCriacao=" + dataCriacao +
                 ", dataModificacao=" + dataModificacao +
                 '}';

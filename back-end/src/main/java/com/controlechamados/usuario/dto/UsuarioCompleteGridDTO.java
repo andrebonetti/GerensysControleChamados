@@ -1,41 +1,32 @@
 package com.controlechamados.usuario.dto;
 
+import com.controlechamados.entity.BuilderEntityGridDTO;
+import com.controlechamados.entity.Entity;
+import com.controlechamados.entity.dto.EntityGridDTO;
 import com.controlechamados.usuario.perfil.dto.PerfilGridDTO;
 
-public class UsuarioGridDTO {
+public class UsuarioCompleteGridDTO extends EntityGridDTO {
 
-    private String id;
     private String nome;
     private String email;
     private String imagem;
     private PerfilGridDTO perfilGridDTO;
-    private String dataCriacao;
-    private String dataModificacao;
-    private Boolean ativo;
 
-    public UsuarioGridDTO() {
+    public UsuarioCompleteGridDTO() {
         // to serialize
     }
 
-    public UsuarioGridDTO(Builder builder) {
-
-        this.id = builder.id;
+    public UsuarioCompleteGridDTO(Builder builder) {
         this.nome = builder.nome;
         this.email = builder.email;
         this.imagem = builder.imagem;
         this.perfilGridDTO = builder.perfilGridDTO;
-        this.dataCriacao = builder.dataCriacao;
-        this.dataModificacao = builder.dataModificacao;
-        this.ativo = builder.ativo;
 
+        this.construct(builder);
     }
 
     public static Builder builder() {
         return new Builder();
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getNome() {
@@ -54,34 +45,13 @@ public class UsuarioGridDTO {
         return perfilGridDTO;
     }
 
-    public String getDataCriacao() {
-        return dataCriacao;
-    }
+    public static final class Builder extends BuilderEntityGridDTO {
 
-    public String getDataModificacao() {
-        return dataModificacao;
-    }
-
-    public Boolean getAtivo() {
-        return ativo;
-    }
-
-    public static final class Builder {
-
-        private String id;
         private String nome;
         private String email;
         private String imagem;
         private PerfilGridDTO perfilGridDTO;
-        private String dataCriacao;
-        private String dataModificacao;
-        private Boolean ativo;
-
-        public Builder withId(String id) {
-            this.id = id;
-            return this;
-        }
-
+        
         public Builder withNome(String nome) {
             this.nome = nome;
             return this;
@@ -102,23 +72,19 @@ public class UsuarioGridDTO {
             return this;
         }
 
-        public Builder withDataCriacao(String dataCriacao) {
-            this.dataCriacao = dataCriacao;
+        public Builder withPropertiesGridDto(Entity entity) {
+            super.setCompletePropertiesGridDto( entity );
             return this;
         }
 
-        public Builder withDataModificacao(String dataModificacao) {
-            this.dataModificacao = dataModificacao;
+        public Builder withId(String id){
+            setId( id );
             return this;
         }
 
-        public Builder withAtivo(Boolean ativo) {
-            this.ativo = ativo;
-            return this;
-        }
 
-        public UsuarioGridDTO build() {
-            return new UsuarioGridDTO( this );
+        public UsuarioCompleteGridDTO build() {
+            return new UsuarioCompleteGridDTO( this );
         }
 
     }
@@ -126,14 +92,10 @@ public class UsuarioGridDTO {
     @Override
     public String toString() {
         return "UsuarioGridDTO{" +
-                "id='" + id + '\'' +
-                ", nome='" + nome + '\'' +
+                "nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", imagem='" + imagem + '\'' +
                 ", perfilGridDTO=" + perfilGridDTO +
-                ", dataCriacao='" + dataCriacao + '\'' +
-                ", dataModificacao='" + dataModificacao + '\'' +
-                ", ativo=" + ativo +
                 '}';
     }
 }

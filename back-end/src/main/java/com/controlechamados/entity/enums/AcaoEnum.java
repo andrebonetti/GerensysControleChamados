@@ -1,10 +1,11 @@
-package com.controlechamados.historico.enums;
+package com.controlechamados.entity.enums;
 
 public enum AcaoEnum {
 
     CRIACAO( "CRIACAO" ),
     INATIVACAO( "INATIVACAO" ),
-    ALTERACAO( "ALTERACAO" );
+    MOCK( "MOCK" ),
+    ATUALIZACAO( "ATUALIZACAO" );
 
     private final String value;
 

@@ -1,9 +1,5 @@
 package com.controlechamados.empresa;
 
-import com.controlechamados.chamado.ChamadoService;
-import com.controlechamados.chamado.dto.ChamadoFormDTO;
-import com.controlechamados.chamado.dto.ChamadoFormUpdFilaDTO;
-import com.controlechamados.chamado.dto.ChamadoGridDTO;
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaGridDTO;

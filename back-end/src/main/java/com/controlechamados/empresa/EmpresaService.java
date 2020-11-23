@@ -3,10 +3,10 @@ package com.controlechamados.empresa;
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaGridDTO;
+import com.controlechamados.entity.enums.AcaoEnum;
+import com.controlechamados.entity.enums.TabelaEnum;
 import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.historico.dto.HistoricoParam;
-import com.controlechamados.historico.enums.AcaoEnum;
-import com.controlechamados.historico.enums.TabelaEnum;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class EmpresaService {
     public List<EmpresaGridDTO> findAll() {
         List<Empresa> empresas = EmpresaMock.empresaCases();
         List<EmpresaGridDTO> empresaGridDTOS = empresas.stream()
-                .map( EmpresaConverter::toGridDTO )
+                .map( EmpresaConverter::toSimpleGridDTO )
                 .collect( Collectors.toList() );
 
         return empresaGridDTOS;
@@ -33,7 +33,7 @@ public class EmpresaService {
 
     public EmpresaGridDTO findById(String id){
         Empresa empresa = EmpresaMock.empresaCase1();
-        EmpresaGridDTO empresaGridDTO = EmpresaConverter.toGridDTO( empresa );
+        EmpresaGridDTO empresaGridDTO = EmpresaConverter.toSimpleGridDTO( empresa );
 
         return empresaGridDTO;
     }
@@ -58,7 +58,7 @@ public class EmpresaService {
 
         historicoService.criarHistoricoRegistro( new HistoricoParam(
             TabelaEnum.EMPRESA,
-            AcaoEnum.ALTERACAO,
+            AcaoEnum.ATUALIZACAO,
             empresa
         ));
 
@@ -68,7 +68,7 @@ public class EmpresaService {
 
         Empresa empresa = EmpresaMock.empresaCase1();
 
-        empresa.inativar();
+        empresa.setPropriedadePorAcao(AcaoEnum.INATIVACAO);
 
         historicoService.criarHistoricoRegistro( new HistoricoParam(
                 TabelaEnum.EMPRESA,

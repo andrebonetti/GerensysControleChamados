@@ -1,10 +1,8 @@
 package com.controlechamados.historico.dto;
 
-import com.controlechamados.historico.enums.AcaoEnum;
-import com.controlechamados.historico.enums.TabelaEnum;
-import com.controlechamados.interfaces.Entity;
-
-import java.util.UUID;
+import com.controlechamados.entity.Entity;
+import com.controlechamados.entity.enums.AcaoEnum;
+import com.controlechamados.entity.enums.TabelaEnum;
 
 public class HistoricoParam {
 

@@ -5,7 +5,7 @@ import com.controlechamados.chamado.formularioinput.dro.FormularioInputGridDTO;
 import com.controlechamados.chamado.solucaoTecnica.dto.SolucaoTecnicaGridDTO;
 import com.controlechamados.empresa.dto.EmpresaGridDTO;
 import com.controlechamados.fila.dto.FilaGridDTO;
-import com.controlechamados.usuario.dto.UsuarioGridDTO;
+import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ public class ChamadoGridDTO {
     private String titulo;
     private SubCategoriaGridDTO subCategoria;
     private EmpresaGridDTO empresa;
-    private UsuarioGridDTO usuarioResponsavel;
-    private UsuarioGridDTO usuarioCriacao;
+    private UsuarioSimpleGridDTO usuarioResponsavel;
+    private UsuarioSimpleGridDTO usuarioCriacao;
     private FilaGridDTO fila;
     private List<FormularioInputGridDTO> formularioInputGridDTOs;
     private List<SolucaoTecnicaGridDTO> solucaoTecnicaChecklist;
@@ -61,11 +61,11 @@ public class ChamadoGridDTO {
         return empresa;
     }
 
-    public UsuarioGridDTO getUsuarioResponsavel() {
+    public UsuarioSimpleGridDTO getUsuarioResponsavel() {
         return usuarioResponsavel;
     }
 
-    public UsuarioGridDTO getUsuarioCriacao() {
+    public UsuarioSimpleGridDTO getUsuarioCriacao() {
         return usuarioCriacao;
     }
 
@@ -95,8 +95,8 @@ public class ChamadoGridDTO {
         private String titulo;
         private SubCategoriaGridDTO subCategoria;
         private EmpresaGridDTO empresa;
-        private UsuarioGridDTO usuarioResponsavel;
-        private UsuarioGridDTO usuarioCriacao;
+        private UsuarioSimpleGridDTO usuarioResponsavel;
+        private UsuarioSimpleGridDTO usuarioCriacao;
         private FilaGridDTO fila;
         private List<FormularioInputGridDTO> formularioInputGridDTOs;
         private List<SolucaoTecnicaGridDTO> solucaoTecnica;
@@ -123,12 +123,12 @@ public class ChamadoGridDTO {
             return this;
         }
 
-        public Builder withUsuarioResponsavel(UsuarioGridDTO usuarioResponsavel) {
+        public Builder withUsuarioResponsavel(UsuarioSimpleGridDTO usuarioResponsavel) {
             this.usuarioResponsavel = usuarioResponsavel;
             return this;
         }
 
-        public Builder withUsuarioCriacao(UsuarioGridDTO usuarioCriacao) {
+        public Builder withUsuarioCriacao(UsuarioSimpleGridDTO usuarioCriacao) {
             this.usuarioCriacao = usuarioCriacao;
             return this;
         }

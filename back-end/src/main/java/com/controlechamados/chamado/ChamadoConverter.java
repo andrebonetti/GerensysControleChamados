@@ -13,7 +13,7 @@ import com.controlechamados.empresa.dto.EmpresaGridDTO;
 import com.controlechamados.fila.FilaConverter;
 import com.controlechamados.fila.dto.FilaGridDTO;
 import com.controlechamados.usuario.UsuarioConverter;
-import com.controlechamados.usuario.dto.UsuarioGridDTO;
+import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,9 +23,9 @@ public class ChamadoConverter {
     public static ChamadoGridDTO toGridDto(Chamado chamado) {
 
         SubCategoriaGridDTO subCategoriaGridDTO = SubCategoriaConverter.toGridDTO( chamado.getSubCategoria() );
-        EmpresaGridDTO empresaGridDTO = EmpresaConverter.toGridDTO( chamado.getEmpresa() );
-        UsuarioGridDTO usuarioCriacaoGridDTO = UsuarioConverter.toGridDto( chamado.getUsuarioCriacao() );
-        UsuarioGridDTO usuarioResponsavelGridDTO = UsuarioConverter.toGridDto( chamado.getUsuarioResponsavel() );
+        EmpresaGridDTO empresaGridDTO = EmpresaConverter.toSimpleGridDTO( chamado.getEmpresa() );
+        UsuarioSimpleGridDTO usuarioCriacaoGridDTO = UsuarioConverter.toSimpleGridDto( chamado.getUsuarioCriacao() );
+        UsuarioSimpleGridDTO usuarioResponsavelGridDTO = UsuarioConverter.toSimpleGridDto( chamado.getUsuarioResponsavel() );
         FilaGridDTO filaGridDTO = FilaConverter.toGridDTO( chamado.getFila() );
 
         List<FormularioInputGridDTO> formularioInputGridDTOList = chamado.getFormularioInput().stream()

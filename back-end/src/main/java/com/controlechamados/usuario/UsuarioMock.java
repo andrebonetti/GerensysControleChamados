@@ -1,47 +1,76 @@
 package com.controlechamados.usuario;
 
-import com.controlechamados.empresa.Empresa;
-import com.controlechamados.empresa.EmpresaMock;
+import com.controlechamados.entity.enums.AcaoEnum;
 import com.controlechamados.usuario.perfil.Perfil;
 import com.controlechamados.usuario.perfil.PerfilMock;
-
-import java.time.LocalDate;
-import java.util.List;
-import java.util.UUID;
 
 public class UsuarioMock {
 
     public static Usuario usuarioResponsavel() {
         Perfil perfilAdministrador = PerfilMock.perfilAdministrador();
 
-        return new Usuario().builder()
-                .withId( UUID.randomUUID() )
+        Usuario usuario = new Usuario().builder()
                 .withNome( "Nome Responsavel MOCK" )
                 .withEmail( "Email Responsavel MOCK" )
                 .withImagem( "Imagem Responsavel MOCK" )
                 .withPerfil( perfilAdministrador )
-                .withDataCriacao( LocalDate.of( 2020, 10, 1 ) )
-                .withDataModificacao( LocalDate.of( 2020, 11, 11 ) )
-                .withAtivo( Boolean.TRUE )
                 .withSenha( "Senha Responsavel MOCK" )
                 .build();
+
+        usuario.setPropriedadePorAcao( AcaoEnum.CRIACAO );
+
+        return usuario;
     }
 
     public static Usuario usuarioCriacao() {
 
         Perfil perfilOperador = PerfilMock.perfilOperador();
 
-        return new Usuario().builder()
-                .withId( UUID.randomUUID() )
-                .withNome( "Nome Operador MOCK" )
-                .withEmail( "Email Operador MOCK" )
-                .withImagem( "Imagem Operador MOCK" )
+        Usuario usuario = new Usuario().builder()
+                .withNome( "Nome usuarioCriacao MOCK" )
+                .withEmail( "Email usuarioCriacao MOCK" )
+                .withImagem( "Imagem usuarioCriacao MOCK" )
                 .withPerfil( perfilOperador )
-                .withDataCriacao( LocalDate.of( 2020, 11, 2 ) )
-                .withDataModificacao( LocalDate.of( 2020, 12, 12 ) )
-                .withAtivo( Boolean.TRUE )
-                .withSenha( "Senha Operador MOCK" )
+                .withSenha( "Senha usuarioCriacao MOCK" )
                 .build();
+
+        usuario.setPropriedadePorAcao( AcaoEnum.CRIACAO );
+
+        return usuario;
+    }
+
+    public static Usuario usuarioModificacao() {
+
+        Perfil perfilOperador = PerfilMock.perfilOperador();
+
+        Usuario usuario = new Usuario().builder()
+                .withNome( "Nome usuarioModificacao MOCK" )
+                .withEmail( "Email usuarioModificacao MOCK" )
+                .withImagem( "Imagem usuarioModificacao MOCK" )
+                .withPerfil( perfilOperador )
+                .withSenha( "Senha usuarioModificacao MOCK" )
+                .build();
+
+        usuario.setPropriedadePorAcao( AcaoEnum.CRIACAO );
+
+        return usuario;
+    }
+
+    public static Usuario usuarioMock() {
+
+        Perfil perfilOperador = PerfilMock.perfilOperador();
+
+        Usuario usuario = new Usuario().builder()
+                .withNome( "Nome usuarioMOCK MOCK" )
+                .withEmail( "Email usuarioMOCK MOCK" )
+                .withImagem( "Imagem usuarioMOCK MOCK" )
+                .withPerfil( perfilOperador )
+                .withSenha( "Senha usuarioMOCK MOCK" )
+                .build();
+
+        usuario.setPropriedadePorAcao( AcaoEnum.MOCK );
+
+        return usuario;
     }
 
 }

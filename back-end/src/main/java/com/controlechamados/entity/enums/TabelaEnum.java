@@ -1,4 +1,4 @@
-package com.controlechamados.historico.enums;
+package com.controlechamados.entity.enums;
 
 public enum TabelaEnum {
 
