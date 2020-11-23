@@ -40,4 +40,12 @@ public class EmpresaConverter {
                 .build();
     }
 
+    public static void toEntity(Empresa empresa, EmpresaFormAtualizacaoDTO form) {
+
+        empresa.atualizar()
+                .withNome( form.getNome() )
+                .withImagem( form.getImagem() )
+                .build();
+    }
+
 }

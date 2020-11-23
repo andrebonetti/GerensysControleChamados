@@ -1,13 +1,8 @@
 package com.controlechamados.empresa;
 
-import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
-import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
 import com.controlechamados.entity.Entity;
-import com.controlechamados.usuario.Usuario;
-import com.controlechamados.usuario.UsuarioMock;
 
-import java.time.LocalDate;
-import java.util.UUID;
+import java.util.Objects;
 
 public class Empresa extends Entity {
 
@@ -19,43 +14,35 @@ public class Empresa extends Entity {
     }
 
     public Empresa(Builder builder){
+        update(builder);
+    }
+
+    private void update(Builder builder){
         this.imagem = builder.imagem;
         this.nome = builder.nome;
-    }
-
-    public Empresa(EmpresaFormCriacaoDTO empresaFormCriacaoDTO){
-
-        Usuario usuarioCriacao = UsuarioMock.usuarioCriacao();
-
-        this.nome = empresaFormCriacaoDTO.getNome();
-        this.imagem = empresaFormCriacaoDTO.getImagem();
-
-        this.id = UUID.randomUUID();
-        this.ativo = Boolean.TRUE;
-        this.usuarioCriacao = usuarioCriacao;
-        this.dataCriacao = LocalDate.of(2020,11,19);
-
-    }
-
-    public void atualizar(EmpresaFormAtualizacaoDTO empresaFormAtualizacaoDTO){
-
-        Usuario usuarioModificacao = UsuarioMock.usuarioCriacao();
-
-        this.nome = empresaFormAtualizacaoDTO.getNome();
-        this.imagem = empresaFormAtualizacaoDTO.getImagem();
-
-        this.usuarioModificacao = usuarioModificacao;
-        this.dataModificacao = LocalDate.of(2020,11,19);
     }
 
     public static Builder builder(){
         return new Builder();
     }
 
+    public Builder atualizar(){
+        return new Builder(this);
+    }
+
     public final static class Builder{
+
+        private Empresa empresa;
 
         private String imagem;
         private String nome;
+
+        public Builder() {
+        }
+
+        public Builder(Empresa empresa){
+            this.empresa = empresa;
+        }
 
         public Builder withImagem(String imagem) {
             this.imagem = imagem;
@@ -68,8 +55,14 @@ public class Empresa extends Entity {
         }
 
         public Empresa build(){
-            return new Empresa(this);
+            if(Objects.nonNull( empresa )){
+                empresa.update( this );
+                return empresa;
+            }else{
+                return new Empresa(this);
+            }
         }
+
     }
 
     public String getImagem() {

@@ -46,18 +46,16 @@ public class EmpresaService extends EntityService{
 
     public void atualizar(EmpresaFormAtualizacaoDTO empresaFormAtualizacaoDTO){
 
-//        Empresa empresa = EmpresaMock.empresaCase1();
-        Empresa empresa = EmpresaConverter.toEntity( empresaFormAtualizacaoDTO );
+        Empresa empresa = EmpresaMock.empresaCase1();
+        EmpresaConverter.toEntity(empresa, empresaFormAtualizacaoDTO );
 
-        empresa.atualizar( empresaFormAtualizacaoDTO );
+        save(empresa,AcaoEnum.ATUALIZACAO);
     }
 
     public void inativar(UUID id){
-
         Empresa empresa = EmpresaMock.empresaCase1();
 
         save( empresa,AcaoEnum.INATIVACAO );
-
     }
 
 }

@@ -49,7 +49,7 @@ public class EmpresaController {
 
     @PostMapping("/empresas/inativar")
     public ResponseEntity inativar(String id) {
-        service.inativar( UUID.fromString( id ) );
+        service.inativar( UUID.fromString ( id ) );
         return ResponseEntity.noContent().build();
     }
 
