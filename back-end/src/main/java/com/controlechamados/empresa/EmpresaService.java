@@ -3,6 +3,7 @@ package com.controlechamados.empresa;
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaGridDTO;
+import com.controlechamados.entity.EntityService;
 import com.controlechamados.entity.enums.AcaoEnum;
 import com.controlechamados.entity.enums.TabelaEnum;
 import com.controlechamados.historico.HistoricoService;
@@ -14,12 +15,10 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-public class EmpresaService {
-
-    private HistoricoService historicoService;
+public class EmpresaService extends EntityService{
 
     public EmpresaService(HistoricoService historicoService) {
-        this.historicoService = historicoService;
+        super( historicoService, TabelaEnum.EMPRESA );
     }
 
     public List<EmpresaGridDTO> findAll() {
@@ -40,41 +39,24 @@ public class EmpresaService {
 
     public void criar(EmpresaFormCriacaoDTO empresaFormCriacaoDTO){
 
-        Empresa empresa = new Empresa( empresaFormCriacaoDTO );
+        Empresa empresa = EmpresaConverter.toEntity( empresaFormCriacaoDTO );
 
-        historicoService.criarHistoricoRegistro( new HistoricoParam(
-            TabelaEnum.EMPRESA,
-            AcaoEnum.CRIACAO,
-            empresa
-        ));
-
+        save(empresa,AcaoEnum.CRIACAO);
     }
 
     public void atualizar(EmpresaFormAtualizacaoDTO empresaFormAtualizacaoDTO){
 
-        Empresa empresa = EmpresaMock.empresaCase1();
+//        Empresa empresa = EmpresaMock.empresaCase1();
+        Empresa empresa = EmpresaConverter.toEntity( empresaFormAtualizacaoDTO );
 
         empresa.atualizar( empresaFormAtualizacaoDTO );
-
-        historicoService.criarHistoricoRegistro( new HistoricoParam(
-            TabelaEnum.EMPRESA,
-            AcaoEnum.ATUALIZACAO,
-            empresa
-        ));
-
     }
 
     public void inativar(UUID id){
 
         Empresa empresa = EmpresaMock.empresaCase1();
 
-        empresa.setPropriedadePorAcao(AcaoEnum.INATIVACAO);
-
-        historicoService.criarHistoricoRegistro( new HistoricoParam(
-                TabelaEnum.EMPRESA,
-                AcaoEnum.INATIVACAO,
-                empresa
-        ));
+        save( empresa,AcaoEnum.INATIVACAO );
 
     }
 

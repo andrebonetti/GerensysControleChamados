@@ -10,9 +10,12 @@ public class HistoricoParam {
     private AcaoEnum acaoEnum;
     private Entity entity;
 
-    public HistoricoParam(TabelaEnum tabelaEnum, AcaoEnum acaoEnum, Entity entity) {
+    public HistoricoParam(TabelaEnum tabelaEnum,
+                          AcaoEnum acaoEnum,
+                          Entity entity) {
         this.tabelaEnum = tabelaEnum;
         this.acaoEnum = acaoEnum;
+        this.entity = entity;
     }
 
     public TabelaEnum getTabelaEnum() {
