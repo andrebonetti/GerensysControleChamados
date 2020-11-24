@@ -56,6 +56,8 @@ import { InputPasswordComponent } from './templates/form/input-password/input-pa
 import { ToastComponent } from './templates/form/ngb-toast/toast/toast.component';
 import { InputTextAreaComponent } from './templates/form/input-text-area/input-text-area.component';
 import { NgDragDropModule } from 'ng-drag-drop';
+import { EmpresasComponent } from './pages/empresas/empresas.component';
+import { EmpresaFiltroComponent } from './pages/empresas/empresa-filtro/empresa-filtro.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { NgDragDropModule } from 'ng-drag-drop';
     UsuarioFiltroComponent,
     InputPasswordComponent,
     ToastComponent,
-    InputTextAreaComponent
+    InputTextAreaComponent,
+    EmpresasComponent,
+    EmpresaFiltroComponent
   ],
   imports: [
     BrowserModule,

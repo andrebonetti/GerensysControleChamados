@@ -4,28 +4,32 @@ const gerensys : EmpresaDTO =
 {
   id: 1,
   imagem : "logo_exemplo.gif",
-  nome: "Gerensys"
+  razaoSocial: "Gerensys",
+  cnpj: 41064682000183
 };
 
 const Empresa1MOCK : EmpresaDTO =
 {
   id: 2,
   imagem : "logo_exemplo.gif",
-  nome: "Empresa 1"
+  razaoSocial: "Empresa 1",
+  cnpj: 90214746000190
 };
 
 const Empresa2MOCK : EmpresaDTO =
 {
   id: 3,
   imagem : "logo_exemplo.gif",
-  nome: "Empresa 2"
+  razaoSocial: "Empresa 2",
+  cnpj: 67626081000100
 };
 
 const Empresa3MOCK : EmpresaDTO =
 {
   id: 4,
   imagem : "logo_exemplo.gif",
-  nome: "Empresa 3"
+  razaoSocial: "Empresa 3",
+  cnpj: 39180444000191
 };
 
 export const empresaMOCK = {

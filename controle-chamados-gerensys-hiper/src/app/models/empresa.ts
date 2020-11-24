@@ -1,5 +1,6 @@
 export interface EmpresaDTO {
     id:number,
-    imagem: string,
-    nome:string
+    cnpj: number,
+    razaoSocial:string,
+    imagem : string
 }

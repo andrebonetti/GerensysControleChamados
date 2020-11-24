@@ -6,6 +6,7 @@ import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { UsuarioCrudComponent } from './pages/usuario-crud/usuario-crud.component';
 import { UsuarioPerfisComponent } from './pages/usuario-perfis/usuario-perfis.component';
 import { LoginComponent } from './pages/login/login.component';
+import { EmpresasComponent } from './pages/empresas/empresas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/chamados', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'chamados', component: ChamadosComponent },
   { path: 'chamado-detalhe/:id', component: ChamadoDetalheComponent },
   { path: 'chamado-cadastro', component: ChamadoDetalheComponent },
+  { path: 'empresas', component: EmpresasComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'usuario-edicao/:id', component: UsuarioCrudComponent },
   { path: 'usuario-criacao', component: UsuarioCrudComponent },
