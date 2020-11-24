@@ -1,0 +1,51 @@
+<section>
+
+  <h1>Lista de Empresas</h1>
+
+  <app-empresa-filtro>
+
+  </app-empresa-filtro>
+
+  <button class="btn btn-principal nova-empresa"
+    routerLink="/empresa-criacao">
+    <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+    Nova Empresa
+  </button>
+
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Razão Social</th>
+        <th>CNPJ</th>
+        <th class="acoes">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empresa of empresasDTO">
+        <th>{{empresa.id}}</th>
+        <td>{{empresa.cnpj}}</td>
+        <td>{{empresa.razaoSocial}}</td>
+        <td class="acoes">
+          <div class="btn-group" role="group">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button
+                  class="btn btn-secondary"
+                  routerLink="/empresa-edicao/{{empresa.id}}"
+                  ngbTooltip="Editar">
+                  <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  ngbTooltip="Excluir">
+                  <fa-icon [icon]="['fas', 'trash']"></fa-icon>
+                </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,87 @@
+@fontTitle : #6a4b9d;
+@backOpacity: #c4bad6;
+
+@dark : #222336;
+@logoCor1 : #694ca0;
+@logoCor1_1 : #3a1a78;
+@logoCor2 : #3ba0ca;
+@logoCor2_1 : #00b4ff;
+
+@white_10 : #fff;
+@white_9 : #f4f4f4;
+@white_8 : #f0f0f0;
+@white_0 : #dbdbdb;
+
+@black_10 : black;
+@black_9 : #606060;
+@black_8: #a3a2a2;
+
+.filtro{
+  background-color: @white_8;
+  width: 100%;
+  border-radius: 6px;
+  padding: 10px 15px;
+  display: table;
+  color: @black_9;
+
+  .campos{
+    float: left;
+    width: 85%;
+
+    .item-formulario{
+        float: left;
+        padding: 0 5px 10px 5px;
+        width: 300px;
+        display: inline-flex;
+
+        *:first-child{
+          width: 100%;
+        }
+    }
+
+    .data-param{
+      width: 500px;
+    }
+
+  }
+
+  .opcoes{
+    float: right;
+    width: 15%;
+    text-align: right;
+
+    .btn-group{
+
+      button{
+        border-color: #1d2124
+      }
+
+      .btn-busca{
+        width: 120px;
+        background-color: @logoCor1_1;
+      }
+
+      .btn-busca:hover{
+        color: @white_10;
+        border-color: @logoCor1;
+        border-right-color: #1d2124 ;
+        background-color: @logoCor1;
+      }
+
+      .btn-clean{
+        border-color: @logoCor1_1;
+        color: @logoCor1_1;
+      }
+
+      .btn-clean:hover{
+        color: @logoCor1;
+        border-color: @logoCor1;
+        border-left-color: #1d2124 ;
+        background-color: @white_9;
+      }
+
+    }
+
+  }
+
+}
