@@ -1,21 +1,21 @@
 package com.controlechamados.historico.dto;
 
-import com.controlechamados.entity.Entity;
-import com.controlechamados.entity.enums.AcaoEnum;
-import com.controlechamados.entity.enums.TabelaEnum;
+import com.controlechamados.models.AbstractEntity;
+import com.controlechamados.models.enums.AcaoEnum;
+import com.controlechamados.models.enums.TabelaEnum;
 
 public class HistoricoParam {
 
     private TabelaEnum tabelaEnum;
     private AcaoEnum acaoEnum;
-    private Entity entity;
+    private AbstractEntity abstractEntity;
 
     public HistoricoParam(TabelaEnum tabelaEnum,
                           AcaoEnum acaoEnum,
-                          Entity entity) {
+                          AbstractEntity abstractEntity) {
         this.tabelaEnum = tabelaEnum;
         this.acaoEnum = acaoEnum;
-        this.entity = entity;
+        this.abstractEntity = abstractEntity;
     }
 
     public TabelaEnum getTabelaEnum() {
@@ -26,8 +26,8 @@ public class HistoricoParam {
         return acaoEnum;
     }
 
-    public Entity getEntity() {
-        return entity;
+    public AbstractEntity getEntity() {
+        return abstractEntity;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class HistoricoParam {
         return "HistoricoParam{" +
                 "tabelaEnum=" + tabelaEnum +
                 ", acaoEnum=" + acaoEnum +
-                ", entity=" + entity +
+                ", entity=" + abstractEntity +
                 '}';
     }
 }

@@ -1,7 +1,7 @@
-package com.controlechamados.entity.chains;
+package com.controlechamados.models.chains;
 
-import com.controlechamados.entity.Entity;
-import com.controlechamados.entity.enums.AcaoEnum;
+import com.controlechamados.models.AbstractEntity;
+import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.usuario.UsuarioMock;
 
 import java.time.LocalDate;
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class PropriedadePorAcaoChain {
 
-    public static void validar(Entity entity, AcaoEnum acaoEnum){
+    public static void validar(AbstractEntity abstractEntity, AcaoEnum acaoEnum){
 
         PropriedadesCriacao propriedadesCriacao = new PropriedadesCriacao();
         PropriedadesAtualizacao propriedadesAtualizacao = new PropriedadesAtualizacao();
@@ -22,12 +22,12 @@ public class PropriedadePorAcaoChain {
         propriedadesInativacao.setNext( propriedadesMock );
         propriedadesMock.setNext( propriedadePorAcaoSemRegra );
 
-        propriedadesCriacao.set( entity, acaoEnum);
+        propriedadesCriacao.set( abstractEntity, acaoEnum);
     }
 
     private interface PropriedadePorAcao{
 
-        void set(Entity entity, AcaoEnum acaoEnum);
+        void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum);
 
         void setNext(PropriedadePorAcao propriedadePorAcao);
 
@@ -38,14 +38,13 @@ public class PropriedadePorAcaoChain {
         private PropriedadePorAcao proximo;
 
         @Override
-        public void set(Entity entity, AcaoEnum acaoEnum) {
+        public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.CRIACAO.equals( acaoEnum )){
-                entity.id = UUID.randomUUID();
-                entity.ativo = Boolean.TRUE;
-                entity.usuarioCriacao = UsuarioMock.usuarioMock();
-                entity.dataCriacao = LocalDate.now();
+                abstractEntity.ativo = Boolean.TRUE;
+                abstractEntity.usuarioCriacao = UsuarioMock.usuarioMock();
+                abstractEntity.dataCriacao = LocalDate.now();
             }else{
-                proximo.set( entity, acaoEnum );
+                proximo.set( abstractEntity, acaoEnum );
             }
         }
 
@@ -60,12 +59,12 @@ public class PropriedadePorAcaoChain {
         private PropriedadePorAcao proximo;
 
         @Override
-        public void set(Entity entity, AcaoEnum acaoEnum) {
+        public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.ATUALIZACAO.equals( acaoEnum )){
-                entity.usuarioModificacao = UsuarioMock.usuarioMock();
-                entity.dataModificacao = LocalDate.now();
+                abstractEntity.usuarioModificacao = UsuarioMock.usuarioMock();
+                abstractEntity.dataModificacao = LocalDate.now();
             }else{
-                proximo.set( entity, acaoEnum );
+                proximo.set( abstractEntity, acaoEnum );
             }
         }
 
@@ -80,13 +79,13 @@ public class PropriedadePorAcaoChain {
         private PropriedadePorAcao proximo;
 
         @Override
-        public void set(Entity entity, AcaoEnum acaoEnum) {
+        public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.INATIVACAO.equals( acaoEnum )){
-                entity.ativo = Boolean.FALSE;
-                entity.usuarioModificacao = UsuarioMock.usuarioModificacao();
-                entity.dataModificacao = LocalDate.now();
+                abstractEntity.ativo = Boolean.FALSE;
+                abstractEntity.usuarioModificacao = UsuarioMock.usuarioModificacao();
+                abstractEntity.dataModificacao = LocalDate.now();
             }else{
-                proximo.set( entity, acaoEnum );
+                proximo.set( abstractEntity, acaoEnum );
             }
         }
 
@@ -101,11 +100,11 @@ public class PropriedadePorAcaoChain {
         private PropriedadePorAcao proximo;
 
         @Override
-        public void set(Entity entity, AcaoEnum acaoEnum) {
+        public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.MOCK.equals( acaoEnum )){
-                entity.id = UUID.randomUUID();
+                abstractEntity.id = UUID.randomUUID();
             }else{
-                proximo.set( entity, acaoEnum );
+                proximo.set( abstractEntity, acaoEnum );
             }
         }
 
@@ -118,7 +117,7 @@ public class PropriedadePorAcaoChain {
     private static class PropriedadePorAcaoSemRegra implements PropriedadePorAcao{
 
         @Override
-        public void set(Entity entity, AcaoEnum acaoEnum) {
+        public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
 
         }
 

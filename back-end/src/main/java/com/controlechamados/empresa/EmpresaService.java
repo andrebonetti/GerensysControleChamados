@@ -3,26 +3,34 @@ package com.controlechamados.empresa;
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaGridDTO;
-import com.controlechamados.entity.EntityService;
-import com.controlechamados.entity.enums.AcaoEnum;
-import com.controlechamados.entity.enums.TabelaEnum;
+import com.controlechamados.models.EntityService;
+import com.controlechamados.models.enums.AcaoEnum;
+import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.historico.HistoricoService;
-import com.controlechamados.historico.dto.HistoricoParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class EmpresaService extends EntityService{
 
-    public EmpresaService(HistoricoService historicoService) {
+    private final EmpresaRepository empresaDAO;
+
+    @Autowired
+    public EmpresaService(HistoricoService historicoService, EmpresaRepository empresaDAO) {
         super( historicoService, TabelaEnum.EMPRESA );
+        this.empresaDAO = empresaDAO;
     }
 
     public List<EmpresaGridDTO> findAll() {
-        List<Empresa> empresas = EmpresaMock.empresaCases();
+        List<Empresa> empresas =
+                StreamSupport.stream(empresaDAO.findAll().spliterator(), false)
+                .collect(Collectors.toList());
+
         List<EmpresaGridDTO> empresaGridDTOS = empresas.stream()
                 .map( EmpresaConverter::toSimpleGridDTO )
                 .collect( Collectors.toList() );

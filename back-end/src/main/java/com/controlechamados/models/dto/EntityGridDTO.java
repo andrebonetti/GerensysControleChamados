@@ -1,6 +1,6 @@
-package com.controlechamados.entity.dto;
+package com.controlechamados.models.dto;
 
-import com.controlechamados.entity.BuilderEntityGridDTO;
+import com.controlechamados.models.BuilderEntityGridDTO;
 import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
 
 public class EntityGridDTO {

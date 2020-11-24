@@ -1,6 +1,6 @@
 package com.controlechamados.empresa;
 
-import com.controlechamados.entity.enums.AcaoEnum;
+import com.controlechamados.models.enums.AcaoEnum;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public class EmpresaMock {
     public static Empresa empresaCase1() {
 
         Empresa empresa = Empresa.builder()
-                .withNome( "Nome case 1 MOCK" )
+                .withRazaoSocial( "Nome case 1 MOCK" )
                 .withImagem( "Imagem case 1 MOCK" )
                 .build();
 
@@ -21,7 +21,7 @@ public class EmpresaMock {
     public static Empresa empresaCase2() {
 
         Empresa empresa = Empresa.builder()
-                .withNome( "Nome case 2 MOCK" )
+                .withRazaoSocial( "Nome case 2 MOCK" )
                 .withImagem( "Imagem case 2 MOCK" )
                 .build();
 

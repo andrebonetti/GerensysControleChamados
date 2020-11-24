@@ -1,8 +1,8 @@
 package com.controlechamados.usuario.dto;
 
-import com.controlechamados.entity.BuilderEntityGridDTO;
-import com.controlechamados.entity.Entity;
-import com.controlechamados.entity.dto.EntityGridDTO;
+import com.controlechamados.models.BuilderEntityGridDTO;
+import com.controlechamados.models.AbstractEntity;
+import com.controlechamados.models.dto.EntityGridDTO;
 import com.controlechamados.usuario.perfil.dto.PerfilGridDTO;
 
 public class UsuarioCompleteGridDTO extends EntityGridDTO {
@@ -72,8 +72,8 @@ public class UsuarioCompleteGridDTO extends EntityGridDTO {
             return this;
         }
 
-        public Builder withPropertiesGridDto(Entity entity) {
-            super.setCompletePropertiesGridDto( entity );
+        public Builder withPropertiesGridDto(AbstractEntity abstractEntity) {
+            super.setCompletePropertiesGridDto( abstractEntity );
             return this;
         }
 

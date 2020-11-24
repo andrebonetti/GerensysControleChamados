@@ -1,6 +1,6 @@
 package com.controlechamados.usuario;
 
-import com.controlechamados.entity.enums.AcaoEnum;
+import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.usuario.perfil.Perfil;
 import com.controlechamados.usuario.perfil.PerfilMock;
 

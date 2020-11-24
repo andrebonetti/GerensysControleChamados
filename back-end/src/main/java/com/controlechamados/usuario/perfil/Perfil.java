@@ -1,19 +1,17 @@
 package com.controlechamados.usuario.perfil;
 
+import com.controlechamados.models.AbstractEntity;
+
+import javax.persistence.Entity;
 import java.util.UUID;
 
-public class Perfil {
+@Entity
+public class Perfil extends AbstractEntity {
 
-    private UUID id;
     private String nome;
 
-    public Perfil(UUID id, String nome) {
-        this.id = id;
+    public Perfil(String nome) {
         this.nome = nome;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public String getNome() {
@@ -23,7 +21,6 @@ public class Perfil {
     @Override
     public String toString() {
         return "Perfil{" +
-                "id=" + id +
                 ", nome='" + nome + '\'' +
                 '}';
     }

@@ -9,7 +9,7 @@ public class EmpresaConverter {
     public static EmpresaGridDTO toSimpleGridDTO(Empresa empresa) {
 
         return EmpresaGridDTO.builder()
-                .withNome( empresa.getNome() )
+                .withNome( empresa.getRazaoSocial() )
                 .withImagem( empresa.getImagem() )
                 .withPropertiesGridDto ( empresa )
                 .build();
@@ -18,7 +18,7 @@ public class EmpresaConverter {
     public static EmpresaGridDTO toCompleteGridDTO(Empresa empresa) {
 
         return EmpresaGridDTO.builder()
-                .withNome( empresa.getNome() )
+                .withNome( empresa.getRazaoSocial() )
                 .withImagem( empresa.getImagem() )
                 .withPropertiesGridDto ( empresa )
                 .build();
@@ -27,7 +27,7 @@ public class EmpresaConverter {
     public static Empresa toEntity(EmpresaFormCriacaoDTO form) {
 
         return Empresa.builder()
-                .withNome( form.getNome() )
+                .withRazaoSocial( form.getNome() )
                 .withImagem( form.getImagem() )
                 .build();
     }
@@ -35,7 +35,7 @@ public class EmpresaConverter {
     public static Empresa toEntity(EmpresaFormAtualizacaoDTO form) {
 
         return Empresa.builder()
-                .withNome( form.getNome() )
+                .withRazaoSocial( form.getNome() )
                 .withImagem( form.getImagem() )
                 .build();
     }
@@ -43,7 +43,7 @@ public class EmpresaConverter {
     public static void toEntity(Empresa empresa, EmpresaFormAtualizacaoDTO form) {
 
         empresa.atualizar()
-                .withNome( form.getNome() )
+                .withRazaoSocial( form.getNome() )
                 .withImagem( form.getImagem() )
                 .build();
     }

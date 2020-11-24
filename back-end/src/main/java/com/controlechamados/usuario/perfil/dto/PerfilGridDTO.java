@@ -1,6 +1,8 @@
 package com.controlechamados.usuario.perfil.dto;
 
-public class PerfilGridDTO {
+import com.controlechamados.models.dto.EntityGridDTO;
+
+public class PerfilGridDTO extends EntityGridDTO {
 
     private String id;
     private String nome;

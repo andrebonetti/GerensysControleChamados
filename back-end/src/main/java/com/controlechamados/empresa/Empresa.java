@@ -1,13 +1,16 @@
 package com.controlechamados.empresa;
 
-import com.controlechamados.entity.Entity;
+import com.controlechamados.models.AbstractEntity;
 
+import javax.persistence.Entity;
 import java.util.Objects;
 
-public class Empresa extends Entity {
+@Entity
+public class Empresa extends AbstractEntity {
 
+    private Long cnpj;
+    private String razaoSocial;
     private String imagem;
-    private String nome;
 
     public Empresa() {
         //to serialize
@@ -19,7 +22,7 @@ public class Empresa extends Entity {
 
     private void update(Builder builder){
         this.imagem = builder.imagem;
-        this.nome = builder.nome;
+        this.razaoSocial = builder.razaoSocial;
     }
 
     public static Builder builder(){
@@ -34,8 +37,9 @@ public class Empresa extends Entity {
 
         private Empresa empresa;
 
+        private Long cnpj;
+        private String razaoSocial;
         private String imagem;
-        private String nome;
 
         public Builder() {
         }
@@ -49,8 +53,13 @@ public class Empresa extends Entity {
             return this;
         }
 
-        public Builder withNome(String nome) {
-            this.nome = nome;
+        public Builder withRazaoSocial(String nome) {
+            this.razaoSocial = nome;
+            return this;
+        }
+
+        public Builder withCnpj(Long cnpj) {
+            this.cnpj = cnpj;
             return this;
         }
 
@@ -69,15 +78,15 @@ public class Empresa extends Entity {
         return imagem;
     }
 
-    public String getNome() {
-        return nome;
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
     @Override
     public String toString() {
         return "Empresa{" +
                 "imagem='" + imagem + '\'' +
-                ", nome='" + nome + '\'' +
+                ", nome='" + razaoSocial + '\'' +
                 ", id=" + id +
                 ", ativo=" + ativo +
                 ", usuarioCriacao=" + usuarioCriacao +

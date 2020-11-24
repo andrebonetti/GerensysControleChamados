@@ -1,7 +1,7 @@
 package com.controlechamados.historico;
 
-import com.controlechamados.entity.enums.AcaoEnum;
-import com.controlechamados.entity.enums.TabelaEnum;
+import com.controlechamados.models.enums.AcaoEnum;
+import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.usuario.Usuario;
 
 import java.time.LocalDate;

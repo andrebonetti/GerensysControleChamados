@@ -5,11 +5,11 @@ import java.util.UUID;
 public class PerfilMock {
 
     public static Perfil perfilAdministrador() {
-        return new Perfil( UUID.randomUUID(), "Nome Administrador MOCK" );
+        return new Perfil( "Nome Administrador MOCK" );
     }
 
     public static Perfil perfilOperador() {
-        return new Perfil( UUID.randomUUID(), "Nome Operador MOCK" );
+        return new Perfil( "Nome Operador MOCK" );
     }
 
 }

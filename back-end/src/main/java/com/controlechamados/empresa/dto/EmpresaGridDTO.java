@@ -1,8 +1,8 @@
 package com.controlechamados.empresa.dto;
 
-import com.controlechamados.entity.BuilderEntityGridDTO;
-import com.controlechamados.entity.Entity;
-import com.controlechamados.entity.dto.EntityGridDTO;
+import com.controlechamados.models.BuilderEntityGridDTO;
+import com.controlechamados.models.AbstractEntity;
+import com.controlechamados.models.dto.EntityGridDTO;
 
 public class EmpresaGridDTO extends EntityGridDTO {
 
@@ -45,8 +45,8 @@ public class EmpresaGridDTO extends EntityGridDTO {
             return this;
         }
 
-        public Builder withPropertiesGridDto(Entity entity) {
-            super.setCompletePropertiesGridDto( entity );
+        public Builder withPropertiesGridDto(AbstractEntity abstractEntity) {
+            super.setCompletePropertiesGridDto( abstractEntity );
             return this;
         }
 

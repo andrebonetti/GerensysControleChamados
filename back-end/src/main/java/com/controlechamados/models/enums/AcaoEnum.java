@@ -1,4 +1,4 @@
-package com.controlechamados.entity.enums;
+package com.controlechamados.models.enums;
 
 public enum AcaoEnum {
 

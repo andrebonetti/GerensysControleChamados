@@ -1,20 +1,11 @@
-package com.controlechamados.entity;
+package com.controlechamados.models;
 
 import com.controlechamados.empresa.Empresa;
-import com.controlechamados.empresa.EmpresaConverter;
-import com.controlechamados.empresa.EmpresaMock;
-import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
-import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
-import com.controlechamados.empresa.dto.EmpresaGridDTO;
-import com.controlechamados.entity.enums.AcaoEnum;
-import com.controlechamados.entity.enums.TabelaEnum;
+import com.controlechamados.models.enums.AcaoEnum;
+import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.historico.dto.HistoricoParam;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class EntityService {
@@ -38,18 +29,18 @@ public class EntityService {
 
     }
 
-    protected void preSave(Entity entity, AcaoEnum acaoEnum){
+    protected void preSave(AbstractEntity abstractEntity, AcaoEnum acaoEnum){
 
-        entity.setPropriedadePorAcao( acaoEnum );
+        abstractEntity.setPropriedadePorAcao( acaoEnum );
 
     }
 
-    protected void posSave(Entity entity, AcaoEnum acaoEnum){
+    protected void posSave(AbstractEntity abstractEntity, AcaoEnum acaoEnum){
 
         historicoService.criarHistoricoRegistro( new HistoricoParam(
             this.tabelaEnum,
             acaoEnum,
-            entity
+                abstractEntity
         ));
 
     }

@@ -1,14 +1,24 @@
 package com.controlechamados.usuario;
 
-import com.controlechamados.entity.Entity;
+import com.controlechamados.models.AbstractEntity;
 import com.controlechamados.usuario.perfil.Perfil;
 
-public class Usuario extends Entity {
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Usuario extends AbstractEntity {
 
     private String nome;
     private String email;
     private String imagem;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_perfil")
     private Perfil perfil;
+
     private String senha;
 
     public Usuario() {

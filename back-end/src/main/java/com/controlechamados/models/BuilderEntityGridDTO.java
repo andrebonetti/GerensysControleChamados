@@ -1,4 +1,4 @@
-package com.controlechamados.entity;
+package com.controlechamados.models;
 
 import com.controlechamados.usuario.UsuarioConverter;
 import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
@@ -38,29 +38,29 @@ public class BuilderEntityGridDTO {
         return dataModificacao;
     }
 
-    public void setCompletePropertiesGridDto(Entity entity) {
+    public void setCompletePropertiesGridDto(AbstractEntity abstractEntity) {
 
-        this.id = entity.getId().toString();
+        this.id = abstractEntity.getId().toString();
 
-        if (Objects.nonNull( entity.getAtivo() )) {
-            this.ativo = entity.getAtivo().toString();
+        if (Objects.nonNull( abstractEntity.getAtivo() )) {
+            this.ativo = abstractEntity.getAtivo().toString();
         }
-        if (Objects.nonNull( entity.getUsuarioCriacao() )) {
-            this.usuarioCriacao = UsuarioConverter.toSimpleGridDto( entity.getUsuarioCriacao() );
+        if (Objects.nonNull( abstractEntity.getUsuarioCriacao() )) {
+            this.usuarioCriacao = UsuarioConverter.toSimpleGridDto( abstractEntity.getUsuarioCriacao() );
         }
-        if (Objects.nonNull( entity.getUsuarioModificacao() )) {
-            this.usuarioModificaocao = UsuarioConverter.toSimpleGridDto( entity.getUsuarioModificacao() );
+        if (Objects.nonNull( abstractEntity.getUsuarioModificacao() )) {
+            this.usuarioModificaocao = UsuarioConverter.toSimpleGridDto( abstractEntity.getUsuarioModificacao() );
         }
-        if (Objects.nonNull( entity.getDataCriacao() )) {
-            this.dataCriacao = entity.getDataCriacao().toString();
+        if (Objects.nonNull( abstractEntity.getDataCriacao() )) {
+            this.dataCriacao = abstractEntity.getDataCriacao().toString();
         }
-        if (Objects.nonNull( entity.getDataModificacao() )) {
-            this.dataModificacao = entity.getDataModificacao().toString();
+        if (Objects.nonNull( abstractEntity.getDataModificacao() )) {
+            this.dataModificacao = abstractEntity.getDataModificacao().toString();
         }
     }
 
-    public void setSimplePropertiesGridDto(Entity entity) {
-        this.id = entity.getId().toString();
+    public void setSimplePropertiesGridDto(AbstractEntity abstractEntity) {
+        this.id = abstractEntity.getId().toString();
     }
 
     public void setId(String id) {
