@@ -21,11 +21,11 @@ public class EntityService {
         this.tabelaEnum = tabelaEnum;
     }
 
-    protected void save(Empresa empresa, AcaoEnum acaoEnum){
+    protected void save(AbstractEntity abstractEntity, AcaoEnum acaoEnum){
 
-        preSave ( empresa,acaoEnum );
+        preSave ( abstractEntity,acaoEnum );
         //TODO SALVAR
-        posSave( empresa,acaoEnum );
+        posSave( abstractEntity,acaoEnum );
 
     }
 

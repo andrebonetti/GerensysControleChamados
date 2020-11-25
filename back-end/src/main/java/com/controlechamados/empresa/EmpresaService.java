@@ -7,6 +7,7 @@ import com.controlechamados.models.EntityService;
 import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.historico.HistoricoService;
+import com.controlechamados.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
