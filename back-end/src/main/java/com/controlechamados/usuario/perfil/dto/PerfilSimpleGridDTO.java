@@ -1,11 +1,11 @@
 package com.controlechamados.usuario.perfil.dto;
 
-public class PerfilFormAtualizacaoDTO {
+public class PerfilSimpleGridDTO{
 
     private Long id;
     private String descricao;
 
-    public PerfilFormAtualizacaoDTO(Long id, String descricao) {
+    public PerfilSimpleGridDTO(Long id, String descricao) {
         this.id = id;
         this.descricao = descricao;
     }
@@ -20,8 +20,8 @@ public class PerfilFormAtualizacaoDTO {
 
     @Override
     public String toString() {
-        return "PerfilFormAtualizacaoDTO{" +
-                "id='" + id + '\'' +
+        return "PerfilSimpleGridDTO{" +
+                "id=" + id +
                 ", descricao='" + descricao + '\'' +
                 '}';
     }

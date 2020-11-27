@@ -2,7 +2,7 @@ package com.controlechamados.usuario.dto;
 
 public class UsuarioFormAtualizacaoDTO {
 
-    private String id;
+    private Long id;
     private String cpf;
     private String nome;
     private String email;
@@ -30,7 +30,7 @@ public class UsuarioFormAtualizacaoDTO {
 
     public final static class Builder{
 
-        private String id;
+        private Long id;
         private String cpf;
         private String nome;
         private String email;
@@ -78,7 +78,7 @@ public class UsuarioFormAtualizacaoDTO {
         }
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

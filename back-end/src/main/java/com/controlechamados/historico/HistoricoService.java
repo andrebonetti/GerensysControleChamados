@@ -18,7 +18,7 @@ public class HistoricoService {
         new Historico().builder()
             .withId( UUID.randomUUID() )
             .withTabela( historicoParam.getTabelaEnum() )
-            .withIdRegistro( historicoParam.getEntity().getId() )
+//TODO            .withIdRegistro( historicoParam.getEntity().getId() )
             .withTipoAcao( historicoParam.getAcaoEnum() )
             .withDataAcao( LocalDate.now() )
             .withUsuarioAcao( usuarioCriacao )

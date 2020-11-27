@@ -4,8 +4,11 @@ import com.controlechamados.usuario.dto.UsuarioCompleteGridDTO;
 import com.controlechamados.usuario.dto.UsuarioFormAtualizacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioFormCriacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
+import com.controlechamados.usuario.perfil.Perfil;
 import com.controlechamados.usuario.perfil.PerfilConverter;
-import com.controlechamados.usuario.perfil.dto.PerfilGridDTO;
+import com.controlechamados.usuario.perfil.dto.PerfilCompleteGridDTO;
+import com.controlechamados.usuario.perfil.dto.PerfilSimpleGridDTO;
+import com.controlechamados.utils.MaskConverter;
 
 public class UsuarioConverter {
 
@@ -22,26 +25,27 @@ public class UsuarioConverter {
 
     public static UsuarioCompleteGridDTO toCompleteGridDto(Usuario usuario) {
 
-        PerfilGridDTO perfilGridDTO = new PerfilConverter().toCompleteGridDTO( usuario.getPerfil() );
+        PerfilSimpleGridDTO perfilSimpleGridDTO = PerfilConverter.toSimpleGridDTO( usuario.getPerfil() );
 
         return new UsuarioCompleteGridDTO().builder()
                 .withNome( usuario.getNome() )
                 .withEmail( usuario.getEmail() )
                 .withImagem( usuario.getImagem() )
-                .withPerfilGridDTO( perfilGridDTO )
+                .withPerfilGridDTO( perfilSimpleGridDTO )
                 .withPropertiesGridDto ( usuario )
                 .build();
 
     }
 
-    public static Usuario toEntity(UsuarioFormCriacaoDTO usuarioFormCriacaoDTO){
+    public static Usuario toEntity(UsuarioFormCriacaoDTO usuarioFormCriacaoDTO, Perfil perfil){
 
         return Usuario.builder()
-            .withCpf( Long.parseLong( usuarioFormCriacaoDTO.getCpf()) )
+            .withCpf( MaskConverter.toNumber(usuarioFormCriacaoDTO.getCpf()) )
             .withNome( usuarioFormCriacaoDTO.getNome() )
             .withEmail( usuarioFormCriacaoDTO.getEmail() )
             .withImagem( usuarioFormCriacaoDTO.getImagem() )
             .withSenha( usuarioFormCriacaoDTO.getSenha() )
+            .withPerfil( perfil )
             .build();
 
     }

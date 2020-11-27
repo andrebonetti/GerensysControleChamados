@@ -1,7 +1,5 @@
 package com.controlechamados.usuario.perfil.dto;
 
-import com.controlechamados.models.dto.EntityGridDTO;
-
 public class PerfilFormCriacaoDTO {
 
     private String descricao;

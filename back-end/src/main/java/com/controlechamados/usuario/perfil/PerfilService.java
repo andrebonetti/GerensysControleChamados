@@ -3,21 +3,14 @@ package com.controlechamados.usuario.perfil;
 import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.models.EntityService;
 import com.controlechamados.models.enums.TabelaEnum;
-import com.controlechamados.usuario.Usuario;
-import com.controlechamados.usuario.UsuarioConverter;
-import com.controlechamados.usuario.UsuarioMock;
-import com.controlechamados.usuario.dto.UsuarioCompleteGridDTO;
-import com.controlechamados.usuario.dto.UsuarioFormAtualizacaoDTO;
-import com.controlechamados.usuario.dto.UsuarioFormCriacaoDTO;
 import com.controlechamados.usuario.perfil.dto.PerfilFormAtualizacaoDTO;
 import com.controlechamados.usuario.perfil.dto.PerfilFormCriacaoDTO;
-import com.controlechamados.usuario.perfil.dto.PerfilGridDTO;
+import com.controlechamados.usuario.perfil.dto.PerfilCompleteGridDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -32,7 +25,7 @@ public class PerfilService extends EntityService{
         this.perfilDAO = perfilDAO;
     }
 
-    public List<PerfilGridDTO> findAll() {
+    public List<PerfilCompleteGridDTO> findAll() {
 
         return StreamSupport.stream(
                 perfilDAO.findAll()
@@ -42,11 +35,12 @@ public class PerfilService extends EntityService{
 
     }
 
-    public PerfilGridDTO findById(String id){
+    public PerfilCompleteGridDTO findById(Long id){
 
-        Optional<Perfil> perfil = perfilDAO.findById( UUID.fromString( id ) );
+        Perfil perfil = perfilDAO.findById( id )
+                .orElseThrow( () -> new EntityNotFoundException( "Perfil não encontrado" ) );
 
-        return null;
+        return PerfilConverter.toCompleteGridDTO( perfil );
 
     }
 
@@ -60,8 +54,7 @@ public class PerfilService extends EntityService{
 
     public void atualizar(PerfilFormAtualizacaoDTO perfilFormAtualizacaoDTO){
 
-        perfilDAO.findById(
-            UUID.fromString(perfilFormAtualizacaoDTO.getId())).stream()
+        perfilDAO.findById(perfilFormAtualizacaoDTO.getId()).stream()
             .findFirst()
             .ifPresent( perfil -> {
                 PerfilConverter.toEntity( perfil, perfilFormAtualizacaoDTO );
@@ -70,7 +63,7 @@ public class PerfilService extends EntityService{
             });
     }
 
-    public void inativar(UUID id){
+    public void inativar(Long id){
         perfilDAO.findById(id).stream()
         .findFirst()
         .ifPresent( usuario -> {

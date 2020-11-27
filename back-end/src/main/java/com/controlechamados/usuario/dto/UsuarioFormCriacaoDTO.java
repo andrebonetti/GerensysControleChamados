@@ -6,7 +6,7 @@ public class UsuarioFormCriacaoDTO {
     private String nome;
     private String email;
     private String imagem;
-    private String id_perfil;
+    private Long idPerfil;
     private String senha;
 
     public UsuarioFormCriacaoDTO() {
@@ -18,7 +18,7 @@ public class UsuarioFormCriacaoDTO {
         this.nome = builder.nome;
         this.email = builder.email;
         this.imagem = builder.imagem;
-        this.id_perfil = builder.id_perfil;
+        this.idPerfil = builder.id_perfil;
         this.senha = builder.senha;
     }
 
@@ -32,7 +32,7 @@ public class UsuarioFormCriacaoDTO {
         private String nome;
         private String email;
         private String imagem;
-        private String id_perfil;
+        private Long id_perfil;
         private String senha;
 
         public Builder withCpf(String cpf) {
@@ -55,7 +55,7 @@ public class UsuarioFormCriacaoDTO {
             return this;
         }
 
-        public Builder withId_perfil(String id_perfil) {
+        public Builder withId_perfil(Long id_perfil) {
             this.id_perfil = id_perfil;
             return this;
         }
@@ -86,8 +86,8 @@ public class UsuarioFormCriacaoDTO {
         return imagem;
     }
 
-    public String getId_perfil() {
-        return id_perfil;
+    public Long getIdPerfil() {
+        return idPerfil;
     }
 
     public String getSenha() {
@@ -101,7 +101,7 @@ public class UsuarioFormCriacaoDTO {
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", imagem='" + imagem + '\'' +
-                ", id_perfil='" + id_perfil + '\'' +
+                ", id_perfil='" + idPerfil + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
     }

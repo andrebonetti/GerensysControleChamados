@@ -3,14 +3,15 @@ package com.controlechamados.usuario.dto;
 import com.controlechamados.models.BuilderEntityGridDTO;
 import com.controlechamados.models.AbstractEntity;
 import com.controlechamados.models.dto.EntityGridDTO;
-import com.controlechamados.usuario.perfil.dto.PerfilGridDTO;
+import com.controlechamados.usuario.perfil.dto.PerfilCompleteGridDTO;
+import com.controlechamados.usuario.perfil.dto.PerfilSimpleGridDTO;
 
 public class UsuarioCompleteGridDTO extends EntityGridDTO {
 
     private String nome;
     private String email;
     private String imagem;
-    private PerfilGridDTO perfilGridDTO;
+    private PerfilSimpleGridDTO perfilCompleteGridDTO;
 
     public UsuarioCompleteGridDTO() {
         // to serialize
@@ -20,7 +21,7 @@ public class UsuarioCompleteGridDTO extends EntityGridDTO {
         this.nome = builder.nome;
         this.email = builder.email;
         this.imagem = builder.imagem;
-        this.perfilGridDTO = builder.perfilGridDTO;
+        this.perfilCompleteGridDTO = builder.perfilCompleteGridDTO;
 
         this.construct(builder);
     }
@@ -41,8 +42,8 @@ public class UsuarioCompleteGridDTO extends EntityGridDTO {
         return imagem;
     }
 
-    public PerfilGridDTO getPerfilGridDTO() {
-        return perfilGridDTO;
+    public PerfilSimpleGridDTO getPerfilGridDTO() {
+        return perfilCompleteGridDTO;
     }
 
     public static final class Builder extends BuilderEntityGridDTO {
@@ -50,7 +51,7 @@ public class UsuarioCompleteGridDTO extends EntityGridDTO {
         private String nome;
         private String email;
         private String imagem;
-        private PerfilGridDTO perfilGridDTO;
+        private PerfilSimpleGridDTO perfilCompleteGridDTO;
         
         public Builder withNome(String nome) {
             this.nome = nome;
@@ -67,8 +68,8 @@ public class UsuarioCompleteGridDTO extends EntityGridDTO {
             return this;
         }
 
-        public Builder withPerfilGridDTO(PerfilGridDTO perfilGridDTO) {
-            this.perfilGridDTO = perfilGridDTO;
+        public Builder withPerfilGridDTO(PerfilSimpleGridDTO perfilCompleteGridDTO) {
+            this.perfilCompleteGridDTO = perfilCompleteGridDTO;
             return this;
         }
 
@@ -95,7 +96,7 @@ public class UsuarioCompleteGridDTO extends EntityGridDTO {
                 "nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", imagem='" + imagem + '\'' +
-                ", perfilGridDTO=" + perfilGridDTO +
+                ", perfilGridDTO=" + perfilCompleteGridDTO +
                 '}';
     }
 }

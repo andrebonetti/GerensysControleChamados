@@ -101,7 +101,8 @@ public class PropriedadePorAcaoChain {
         @Override
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.MOCK.equals( acaoEnum )){
-                abstractEntity.id = UUID.randomUUID();
+//TODO RETURN                abstractEntity.id = UUID.randomUUID();
+                abstractEntity.id = 99999L;
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }

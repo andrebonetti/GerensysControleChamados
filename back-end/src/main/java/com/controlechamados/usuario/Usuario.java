@@ -3,24 +3,28 @@ package com.controlechamados.usuario;
 import com.controlechamados.models.AbstractEntity;
 import com.controlechamados.usuario.perfil.Perfil;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class Usuario extends AbstractEntity {
 
+    @Column(nullable = false)
     private Long cpf;
+
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
     private String email;
+
     private String imagem;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "id_perfil")
     private Perfil perfil;
 
+    @Column(nullable = false)
     private String senha;
 
     public Usuario() {

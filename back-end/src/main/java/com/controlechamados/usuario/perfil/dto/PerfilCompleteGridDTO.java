@@ -3,15 +3,15 @@ package com.controlechamados.usuario.perfil.dto;
 import com.controlechamados.models.BuilderEntityGridDTO;
 import com.controlechamados.models.dto.EntityGridDTO;
 
-public class PerfilGridDTO extends EntityGridDTO {
+public class PerfilCompleteGridDTO extends EntityGridDTO {
 
     private String descricao;
 
-    public PerfilGridDTO(String descricao) {
+    public PerfilCompleteGridDTO(String descricao) {
         this.descricao = descricao;
     }
 
-    public PerfilGridDTO(String descricao, BuilderEntityGridDTO builderEntityGridDTO) {
+    public PerfilCompleteGridDTO(String descricao, BuilderEntityGridDTO builderEntityGridDTO) {
         this.descricao = descricao;
         super.construct( builderEntityGridDTO );
     }
