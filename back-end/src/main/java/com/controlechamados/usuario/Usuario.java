@@ -24,7 +24,7 @@ public class Usuario extends AbstractEntity {
     private String senha;
 
     public Usuario() {
-        //serialize
+        //to serialize
     }
 
     public Usuario(Builder builder) {
@@ -39,7 +39,7 @@ public class Usuario extends AbstractEntity {
         return new Builder(this);
     }
 
-    public void update(Builder builder){
+    private void update(Builder builder){
         this.cpf = builder.cpf;
         this.nome = builder.nome;
         this.email = builder.email;

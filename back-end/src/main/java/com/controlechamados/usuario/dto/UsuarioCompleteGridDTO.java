@@ -78,7 +78,7 @@ public class UsuarioCompleteGridDTO extends EntityGridDTO {
         }
 
         public Builder withId(String id){
-            setId( id );
+            this.withId( id );
             return this;
         }
 

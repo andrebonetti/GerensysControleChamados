@@ -5,6 +5,7 @@ import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.usuario.UsuarioMock;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class PropriedadePorAcaoChain {
@@ -40,9 +41,7 @@ public class PropriedadePorAcaoChain {
         @Override
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.CRIACAO.equals( acaoEnum )){
-                abstractEntity.ativo = Boolean.TRUE;
                 abstractEntity.usuarioCriacao = UsuarioMock.usuarioMock();
-                abstractEntity.dataCriacao = LocalDate.now();
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }
@@ -62,7 +61,7 @@ public class PropriedadePorAcaoChain {
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.ATUALIZACAO.equals( acaoEnum )){
                 abstractEntity.usuarioModificacao = UsuarioMock.usuarioMock();
-                abstractEntity.dataModificacao = LocalDate.now();
+                abstractEntity.dataModificacao = LocalDateTime.now();
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }
@@ -83,7 +82,7 @@ public class PropriedadePorAcaoChain {
             if(AcaoEnum.INATIVACAO.equals( acaoEnum )){
                 abstractEntity.ativo = Boolean.FALSE;
                 abstractEntity.usuarioModificacao = UsuarioMock.usuarioModificacao();
-                abstractEntity.dataModificacao = LocalDate.now();
+                abstractEntity.dataModificacao = LocalDateTime.now();
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }

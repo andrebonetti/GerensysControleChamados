@@ -1,6 +1,7 @@
 package com.controlechamados.usuario;
 
 import com.controlechamados.usuario.dto.UsuarioCompleteGridDTO;
+import com.controlechamados.usuario.dto.UsuarioFormAtualizacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioFormCriacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
 import com.controlechamados.usuario.perfil.PerfilConverter;
@@ -21,7 +22,7 @@ public class UsuarioConverter {
 
     public static UsuarioCompleteGridDTO toCompleteGridDto(Usuario usuario) {
 
-        PerfilGridDTO perfilGridDTO = PerfilConverter.toGridDto( usuario.getPerfil() );
+        PerfilGridDTO perfilGridDTO = new PerfilConverter().toCompleteGridDTO( usuario.getPerfil() );
 
         return new UsuarioCompleteGridDTO().builder()
                 .withNome( usuario.getNome() )
@@ -45,10 +46,15 @@ public class UsuarioConverter {
 
     }
 
-    public static Usuario toEntity(Usuario usuario, UsuarioFormCriacaoDTO usuarioFormCriacaoDTO){
+    public static void toEntity(Usuario usuario, UsuarioFormAtualizacaoDTO usuarioFormAtualizacaoDTO){
 
-        //TODO
-        return null;
+        usuario.atualizar()
+            .withCpf( Long.parseLong( usuarioFormAtualizacaoDTO.getCpf()) )
+            .withNome( usuarioFormAtualizacaoDTO.getNome() )
+            .withEmail( usuarioFormAtualizacaoDTO.getEmail() )
+            .withImagem( usuarioFormAtualizacaoDTO.getImagem() )
+            .withSenha( usuarioFormAtualizacaoDTO.getSenha() )
+            .build();
 
     }
 

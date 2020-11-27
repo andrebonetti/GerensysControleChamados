@@ -2,26 +2,35 @@ package com.controlechamados.usuario.perfil;
 
 import com.controlechamados.models.AbstractEntity;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
-import java.util.UUID;
 
 @Entity
 public class Perfil extends AbstractEntity {
 
-    private String nome;
+    @Basic(optional=false)
+    private String descricao;
 
-    public Perfil(String nome) {
-        this.nome = nome;
+    public Perfil() {
+        //to serialize
     }
 
-    public String getNome() {
-        return nome;
+    public Perfil(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void atualizar(String nome) {
+        this.descricao = nome;
     }
 
     @Override
     public String toString() {
         return "Perfil{" +
-                ", nome='" + nome + '\'' +
+                ", nome='" + descricao + '\'' +
                 '}';
     }
 }

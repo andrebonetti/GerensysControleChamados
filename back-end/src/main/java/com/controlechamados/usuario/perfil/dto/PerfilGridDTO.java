@@ -1,30 +1,29 @@
 package com.controlechamados.usuario.perfil.dto;
 
+import com.controlechamados.models.BuilderEntityGridDTO;
 import com.controlechamados.models.dto.EntityGridDTO;
 
 public class PerfilGridDTO extends EntityGridDTO {
 
-    private String id;
-    private String nome;
+    private String descricao;
 
-    public PerfilGridDTO(String id, String nome) {
-        this.id = id;
-        this.nome = nome;
+    public PerfilGridDTO(String descricao) {
+        this.descricao = descricao;
     }
 
-    public String getId() {
-        return id;
+    public PerfilGridDTO(String descricao, BuilderEntityGridDTO builderEntityGridDTO) {
+        this.descricao = descricao;
+        super.construct( builderEntityGridDTO );
     }
 
-    public String getNome() {
-        return nome;
+    public String getDescricao() {
+        return descricao;
     }
 
     @Override
     public String toString() {
         return "PerfilGridDTO{" +
-                "id='" + id + '\'' +
-                ", nome='" + nome + '\'' +
+                ", nome='" + descricao + '\'' +
                 '}';
     }
 }

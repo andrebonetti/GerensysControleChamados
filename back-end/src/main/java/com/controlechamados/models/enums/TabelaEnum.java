@@ -8,6 +8,7 @@ public enum TabelaEnum {
     FORMULARIOINPUT( "FORMULARIOINPUT" ),
     SOLUCAOTECNICA( "SOLUCAOTECNICA" ),
     USUARIO( "USUARIO" ),
+    PERFIL( "PERFIL" ),
     EMPRESA( "EMPRESA" );
 
     private final String value;

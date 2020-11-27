@@ -38,7 +38,7 @@ public class BuilderEntityGridDTO {
         return dataModificacao;
     }
 
-    public void setCompletePropertiesGridDto(AbstractEntity abstractEntity) {
+    public BuilderEntityGridDTO setCompletePropertiesGridDto(AbstractEntity abstractEntity) {
 
         this.id = abstractEntity.getId().toString();
 
@@ -57,14 +57,42 @@ public class BuilderEntityGridDTO {
         if (Objects.nonNull( abstractEntity.getDataModificacao() )) {
             this.dataModificacao = abstractEntity.getDataModificacao().toString();
         }
+
+        return this;
     }
 
-    public void setSimplePropertiesGridDto(AbstractEntity abstractEntity) {
+    public void withSimplePropertiesGridDto(AbstractEntity abstractEntity) {
         this.id = abstractEntity.getId().toString();
     }
 
-    public void setId(String id) {
+    public BuilderEntityGridDTO withId(String id) {
         this.id = id;
+        return this;
+    }
+
+    public BuilderEntityGridDTO withAtivo(String ativo) {
+        this.ativo = ativo;
+        return this;
+    }
+
+    public BuilderEntityGridDTO withUsuarioCriacao(UsuarioSimpleGridDTO usuarioCriacao) {
+        this.usuarioCriacao = usuarioCriacao;
+        return this;
+    }
+
+    public BuilderEntityGridDTO withUsuarioModificaocao(UsuarioSimpleGridDTO usuarioModificaocao) {
+        this.usuarioModificaocao = usuarioModificaocao;
+        return this;
+    }
+
+    public BuilderEntityGridDTO withDataCriacao(String dataCriacao) {
+        this.dataCriacao = dataCriacao;
+        return this;
+    }
+
+    public BuilderEntityGridDTO withDataModificacao(String dataModificacao) {
+        this.dataModificacao = dataModificacao;
+        return this;
     }
 
     @Override
@@ -77,5 +105,6 @@ public class BuilderEntityGridDTO {
                 ", dataCriacao='" + dataCriacao + '\'' +
                 ", dataModificacao='" + dataModificacao + '\'' +
                 '}';
+
     }
 }

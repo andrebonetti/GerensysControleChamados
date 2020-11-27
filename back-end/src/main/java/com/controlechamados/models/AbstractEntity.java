@@ -3,10 +3,12 @@ package com.controlechamados.models;
 import com.controlechamados.models.chains.PropriedadePorAcaoChain;
 import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.usuario.Usuario;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @MappedSuperclass
@@ -14,8 +16,10 @@ public class AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue
+    @Column(name = "id", updatable = false, nullable = false)
     public UUID id;
 
+    @Column(columnDefinition="BOOLEAN DEFAULT true")
     public Boolean ativo;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -26,8 +30,13 @@ public class AbstractEntity implements Serializable {
     @JoinColumn(name = "id_usuario_modificacao")
     public Usuario usuarioModificacao;
 
-    public LocalDate dataCriacao ;
-    public LocalDate dataModificacao;
+    @Column(columnDefinition = "TIMESTAMP")
+    public LocalDateTime dataCriacao;
+
+    public LocalDateTime dataModificacao;
+
+    @Version
+    private Long version;
 
     public AbstractEntity() {
     }
@@ -48,11 +57,11 @@ public class AbstractEntity implements Serializable {
         return usuarioModificacao;
     }
 
-    public LocalDate getDataCriacao() {
+    public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
-    public LocalDate getDataModificacao() {
+    public LocalDateTime getDataModificacao() {
         return dataModificacao;
     }
 

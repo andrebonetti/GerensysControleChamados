@@ -28,8 +28,8 @@ public class EmpresaService extends EntityService{
     }
 
     public List<EmpresaGridDTO> findAll() {
-        List<Empresa> empresas =
-                StreamSupport.stream(empresaDAO.findAll().spliterator(), false)
+        List<Empresa> empresas = StreamSupport
+                .stream(empresaDAO.findAll().spliterator(), false)
                 .collect(Collectors.toList());
 
         List<EmpresaGridDTO> empresaGridDTOS = empresas.stream()

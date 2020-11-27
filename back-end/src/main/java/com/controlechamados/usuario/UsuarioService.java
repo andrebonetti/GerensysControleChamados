@@ -11,11 +11,13 @@ import com.controlechamados.models.EntityService;
 import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.usuario.dto.UsuarioCompleteGridDTO;
+import com.controlechamados.usuario.dto.UsuarioFormAtualizacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioFormCriacaoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -56,18 +58,25 @@ public class UsuarioService extends EntityService{
 //TODO  RETURN save(usuario,AcaoEnum.CRIACAO);
     }
 
-    public void atualizar(EmpresaFormAtualizacaoDTO empresaFormAtualizacaoDTO){
+    public void atualizar(UsuarioFormAtualizacaoDTO usuarioFormAtualizacaoDTO){
 
-        Empresa empresa = EmpresaMock.empresaCase1();
-        EmpresaConverter.toEntity(empresa, empresaFormAtualizacaoDTO );
-
-        save(empresa,AcaoEnum.ATUALIZACAO);
+        usuarioDAO.findById(
+            UUID.fromString(usuarioFormAtualizacaoDTO.getId())).stream()
+            .findFirst()
+            .ifPresent( usuario -> {
+                UsuarioConverter.toEntity( usuario, usuarioFormAtualizacaoDTO );
+                usuarioDAO.save( usuario );
+                //TODO RETURN save(usuario,AcaoEnum.ATUALIZACAO);
+            });
     }
 
     public void inativar(UUID id){
-        Empresa empresa = EmpresaMock.empresaCase1();
-
-        save( empresa,AcaoEnum.INATIVACAO );
+        usuarioDAO.findById(id).stream()
+        .findFirst()
+        .ifPresent( usuario -> {
+            usuarioDAO.save( usuario );
+            //TODO RETURN save(usuario,AcaoEnum.INATIVACAO);
+        });
     }
 
 }
