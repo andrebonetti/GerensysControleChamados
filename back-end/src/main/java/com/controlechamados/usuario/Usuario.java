@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 public class Usuario extends AbstractEntity {
 
-    @Column(nullable = false)
+    @Column(nullable = false,updatable=false)
     private Long cpf;
 
     @Column(nullable = false)
@@ -32,7 +32,12 @@ public class Usuario extends AbstractEntity {
     }
 
     public Usuario(Builder builder) {
-        update( builder );
+        this.cpf = builder.cpf;
+        this.nome = builder.nome;
+        this.email = builder.email;
+        this.imagem = builder.imagem;
+        this.perfil = builder.perfil;
+        this.senha = builder.senha;
     }
 
     public static Builder builder() {
@@ -44,7 +49,6 @@ public class Usuario extends AbstractEntity {
     }
 
     private void update(Builder builder){
-        this.cpf = builder.cpf;
         this.nome = builder.nome;
         this.email = builder.email;
         this.imagem = builder.imagem;

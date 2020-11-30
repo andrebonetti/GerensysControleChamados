@@ -2,11 +2,14 @@ package com.controlechamados.usuario;
 
 import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.models.EntityService;
+import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.usuario.dto.UsuarioCompleteGridDTO;
 import com.controlechamados.usuario.dto.UsuarioFormAtualizacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioFormCriacaoDTO;
+import com.controlechamados.usuario.dto.UsuarioReferenceDTO;
 import com.controlechamados.usuario.perfil.Perfil;
+import com.controlechamados.usuario.perfil.PerfilConverter;
 import com.controlechamados.usuario.perfil.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +29,8 @@ public class UsuarioService extends EntityService{
     public UsuarioService(HistoricoService historicoService
             , UsuarioRepository usuarioDAO
             , PerfilRepository perfilDAO) {
-        super( historicoService, TabelaEnum.USUARIO );
+        super( historicoService
+                , TabelaEnum.USUARIO);
         this.usuarioDAO = usuarioDAO;
         this.perfilDAO = perfilDAO;
     }
@@ -42,18 +46,16 @@ public class UsuarioService extends EntityService{
     }
 
     public UsuarioCompleteGridDTO findById(Long id){
-        Usuario usuario = UsuarioMock.usuarioMock();
-        UsuarioCompleteGridDTO usuarioCompleteGridDTO = UsuarioConverter.toCompleteGridDto( usuario );
+        Usuario usuario = usuarioDAO.findById( id )
+                .orElseThrow( () -> new EntityNotFoundException( "Usuario não encontrado" ) );
 
-        return usuarioCompleteGridDTO;
+        return UsuarioConverter.toCompleteGridDto( usuario );
     }
 
     public void criar(UsuarioFormCriacaoDTO usuarioFormCriacaoDTO){
 
-        Perfil perfil = this.perfilDAO.findById( usuarioFormCriacaoDTO.getIdPerfil() )
-                .orElseThrow( () -> new EntityNotFoundException( "Perfil não encontrado" ) );
-
-        Usuario usuario = UsuarioConverter.toEntity( usuarioFormCriacaoDTO, perfil );
+        Usuario usuario = UsuarioConverter.toEntity( usuarioFormCriacaoDTO
+                , findReferences( usuarioFormCriacaoDTO ) );
 
         usuarioDAO.save( usuario );
 //TODO  RETURN save(usuario,AcaoEnum.CRIACAO);
@@ -64,7 +66,9 @@ public class UsuarioService extends EntityService{
         usuarioDAO.findById(usuarioFormAtualizacaoDTO.getId()).stream()
             .findFirst()
             .ifPresent( usuario -> {
-                UsuarioConverter.toEntity( usuario, usuarioFormAtualizacaoDTO );
+                UsuarioConverter.toEntity( usuario
+                        , usuarioFormAtualizacaoDTO
+                        , findReferences( usuarioFormAtualizacaoDTO ));
                 usuarioDAO.save( usuario );
                 //TODO RETURN save(usuario,AcaoEnum.ATUALIZACAO);
             });
@@ -74,9 +78,24 @@ public class UsuarioService extends EntityService{
         usuarioDAO.findById(id).stream()
         .findFirst()
         .ifPresent( usuario -> {
-            usuarioDAO.save( usuario );
-            //TODO RETURN save(usuario,AcaoEnum.INATIVACAO);
+            save(usuario,AcaoEnum.INATIVACAO);
         });
+    }
+
+    private UsuarioReferenceDTO findReferences(UsuarioFormCriacaoDTO usuarioFormCriacaoDTO){
+
+        Perfil perfil = this.perfilDAO.findById( usuarioFormCriacaoDTO.getIdPerfil() )
+                .orElseThrow( () -> new EntityNotFoundException( "Perfil não encontrado" ) );
+
+        return new UsuarioReferenceDTO(perfil);
+    }
+
+    private UsuarioReferenceDTO findReferences(UsuarioFormAtualizacaoDTO usuarioFormAtualizacaoDTO){
+
+        Perfil perfil = this.perfilDAO.findById( usuarioFormAtualizacaoDTO.getIdPerfil() )
+                .orElseThrow( () -> new EntityNotFoundException( "Perfil não encontrado" ) );
+
+        return new UsuarioReferenceDTO(perfil);
     }
 
 }

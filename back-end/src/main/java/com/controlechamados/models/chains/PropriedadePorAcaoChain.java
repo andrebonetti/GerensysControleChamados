@@ -41,7 +41,7 @@ public class PropriedadePorAcaoChain {
         @Override
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.CRIACAO.equals( acaoEnum )){
-                abstractEntity.usuarioCriacao = UsuarioMock.usuarioMock();
+//TODO RETURN                abstractEntity.usuarioCriacao = UsuarioMock.usuarioMock();
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }
@@ -60,8 +60,7 @@ public class PropriedadePorAcaoChain {
         @Override
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.ATUALIZACAO.equals( acaoEnum )){
-                abstractEntity.usuarioModificacao = UsuarioMock.usuarioMock();
-                abstractEntity.dataModificacao = LocalDateTime.now();
+//TODO RETURN                abstractEntity.usuarioModificacao = UsuarioMock.usuarioMock();
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }
@@ -81,8 +80,7 @@ public class PropriedadePorAcaoChain {
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.INATIVACAO.equals( acaoEnum )){
                 abstractEntity.ativo = Boolean.FALSE;
-                abstractEntity.usuarioModificacao = UsuarioMock.usuarioModificacao();
-                abstractEntity.dataModificacao = LocalDateTime.now();
+//TODO RETURN                abstractEntity.usuarioModificacao = UsuarioMock.usuarioModificacao();
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }

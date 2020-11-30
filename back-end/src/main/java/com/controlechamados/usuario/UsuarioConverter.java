@@ -1,9 +1,6 @@
 package com.controlechamados.usuario;
 
-import com.controlechamados.usuario.dto.UsuarioCompleteGridDTO;
-import com.controlechamados.usuario.dto.UsuarioFormAtualizacaoDTO;
-import com.controlechamados.usuario.dto.UsuarioFormCriacaoDTO;
-import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
+import com.controlechamados.usuario.dto.*;
 import com.controlechamados.usuario.perfil.Perfil;
 import com.controlechamados.usuario.perfil.PerfilConverter;
 import com.controlechamados.usuario.perfil.dto.PerfilCompleteGridDTO;
@@ -37,7 +34,8 @@ public class UsuarioConverter {
 
     }
 
-    public static Usuario toEntity(UsuarioFormCriacaoDTO usuarioFormCriacaoDTO, Perfil perfil){
+    public static Usuario toEntity(UsuarioFormCriacaoDTO usuarioFormCriacaoDTO
+            , UsuarioReferenceDTO usuarioReferenceDTO){
 
         return Usuario.builder()
             .withCpf( MaskConverter.toNumber(usuarioFormCriacaoDTO.getCpf()) )
@@ -45,19 +43,21 @@ public class UsuarioConverter {
             .withEmail( usuarioFormCriacaoDTO.getEmail() )
             .withImagem( usuarioFormCriacaoDTO.getImagem() )
             .withSenha( usuarioFormCriacaoDTO.getSenha() )
-            .withPerfil( perfil )
+            .withPerfil( usuarioReferenceDTO.getPerfil() )
             .build();
 
     }
 
-    public static void toEntity(Usuario usuario, UsuarioFormAtualizacaoDTO usuarioFormAtualizacaoDTO){
+    public static void toEntity(Usuario usuario
+            , UsuarioFormAtualizacaoDTO usuarioFormAtualizacaoDTO
+            , UsuarioReferenceDTO usuarioReferenceDTO){
 
         usuario.atualizar()
-            .withCpf( Long.parseLong( usuarioFormAtualizacaoDTO.getCpf()) )
             .withNome( usuarioFormAtualizacaoDTO.getNome() )
             .withEmail( usuarioFormAtualizacaoDTO.getEmail() )
             .withImagem( usuarioFormAtualizacaoDTO.getImagem() )
             .withSenha( usuarioFormAtualizacaoDTO.getSenha() )
+            .withPerfil( usuarioReferenceDTO.getPerfil() )
             .build();
 
     }

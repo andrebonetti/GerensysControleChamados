@@ -1,4 +1,4 @@
-package com.controlechamados.usuario.perfil;
+package com.controlechamados.usuario;
 
 import com.controlechamados.usuario.UsuarioService;
 import com.controlechamados.usuario.dto.UsuarioCompleteGridDTO;

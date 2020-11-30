@@ -3,11 +3,10 @@ package com.controlechamados.usuario.dto;
 public class UsuarioFormAtualizacaoDTO {
 
     private Long id;
-    private String cpf;
     private String nome;
     private String email;
     private String imagem;
-    private String id_perfil;
+    private Long idPerfil;
     private String senha;
 
     public UsuarioFormAtualizacaoDTO() {
@@ -16,11 +15,10 @@ public class UsuarioFormAtualizacaoDTO {
 
     public UsuarioFormAtualizacaoDTO(Builder builder){
         this.id = builder.id;
-        this.cpf = builder.cpf;
         this.nome = builder.nome;
         this.email = builder.email;
         this.imagem = builder.imagem;
-        this.id_perfil = builder.id_perfil;
+        this.idPerfil = builder.idPerfil;
         this.senha = builder.senha;
     }
 
@@ -31,20 +29,14 @@ public class UsuarioFormAtualizacaoDTO {
     public final static class Builder{
 
         private Long id;
-        private String cpf;
         private String nome;
         private String email;
         private String imagem;
-        private String id_perfil;
+        private Long idPerfil;
         private String senha;
 
-        public Builder withId(String id) {
-            this.cpf = cpf;
-            return this;
-        }
-
-        public Builder withCpf(String cpf) {
-            this.cpf = cpf;
+        public Builder withId(Long id) {
+            this.id = id;
             return this;
         }
 
@@ -63,8 +55,8 @@ public class UsuarioFormAtualizacaoDTO {
             return this;
         }
 
-        public Builder withId_perfil(String id_perfil) {
-            this.id_perfil = id_perfil;
+        public Builder withId_perfil(Long id_perfil) {
+            this.idPerfil = id_perfil;
             return this;
         }
 
@@ -82,10 +74,6 @@ public class UsuarioFormAtualizacaoDTO {
         return id;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -98,8 +86,8 @@ public class UsuarioFormAtualizacaoDTO {
         return imagem;
     }
 
-    public String getId_perfil() {
-        return id_perfil;
+    public Long getIdPerfil() {
+        return idPerfil;
     }
 
     public String getSenha() {
@@ -108,12 +96,12 @@ public class UsuarioFormAtualizacaoDTO {
 
     @Override
     public String toString() {
-        return "UsuarioFormCriacaoDTO{" +
-                "cpf='" + cpf + '\'' +
+        return "UsuarioFormAtualizacaoDTO{" +
+                "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", imagem='" + imagem + '\'' +
-                ", id_perfil='" + id_perfil + '\'' +
+                ", idPerfil='" + idPerfil + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
     }

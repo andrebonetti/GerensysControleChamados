@@ -5,6 +5,7 @@ import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.historico.dto.HistoricoParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +17,9 @@ public class EntityService {
     public EntityService() {
     }
 
-    public EntityService(HistoricoService historicoService, TabelaEnum tabelaEnum) {
+    @Autowired
+    public EntityService(HistoricoService historicoService
+            , TabelaEnum tabelaEnum) {
         this.historicoService = historicoService;
         this.tabelaEnum = tabelaEnum;
     }
@@ -24,8 +27,8 @@ public class EntityService {
     protected void save(AbstractEntity abstractEntity, AcaoEnum acaoEnum){
 
         preSave ( abstractEntity,acaoEnum );
-        //TODO SALVAR
-        posSave( abstractEntity,acaoEnum );
+//TODO RETURN        abstractEntityRepository.save( abstractEntity );
+//TODO RETURN        posSave( abstractEntity,acaoEnum );
 
     }
 
