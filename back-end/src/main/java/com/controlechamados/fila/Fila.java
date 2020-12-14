@@ -1,13 +1,22 @@
 package com.controlechamados.fila;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.List;
 import java.util.UUID;
 
+@Entity
 public class Fila {
 
-    private UUID id;
+    @Id
+    @GeneratedValue
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
+
     private String nome;
-    private List<String> cssClass;
+    private String cssClass;
     private Integer quantidade;
     private String colorStyle;
 
@@ -16,7 +25,6 @@ public class Fila {
     }
 
     private Fila(Builder builder) {
-        this.id = builder.id;
         this.nome = builder.nome;
         this.cssClass = builder.cssClass;
         this.quantidade = builder.quantidade;
@@ -27,35 +35,15 @@ public class Fila {
         return new Builder();
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public List<String> getCssClass() {
-        return cssClass;
-    }
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    public String getColorStyle() {
-        return colorStyle;
-    }
-
     public static final class Builder {
 
-        private UUID id;
+        private Long id;
         private String nome;
-        private List<String> cssClass;
+        private String cssClass;
         private Integer quantidade;
         private String colorStyle;
 
-        public Builder withId(UUID id) {
+        public Builder withId(Long id) {
             this.id = id;
             return this;
         }
@@ -65,7 +53,7 @@ public class Fila {
             return this;
         }
 
-        public Builder withCssClass(List<String> cssClass) {
+        public Builder withCssClass(String cssClass) {
             this.cssClass = cssClass;
             return this;
         }
@@ -83,6 +71,26 @@ public class Fila {
         public Fila build() {
             return new Fila( this );
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCssClass() {
+        return cssClass;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public String getColorStyle() {
+        return colorStyle;
     }
 
     @Override

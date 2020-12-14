@@ -4,16 +4,26 @@ import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.usuario.Usuario;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity
 public class Historico {
 
-    private UUID id;
+    @Id
+    @GeneratedValue
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
+
     private TabelaEnum tabela;
-    private UUID idRegistro;
+    private Long idRegistro;
     private AcaoEnum tipoAcao;
-    private LocalDate dataAcao;
+    private LocalDateTime dataAcao = LocalDateTime.now();
     private Usuario usuarioAcao;
     private String dados;
 
@@ -21,7 +31,6 @@ public class Historico {
     }
 
     public Historico(Builder builder){
-        this.id = builder.id;
         this.tabela = builder.tabela;
         this.idRegistro = builder.idRegistro;
         this.tipoAcao = builder.tipoAcao;
@@ -34,25 +43,19 @@ public class Historico {
 
     public final static class Builder{
 
-        private UUID id;
         private TabelaEnum tabela;
-        private UUID idRegistro;
+        private Long idRegistro;
         private AcaoEnum tipoAcao;
-        private LocalDate dataAcao;
+        private LocalDateTime dataAcao;
         private Usuario usuarioAcao;
         private String dados;
-
-        public Builder withId(UUID id) {
-            this.id = id;
-            return this;
-        }
 
         public Builder withTabela(TabelaEnum tabela) {
             this.tabela = tabela;
             return this;
         }
 
-        public Builder withIdRegistro(UUID idRegistro) {
+        public Builder withIdRegistro(Long idRegistro) {
             this.idRegistro = idRegistro;
             return this;
         }
@@ -62,7 +65,7 @@ public class Historico {
             return this;
         }
 
-        public Builder withDataAcao(LocalDate dataAcao) {
+        public Builder withDataAcao(LocalDateTime dataAcao) {
             this.dataAcao = dataAcao;
             return this;
         }
@@ -80,7 +83,7 @@ public class Historico {
         public Historico build(){return new Historico(this);}
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
@@ -88,7 +91,7 @@ public class Historico {
         return tabela;
     }
 
-    public UUID getIdRegistro() {
+    public Long getIdRegistro() {
         return idRegistro;
     }
 
@@ -96,7 +99,7 @@ public class Historico {
         return tipoAcao;
     }
 
-    public LocalDate getDataAcao() {
+    public LocalDateTime getDataAcao() {
         return dataAcao;
     }
 

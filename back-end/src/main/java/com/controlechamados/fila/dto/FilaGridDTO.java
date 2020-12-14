@@ -6,7 +6,7 @@ public class FilaGridDTO {
 
     private String id;
     private String nome;
-    private List<String> cssClass;
+    private String cssClass;
     private Integer quantidade;
     private String colorStyle;
 
@@ -30,7 +30,7 @@ public class FilaGridDTO {
 
         private String id;
         private String nome;
-        private List<String> cssClass;
+        private String cssClass;
         private Integer quantidade;
         private String colorStyle;
 
@@ -44,7 +44,7 @@ public class FilaGridDTO {
             return this;
         }
 
-        public Builder withCssClass(List<String> cssClass) {
+        public Builder withCssClass(String cssClass) {
             this.cssClass = cssClass;
             return this;
         }
@@ -72,7 +72,7 @@ public class FilaGridDTO {
         return nome;
     }
 
-    public List<String> getCssClass() {
+    public String getCssClass() {
         return cssClass;
     }
 

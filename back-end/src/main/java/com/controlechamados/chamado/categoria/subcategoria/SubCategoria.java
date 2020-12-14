@@ -1,23 +1,20 @@
 package com.controlechamados.chamado.categoria.subcategoria;
 
 import com.controlechamados.chamado.categoria.Categoria;
+import com.controlechamados.models.AbstractEntity;
 
+import javax.persistence.Entity;
 import java.util.UUID;
 
-public class SubCategoria {
+@Entity
+public class SubCategoria extends AbstractEntity {
 
-    private UUID id;
     private Categoria categoria;
     private String descricao;
 
-    public SubCategoria(UUID id, Categoria categoria, String descricao) {
-        this.id = id;
+    public SubCategoria(Categoria categoria, String descricao) {
         this.categoria = categoria;
         this.descricao = descricao;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public Categoria getCategoria() {
@@ -31,9 +28,14 @@ public class SubCategoria {
     @Override
     public String toString() {
         return "SubCategoria{" +
-                "id=" + id +
-                ", categoria=" + categoria +
+                "categoria=" + categoria +
                 ", descricao='" + descricao + '\'' +
+                ", id=" + id +
+                ", ativo=" + ativo +
+                ", usuarioCriacao=" + usuarioCriacao +
+                ", usuarioModificacao=" + usuarioModificacao +
+                ", dataCriacao=" + dataCriacao +
+                ", dataModificacao=" + dataModificacao +
                 '}';
     }
 }

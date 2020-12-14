@@ -1,19 +1,16 @@
 package com.controlechamados.chamado.categoria;
 
-import java.util.UUID;
+import com.controlechamados.models.AbstractEntity;
 
-public class Categoria {
+import javax.persistence.Entity;
 
-    private UUID id;
+@Entity
+public class Categoria extends AbstractEntity {
+
     private String descricao;
 
-    public Categoria(UUID id, String descricao) {
-        this.id = id;
+    public Categoria(String descricao) {
         this.descricao = descricao;
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public String getDescricao() {
@@ -23,8 +20,13 @@ public class Categoria {
     @Override
     public String toString() {
         return "Categoria{" +
-                "id=" + id +
-                ", descricao='" + descricao + '\'' +
+                "descricao='" + descricao + '\'' +
+                ", id=" + id +
+                ", ativo=" + ativo +
+                ", usuarioCriacao=" + usuarioCriacao +
+                ", usuarioModificacao=" + usuarioModificacao +
+                ", dataCriacao=" + dataCriacao +
+                ", dataModificacao=" + dataModificacao +
                 '}';
     }
 }

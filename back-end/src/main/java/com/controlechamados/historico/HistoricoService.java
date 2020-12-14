@@ -16,11 +16,9 @@ public class HistoricoService {
         Usuario usuarioCriacao = UsuarioMock.usuarioCriacao();
 
         new Historico().builder()
-            .withId( UUID.randomUUID() )
             .withTabela( historicoParam.getTabelaEnum() )
 //TODO            .withIdRegistro( historicoParam.getEntity().getId() )
             .withTipoAcao( historicoParam.getAcaoEnum() )
-            .withDataAcao( LocalDate.now() )
             .withUsuarioAcao( usuarioCriacao )
             .withDados( historicoParam.getEntity().toString() )
             .build();

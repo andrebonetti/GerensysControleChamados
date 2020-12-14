@@ -11,7 +11,7 @@ public class SubCategoriaMock {
 
         Categoria categoria = CategoriaMock.correctCategoria();
 
-        return new SubCategoria( UUID.randomUUID(), categoria, "Descricao MOCK" );
+        return new SubCategoria( categoria, "Descricao MOCK" );
     }
 
 }
