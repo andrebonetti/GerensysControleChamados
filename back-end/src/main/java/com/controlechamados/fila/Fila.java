@@ -1,18 +1,13 @@
 package com.controlechamados.fila;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.List;
-import java.util.UUID;
+import javax.persistence.*;
 
 @Entity
 public class Fila {
 
     @Id
-    @GeneratedValue
     @Column(name = "id", updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;

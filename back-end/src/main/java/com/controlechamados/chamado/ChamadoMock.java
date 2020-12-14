@@ -33,17 +33,10 @@ public class ChamadoMock {
         List<SolucaoTecnica> solucaoTecnicas = SolucaoTecnicaMock.solucaoTecnicasCases();
 
         return new Chamado().builder()
-                .withId( UUID.randomUUID() )
                 .withTitulo( "Titulo MOCK" )
                 .withSubCategoria( subCategoria )
                 .withEmpresa( empresa )
-                .withUsuarioResponsavel( usuarioResponsavel )
-                .withUsuarioCriacao( usuarioCriacao )
                 .withFila( filaEmAberto )
-                .withFormularioInput( formularioInputs )
-                .withSolucaoTecnica( solucaoTecnicas )
-                .withDataCriacao( LocalDate.of( 2020, 11, 1 ) )
-                .withDataModificacao( LocalDate.of( 2020, 11, 2 ) )
                 .build();
     }
 

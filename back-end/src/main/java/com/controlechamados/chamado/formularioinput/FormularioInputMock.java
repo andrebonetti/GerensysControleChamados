@@ -17,13 +17,8 @@ public class FormularioInputMock {
         Usuario usuarioResponsavel = UsuarioMock.usuarioResponsavel();
 
         return new FormularioInput().builder()
-                .withId( UUID.randomUUID() )
                 .withTipo( InputTypeEnum.TEXT )
                 .withValor( "Valor case1 Input" )
-                .withUsuarioCriacao( usuarioCriacao )
-                .withUsuarioModificaocao( usuarioResponsavel )
-                .withDataCriacao( LocalDate.now() )
-                .withDataModificacao( LocalDate.now() )
                 .build();
     }
 
@@ -33,13 +28,8 @@ public class FormularioInputMock {
         Usuario usuarioResponsavel = UsuarioMock.usuarioResponsavel();
 
         return new FormularioInput().builder()
-                .withId( UUID.randomUUID() )
                 .withTipo( InputTypeEnum.TEXTAREA )
                 .withValor( "Valor case2 Input" )
-                .withUsuarioCriacao( usuarioCriacao )
-                .withUsuarioModificaocao( usuarioResponsavel )
-                .withDataCriacao( LocalDate.now() )
-                .withDataModificacao( LocalDate.now() )
                 .build();
     }
 
@@ -49,13 +39,8 @@ public class FormularioInputMock {
         Usuario usuarioResponsavel = UsuarioMock.usuarioResponsavel();
 
         return new FormularioInput().builder()
-                .withId( UUID.randomUUID() )
                 .withTipo( InputTypeEnum.TEXT )
                 .withValor( "Valor case3 Input" )
-                .withUsuarioCriacao( usuarioCriacao )
-                .withUsuarioModificaocao( usuarioResponsavel )
-                .withDataCriacao( LocalDate.now() )
-                .withDataModificacao( LocalDate.now() )
                 .build();
     }
 

@@ -5,50 +5,48 @@ import com.controlechamados.chamado.formularioinput.FormularioInput;
 import com.controlechamados.chamado.solucaoTecnica.SolucaoTecnica;
 import com.controlechamados.empresa.Empresa;
 import com.controlechamados.fila.Fila;
+import com.controlechamados.models.AbstractEntity;
 import com.controlechamados.usuario.Usuario;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-public class Chamado {
+@Entity
+public class Chamado extends AbstractEntity {
 
-    private UUID id;
     private String titulo;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_sub_categoria")
     private SubCategoria subCategoria;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_empresa")
     private Empresa empresa;
-    private Usuario usuarioResponsavel;
-    private Usuario usuarioCriacao;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "id_fila")
     private Fila fila;
-    private List<FormularioInput> formularioInput;
-    private List<SolucaoTecnica> solucaoTecnicaChecklist;
-    private LocalDate dataCriacao;
-    private LocalDate dataModificacao;
+//    private List<FormularioInput> formularioInput;
+//    private List<SolucaoTecnica> solucaoTecnicaChecklist;
 
     public Chamado() {
         //to serialize
     }
 
     private Chamado(Builder builder) {
-        this.id = builder.id;
         this.titulo = builder.titulo;
         this.subCategoria = builder.subCategoria;
         this.empresa = builder.empresa;
-        this.usuarioResponsavel = builder.usuarioResponsavel;
-        this.usuarioCriacao = builder.usuarioCriacao;
         this.fila = builder.fila;
-        this.formularioInput = builder.formularioInput;
-        this.solucaoTecnicaChecklist = builder.solucaoTecnica;
-        this.dataCriacao = builder.dataCriacao;
-        this.dataModificacao = builder.dataModificacao;
     }
 
     public static Builder builder() {
         return new Builder();
-    }
-
-    public UUID getId() {
-        return id;
     }
 
     public String getTitulo() {
@@ -63,52 +61,16 @@ public class Chamado {
         return empresa;
     }
 
-    public Usuario getUsuarioResponsavel() {
-        return usuarioResponsavel;
-    }
-
-    public Usuario getUsuarioCriacao() {
-        return usuarioCriacao;
-    }
-
     public Fila getFila() {
         return fila;
     }
 
-    public List<FormularioInput> getFormularioInput() {
-        return formularioInput;
-    }
-
-    public List<SolucaoTecnica> getSolucaoTecnicaChecklist() {
-        return solucaoTecnicaChecklist;
-    }
-
-    public LocalDate getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public LocalDate getDataModificacao() {
-        return dataModificacao;
-    }
-
     public static final class Builder {
 
-        private UUID id;
         private String titulo;
         private SubCategoria subCategoria;
         private Empresa empresa;
-        private Usuario usuarioResponsavel;
-        private Usuario usuarioCriacao;
         private Fila fila;
-        private List<FormularioInput> formularioInput;
-        private List<SolucaoTecnica> solucaoTecnica;
-        private LocalDate dataCriacao;
-        private LocalDate dataModificacao;
-
-        public Builder withId(UUID id) {
-            this.id = id;
-            return this;
-        }
 
         public Builder withTitulo(String titulo) {
             this.titulo = titulo;
@@ -125,38 +87,8 @@ public class Chamado {
             return this;
         }
 
-        public Builder withUsuarioResponsavel(Usuario usuarioResponsavel) {
-            this.usuarioResponsavel = usuarioResponsavel;
-            return this;
-        }
-
-        public Builder withUsuarioCriacao(Usuario usuarioCriacao) {
-            this.usuarioCriacao = usuarioCriacao;
-            return this;
-        }
-
         public Builder withFila(Fila fila) {
             this.fila = fila;
-            return this;
-        }
-
-        public Builder withFormularioInput(List<FormularioInput> formularioInput) {
-            this.formularioInput = formularioInput;
-            return this;
-        }
-
-        public Builder withSolucaoTecnica(List<SolucaoTecnica> solucaoTecnica) {
-            this.solucaoTecnica = solucaoTecnica;
-            return this;
-        }
-
-        public Builder withDataCriacao(LocalDate dataCriacao) {
-            this.dataCriacao = dataCriacao;
-            return this;
-        }
-
-        public Builder withDataModificacao(LocalDate dataModificacao) {
-            this.dataModificacao = dataModificacao;
             return this;
         }
 
@@ -169,15 +101,14 @@ public class Chamado {
     @Override
     public String toString() {
         return "Chamado{" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
+                "titulo='" + titulo + '\'' +
                 ", subCategoria=" + subCategoria +
                 ", empresa=" + empresa +
-                ", usuarioResponsavel=" + usuarioResponsavel +
-                ", usuarioCriacao=" + usuarioCriacao +
                 ", fila=" + fila +
-                ", formularioInput=" + formularioInput +
-                ", solucaoTecnicaChecklist=" + solucaoTecnicaChecklist +
+                ", id=" + id +
+                ", ativo=" + ativo +
+                ", usuarioCriacao=" + usuarioCriacao +
+                ", usuarioModificacao=" + usuarioModificacao +
                 ", dataCriacao=" + dataCriacao +
                 ", dataModificacao=" + dataModificacao +
                 '}';
@@ -186,7 +117,6 @@ public class Chamado {
     public void alterarFila(Fila fila){
 
         this.fila = fila;
-        this.dataModificacao = LocalDate.now();
 
     }
 }

@@ -16,14 +16,9 @@ public class SolucaoTecnicaMock {
         Usuario usuarioResponsavel = UsuarioMock.usuarioResponsavel();
 
         return new SolucaoTecnica().builder()
-                .withId( UUID.randomUUID())
                 .withTipo( "Tipo Case1 MOCK" )
                 .withDescricao( "Descricao Case1 MOCK" )
                 .withConcluido( Boolean.TRUE )
-                .withUsuarioCriacao( usuarioCriacao )
-                .withUsuarioModificaocao( usuarioResponsavel )
-                .withDataCriacao( LocalDate.now() )
-                .withDataModificacao( LocalDate.now() )
                 .build();
 
     }
@@ -34,14 +29,9 @@ public class SolucaoTecnicaMock {
         Usuario usuarioResponsavel = UsuarioMock.usuarioResponsavel();
 
         return new SolucaoTecnica().builder()
-                .withId( UUID.randomUUID())
                 .withTipo( "Tipo Case2 MOCK" )
                 .withDescricao( "Descricao Case2 MOCK" )
                 .withConcluido( Boolean.TRUE )
-                .withUsuarioCriacao( usuarioCriacao )
-                .withUsuarioModificaocao( usuarioResponsavel )
-                .withDataCriacao( LocalDate.now() )
-                .withDataModificacao( LocalDate.now() )
                 .build();
 
     }
@@ -52,14 +42,9 @@ public class SolucaoTecnicaMock {
         Usuario usuarioResponsavel = UsuarioMock.usuarioResponsavel();
 
         return new SolucaoTecnica().builder()
-                .withId( UUID.randomUUID())
                 .withTipo( "Tipo Case3 MOCK" )
                 .withDescricao( "Descricao Case3 MOCK" )
                 .withConcluido( Boolean.TRUE )
-                .withUsuarioCriacao( usuarioCriacao )
-                .withUsuarioModificaocao( usuarioResponsavel )
-                .withDataCriacao( LocalDate.now() )
-                .withDataModificacao( LocalDate.now() )
                 .build();
 
     }

@@ -25,16 +25,15 @@ public class ChamadoConverter {
         SubCategoriaGridDTO subCategoriaGridDTO = SubCategoriaConverter.toGridDTO( chamado.getSubCategoria() );
         EmpresaGridDTO empresaGridDTO = EmpresaConverter.toSimpleGridDTO( chamado.getEmpresa() );
         UsuarioSimpleGridDTO usuarioCriacaoGridDTO = UsuarioConverter.toSimpleGridDto( chamado.getUsuarioCriacao() );
-        UsuarioSimpleGridDTO usuarioResponsavelGridDTO = UsuarioConverter.toSimpleGridDto( chamado.getUsuarioResponsavel() );
         FilaGridDTO filaGridDTO = FilaConverter.toGridDTO( chamado.getFila() );
 
-        List<FormularioInputGridDTO> formularioInputGridDTOList = chamado.getFormularioInput().stream()
-                .map( FormularioInputConverter::toGridDto )
-                .collect( Collectors.toList() );
-
-        List<SolucaoTecnicaGridDTO> solucaoTecnicaGridDTOS = chamado.getSolucaoTecnicaChecklist().stream()
-                .map( SolucaoTecnicaConverter::toGridDto )
-                .collect( Collectors.toList() );
+//        List<FormularioInputGridDTO> formularioInputGridDTOList = chamado.getFormularioInput().stream()
+//                .map( FormularioInputConverter::toGridDto )
+//                .collect( Collectors.toList() );
+//
+//        List<SolucaoTecnicaGridDTO> solucaoTecnicaGridDTOS = chamado.getSolucaoTecnicaChecklist().stream()
+//                .map( SolucaoTecnicaConverter::toGridDto )
+//                .collect( Collectors.toList() );
 
         return new ChamadoGridDTO().builder()
                 .withId( chamado.getId().toString() )
@@ -42,12 +41,7 @@ public class ChamadoConverter {
                 .withSubCategoria( subCategoriaGridDTO )
                 .withEmpresa( empresaGridDTO )
                 .withUsuarioCriacao( usuarioCriacaoGridDTO )
-                .withUsuarioResponsavel( usuarioResponsavelGridDTO )
                 .withFila( filaGridDTO )
-                .withFormularioInput( formularioInputGridDTOList )
-                .withSolucaoTecnica( solucaoTecnicaGridDTOS )
-                .withDataCriacao( chamado.getDataCriacao().toString() )
-                .withDataModificacao( chamado.getDataModificacao().toString() )
                 .build();
 
 
