@@ -11,14 +11,13 @@ public enum TabelaEnum {
     PERFIL( "PERFIL" ),
     EMPRESA( "EMPRESA" );
 
-    private final String value;
+    private String value;
 
     TabelaEnum(String value) {
         this.value = value;
     }
 
     public String getValue() {
-        return this.value;
+        return value;
     }
-
 }

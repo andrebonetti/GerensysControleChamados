@@ -17,7 +17,6 @@ public class EntityService {
     public EntityService() {
     }
 
-    @Autowired
     public EntityService(HistoricoService historicoService
             , TabelaEnum tabelaEnum) {
         this.historicoService = historicoService;

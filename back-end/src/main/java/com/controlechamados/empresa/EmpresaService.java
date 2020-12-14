@@ -21,7 +21,6 @@ public class EmpresaService extends EntityService{
 
     private final EmpresaRepository empresaDAO;
 
-    @Autowired
     public EmpresaService(HistoricoService historicoService, EmpresaRepository empresaDAO) {
         super( historicoService, TabelaEnum.EMPRESA );
         this.empresaDAO = empresaDAO;
