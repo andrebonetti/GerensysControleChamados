@@ -1,19 +1,15 @@
 package com.controlechamados.fila;
 
+import com.controlechamados.models.AbstractEntity;
+
 import javax.persistence.*;
 
 @Entity
-public class Fila {
-
-    @Id
-    @Column(name = "id", updatable = false, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Fila extends AbstractEntity {
 
     private String nome;
-    private String cssClass;
-    private Integer quantidade;
     private String colorStyle;
+    private Integer ordem;
 
     public Fila() {
         //to serialize
@@ -21,8 +17,7 @@ public class Fila {
 
     private Fila(Builder builder) {
         this.nome = builder.nome;
-        this.cssClass = builder.cssClass;
-        this.quantidade = builder.quantidade;
+        this.ordem = builder.ordem;
         this.colorStyle = builder.colorStyle;
     }
 
@@ -32,29 +27,12 @@ public class Fila {
 
     public static final class Builder {
 
-        private Long id;
         private String nome;
-        private String cssClass;
-        private Integer quantidade;
         private String colorStyle;
-
-        public Builder withId(Long id) {
-            this.id = id;
-            return this;
-        }
+        private Integer ordem;
 
         public Builder withNome(String nome) {
             this.nome = nome;
-            return this;
-        }
-
-        public Builder withCssClass(String cssClass) {
-            this.cssClass = cssClass;
-            return this;
-        }
-
-        public Builder withQuantidade(Integer quantidade) {
-            this.quantidade = quantidade;
             return this;
         }
 
@@ -63,39 +41,41 @@ public class Fila {
             return this;
         }
 
+        public Builder withOrdem(Integer ordem) {
+            this.ordem = ordem;
+            return this;
+        }
+
         public Fila build() {
             return new Fila( this );
         }
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getCssClass() {
-        return cssClass;
-    }
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
     public String getColorStyle() {
         return colorStyle;
+    }
+
+    public Integer getOrdem() {
+        return ordem;
     }
 
     @Override
     public String toString() {
         return "Fila{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", cssClass=" + cssClass +
-                ", quantidade=" + quantidade +
+                "nome='" + nome + '\'' +
                 ", colorStyle='" + colorStyle + '\'' +
+                ", ordem=" + ordem +
+                ", id=" + id +
+                ", ativo=" + ativo +
+                ", usuarioCriacao=" + usuarioCriacao +
+                ", usuarioModificacao=" + usuarioModificacao +
+                ", dataCriacao=" + dataCriacao +
+                ", dataModificacao=" + dataModificacao +
+                ", version=" + version +
                 '}';
     }
 }

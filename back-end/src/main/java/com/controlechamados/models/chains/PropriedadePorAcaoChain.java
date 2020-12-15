@@ -2,11 +2,6 @@ package com.controlechamados.models.chains;
 
 import com.controlechamados.models.AbstractEntity;
 import com.controlechamados.models.enums.AcaoEnum;
-import com.controlechamados.usuario.UsuarioMock;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class PropriedadePorAcaoChain {
 
@@ -79,7 +74,7 @@ public class PropriedadePorAcaoChain {
         @Override
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.INATIVACAO.equals( acaoEnum )){
-                abstractEntity.ativo = Boolean.FALSE;
+//                abstractEntity.ativo = Boolean.FALSE;
 //TODO RETURN                abstractEntity.usuarioModificacao = UsuarioMock.usuarioModificacao();
             }else{
                 proximo.set( abstractEntity, acaoEnum );
@@ -100,7 +95,7 @@ public class PropriedadePorAcaoChain {
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.MOCK.equals( acaoEnum )){
 //TODO RETURN                abstractEntity.id = UUID.randomUUID();
-                abstractEntity.id = 99999L;
+//                abstractEntity.id = 99999L;
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }

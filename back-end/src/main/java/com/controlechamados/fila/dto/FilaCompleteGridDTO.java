@@ -1,23 +1,19 @@
 package com.controlechamados.fila.dto;
 
-import java.util.List;
+import com.controlechamados.models.dto.EntityGridDTO;
 
-public class FilaGridDTO {
+public class FilaCompleteGridDTO extends EntityGridDTO {
 
-    private String id;
     private String nome;
-    private String cssClass;
     private Integer quantidade;
     private String colorStyle;
 
-    public FilaGridDTO() {
+    public FilaCompleteGridDTO() {
         //to serialize
     }
 
-    public FilaGridDTO(Builder builder) {
-        this.id = builder.id;
+    public FilaCompleteGridDTO(Builder builder) {
         this.nome = builder.nome;
-        this.cssClass = builder.cssClass;
         this.quantidade = builder.quantidade;
         this.colorStyle = builder.colorStyle;
     }
@@ -28,24 +24,12 @@ public class FilaGridDTO {
 
     public static final class Builder {
 
-        private String id;
         private String nome;
-        private String cssClass;
         private Integer quantidade;
         private String colorStyle;
 
-        public Builder withId(String id) {
-            this.id = id;
-            return this;
-        }
-
         public Builder withNome(String nome) {
             this.nome = nome;
-            return this;
-        }
-
-        public Builder withCssClass(String cssClass) {
-            this.cssClass = cssClass;
             return this;
         }
 
@@ -59,21 +43,13 @@ public class FilaGridDTO {
             return this;
         }
 
-        public FilaGridDTO build() {
-            return new FilaGridDTO( this );
+        public FilaCompleteGridDTO build() {
+            return new FilaCompleteGridDTO( this );
         }
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getNome() {
         return nome;
-    }
-
-    public String getCssClass() {
-        return cssClass;
     }
 
     public Integer getQuantidade() {
@@ -86,12 +62,16 @@ public class FilaGridDTO {
 
     @Override
     public String toString() {
-        return "FilaGridDTO{" +
-                "id='" + id + '\'' +
-                ", nome='" + nome + '\'' +
-                ", cssClass=" + cssClass +
+        return "FilaCompleteGridDTO{" +
+                "nome='" + nome + '\'' +
                 ", quantidade=" + quantidade +
                 ", colorStyle='" + colorStyle + '\'' +
+                ", id='" + id + '\'' +
+                ", ativo='" + ativo + '\'' +
+                ", usuarioCriacao=" + usuarioCriacao +
+                ", usuarioModificaocao=" + usuarioModificaocao +
+                ", dataCriacao='" + dataCriacao + '\'' +
+                ", dataModificacao='" + dataModificacao + '\'' +
                 '}';
     }
 }

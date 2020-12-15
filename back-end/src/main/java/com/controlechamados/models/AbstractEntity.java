@@ -14,26 +14,26 @@ public class AbstractEntity implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "id", updatable = false, nullable = false)
-    public Long id;
+    protected Long id;
 //TODO RETURN    public UUID id;
 
-    public Boolean ativo = Boolean.TRUE;
+    protected Boolean ativo = Boolean.TRUE;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario_criacao")
-    public Usuario usuarioCriacao;
+    protected Usuario usuarioCriacao;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario_modificacao")
-    public Usuario usuarioModificacao;
+    protected Usuario usuarioModificacao;
 
-    public LocalDateTime dataCriacao = LocalDateTime.now();
+    protected LocalDateTime dataCriacao = LocalDateTime.now();
 
     @Column(columnDefinition = "TIMESTAMP")
-    public LocalDateTime dataModificacao;
+    protected LocalDateTime dataModificacao;
 
     @Version
-    private Long version;
+    protected Long version;
 
     public AbstractEntity() {
     }

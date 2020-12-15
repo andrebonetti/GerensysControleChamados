@@ -4,19 +4,12 @@ import com.controlechamados.chamado.categoria.subcategoria.SubCategoriaConverter
 import com.controlechamados.chamado.categoria.subcategoria.dto.SubCategoriaGridDTO;
 import com.controlechamados.chamado.dto.ChamadoFormDTO;
 import com.controlechamados.chamado.dto.ChamadoGridDTO;
-import com.controlechamados.chamado.formularioinput.FormularioInputConverter;
-import com.controlechamados.chamado.formularioinput.dro.FormularioInputGridDTO;
-import com.controlechamados.chamado.solucaoTecnica.SolucaoTecnicaConverter;
-import com.controlechamados.chamado.solucaoTecnica.dto.SolucaoTecnicaGridDTO;
 import com.controlechamados.empresa.EmpresaConverter;
 import com.controlechamados.empresa.dto.EmpresaGridDTO;
 import com.controlechamados.fila.FilaConverter;
-import com.controlechamados.fila.dto.FilaGridDTO;
+import com.controlechamados.fila.dto.FilaCompleteGridDTO;
 import com.controlechamados.usuario.UsuarioConverter;
 import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class ChamadoConverter {
 
@@ -25,7 +18,7 @@ public class ChamadoConverter {
         SubCategoriaGridDTO subCategoriaGridDTO = SubCategoriaConverter.toGridDTO( chamado.getSubCategoria() );
         EmpresaGridDTO empresaGridDTO = EmpresaConverter.toSimpleGridDTO( chamado.getEmpresa() );
         UsuarioSimpleGridDTO usuarioCriacaoGridDTO = UsuarioConverter.toSimpleGridDto( chamado.getUsuarioCriacao() );
-        FilaGridDTO filaGridDTO = FilaConverter.toGridDTO( chamado.getFila() );
+        FilaCompleteGridDTO filaCompleteGridDTO = FilaConverter.toCompleteGridDTO( chamado.getFila() );
 
 //        List<FormularioInputGridDTO> formularioInputGridDTOList = chamado.getFormularioInput().stream()
 //                .map( FormularioInputConverter::toGridDto )
@@ -41,7 +34,7 @@ public class ChamadoConverter {
                 .withSubCategoria( subCategoriaGridDTO )
                 .withEmpresa( empresaGridDTO )
                 .withUsuarioCriacao( usuarioCriacaoGridDTO )
-                .withFila( filaGridDTO )
+                .withFila(filaCompleteGridDTO)
                 .build();
 
 

@@ -5,12 +5,12 @@ import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
 
 public class EntityGridDTO {
 
-    private String id;
-    private String ativo;
-    private UsuarioSimpleGridDTO usuarioCriacao;
-    private UsuarioSimpleGridDTO usuarioModificaocao;
-    private String dataCriacao;
-    private String dataModificacao;
+    protected String id;
+    protected String ativo;
+    protected UsuarioSimpleGridDTO usuarioCriacao;
+    protected UsuarioSimpleGridDTO usuarioModificaocao;
+    protected String dataCriacao;
+    protected String dataModificacao;
 
     public EntityGridDTO() {
     }

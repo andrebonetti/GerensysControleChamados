@@ -4,7 +4,7 @@ import com.controlechamados.chamado.categoria.subcategoria.dto.SubCategoriaGridD
 import com.controlechamados.chamado.formularioinput.dro.FormularioInputGridDTO;
 import com.controlechamados.chamado.solucaoTecnica.dto.SolucaoTecnicaGridDTO;
 import com.controlechamados.empresa.dto.EmpresaGridDTO;
-import com.controlechamados.fila.dto.FilaGridDTO;
+import com.controlechamados.fila.dto.FilaCompleteGridDTO;
 import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class ChamadoGridDTO {
     private EmpresaGridDTO empresa;
     private UsuarioSimpleGridDTO usuarioResponsavel;
     private UsuarioSimpleGridDTO usuarioCriacao;
-    private FilaGridDTO fila;
+    private FilaCompleteGridDTO fila;
     private List<FormularioInputGridDTO> formularioInputGridDTOs;
     private List<SolucaoTecnicaGridDTO> solucaoTecnicaChecklist;
     private String dataCriacao;
@@ -69,7 +69,7 @@ public class ChamadoGridDTO {
         return usuarioCriacao;
     }
 
-    public FilaGridDTO getFila() {
+    public FilaCompleteGridDTO getFila() {
         return fila;
     }
 
@@ -97,7 +97,7 @@ public class ChamadoGridDTO {
         private EmpresaGridDTO empresa;
         private UsuarioSimpleGridDTO usuarioResponsavel;
         private UsuarioSimpleGridDTO usuarioCriacao;
-        private FilaGridDTO fila;
+        private FilaCompleteGridDTO fila;
         private List<FormularioInputGridDTO> formularioInputGridDTOs;
         private List<SolucaoTecnicaGridDTO> solucaoTecnica;
         private String dataCriacao;
@@ -133,7 +133,7 @@ public class ChamadoGridDTO {
             return this;
         }
 
-        public Builder withFila(FilaGridDTO fila) {
+        public Builder withFila(FilaCompleteGridDTO fila) {
             this.fila = fila;
             return this;
         }
