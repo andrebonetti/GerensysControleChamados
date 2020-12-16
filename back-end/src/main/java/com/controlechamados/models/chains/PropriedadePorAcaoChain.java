@@ -74,7 +74,7 @@ public class PropriedadePorAcaoChain {
         @Override
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.INATIVACAO.equals( acaoEnum )){
-//                abstractEntity.ativo = Boolean.FALSE;
+                abstractEntity.inativar();
 //TODO RETURN                abstractEntity.usuarioModificacao = UsuarioMock.usuarioModificacao();
             }else{
                 proximo.set( abstractEntity, acaoEnum );

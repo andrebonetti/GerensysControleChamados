@@ -62,6 +62,10 @@ public class AbstractEntity implements Serializable {
         return dataModificacao;
     }
 
+    public void inativar(){
+        this.ativo = false;
+    }
+
     public void setPropriedadePorAcao(AcaoEnum acaoEnum){
         PropriedadePorAcaoChain.validar( this, acaoEnum );
     }
