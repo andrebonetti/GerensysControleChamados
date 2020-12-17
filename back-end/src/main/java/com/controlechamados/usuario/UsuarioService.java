@@ -9,7 +9,6 @@ import com.controlechamados.usuario.dto.UsuarioFormAtualizacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioFormCriacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioReferenceDTO;
 import com.controlechamados.usuario.perfil.Perfil;
-import com.controlechamados.usuario.perfil.PerfilConverter;
 import com.controlechamados.usuario.perfil.PerfilRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +29,8 @@ public class UsuarioService extends EntityService{
             , UsuarioRepository usuarioDAO
             , PerfilRepository perfilDAO) {
         super( historicoService
-                , TabelaEnum.USUARIO);
+                , TabelaEnum.USUARIO
+                , perfilDAO);
         this.usuarioDAO = usuarioDAO;
         this.perfilDAO = perfilDAO;
     }

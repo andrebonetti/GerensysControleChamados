@@ -31,21 +31,20 @@ public class FilaConverter {
 
     public static Fila toEntity(FilaFormCriacaoDTO form) {
 
-        return Fila.builder()
+        return Fila.builderCreate()
                 .withNome(form.getNome())
                 .withColorStyle(form.getColorStyle())
-                .withOrdem(1)
+                .withOrdem(20)
 //                TODO CALCULAR ORDEM
                 .build();
     }
 
     public static Fila toEntity(Fila fila, FilaFormAtualizacaoDTO form) {
 
-//        TODO CONVERTER UPDT
-        return Fila.builder()
+        return new Fila.BuilderUpdate(fila)
                 .withNome(form.getNome())
                 .withColorStyle(form.getColorStyle())
-                .withOrdem(1)
+                .withOrdem(21)
 //                TODO CALCULAR ORDEM
                 .build();
     }

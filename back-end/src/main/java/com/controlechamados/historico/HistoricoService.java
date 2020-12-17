@@ -5,24 +5,29 @@ import com.controlechamados.usuario.Usuario;
 import com.controlechamados.usuario.UsuarioMock;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.UUID;
-
 @Service
 public class HistoricoService {
+
+    private final HistoricoRepository historicoDAO;
+
+    public HistoricoService(HistoricoRepository historicoDAO) {
+        this.historicoDAO = historicoDAO;
+    }
 
     public void criarHistoricoRegistro(HistoricoParam historicoParam){
 
         Usuario usuarioCriacao = UsuarioMock.usuarioCriacao();
 
-        new Historico().builder()
-            .withTabela( historicoParam.getTabelaEnum() )
-//TODO            .withIdRegistro( historicoParam.getEntity().getId() )
-            .withTipoAcao( historicoParam.getAcaoEnum() )
-            .withUsuarioAcao( usuarioCriacao )
-            .withDados( historicoParam.getEntity().toString() )
-            .build();
+        Historico historico = new Historico().builder()
+                .withTabela(historicoParam.getTabelaEnum())
+                .withIdRegistro(historicoParam.getEntity().getId())
+                .withTipoAcao(historicoParam.getAcaoEnum())
+//TODO USUARIO LOGADO .withUsuarioAcao(usuarioCriacao)
+                .withDados(historicoParam.getEntity().toString())
+                .withVersion(historicoParam.getEntity().getVersion())
+                .build();
 
+        historicoDAO.save(historico);
     }
 
 

@@ -22,7 +22,8 @@ public class FilaService extends EntityService{
     public FilaService(HistoricoService historicoService
             , FilaRepository filaDAO) {
         super( historicoService
-                , TabelaEnum.USUARIO);
+                , TabelaEnum.USUARIO
+                , filaDAO);
         this.filaDAO = filaDAO;
     }
 
@@ -47,8 +48,7 @@ public class FilaService extends EntityService{
 
         Fila fila = FilaConverter.toEntity( formCriacaoDTO );
 
-        filaDAO.save( fila );
-//TODO  RETURN save(usuario,AcaoEnum.CRIACAO);
+        save(fila,AcaoEnum.CRIACAO);
     }
 
     public void atualizar(FilaFormAtualizacaoDTO filaFormAtualizacaoDTO){
@@ -57,8 +57,7 @@ public class FilaService extends EntityService{
             .findFirst()
             .ifPresent( fila -> {
                 FilaConverter.toEntity(fila, filaFormAtualizacaoDTO);
-                filaDAO.save( fila );
-                //TODO RETURN save(usuario,AcaoEnum.ATUALIZACAO);
+                save(fila,AcaoEnum.ATUALIZACAO);
             });
     }
 

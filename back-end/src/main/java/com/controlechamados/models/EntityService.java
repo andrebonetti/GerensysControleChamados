@@ -1,11 +1,10 @@
 package com.controlechamados.models;
 
-import com.controlechamados.empresa.Empresa;
-import com.controlechamados.models.enums.AcaoEnum;
-import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.historico.dto.HistoricoParam;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.controlechamados.models.enums.AcaoEnum;
+import com.controlechamados.models.enums.TabelaEnum;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,21 +12,24 @@ public class EntityService {
 
     private HistoricoService historicoService;
     private TabelaEnum tabelaEnum;
+    private CrudRepository dao;
 
     public EntityService() {
     }
 
-    public EntityService(HistoricoService historicoService
-            , TabelaEnum tabelaEnum) {
+    public EntityService(HistoricoService historicoService,
+         TabelaEnum tabelaEnum,
+         CrudRepository crudRepository) {
         this.historicoService = historicoService;
         this.tabelaEnum = tabelaEnum;
+        this.dao = crudRepository;
     }
 
     protected void save(AbstractEntity abstractEntity, AcaoEnum acaoEnum){
 
         preSave ( abstractEntity,acaoEnum );
-//TODO RETURN        abstractEntityRepository.save( abstractEntity );
-//TODO RETURN        posSave( abstractEntity,acaoEnum );
+        dao.save( abstractEntity );
+        posSave( abstractEntity,acaoEnum );
 
     }
 
@@ -42,7 +44,7 @@ public class EntityService {
         historicoService.criarHistoricoRegistro( new HistoricoParam(
             this.tabelaEnum,
             acaoEnum,
-                abstractEntity
+            abstractEntity
         ));
 
     }

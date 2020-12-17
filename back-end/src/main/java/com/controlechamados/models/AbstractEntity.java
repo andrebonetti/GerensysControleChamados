@@ -62,6 +62,10 @@ public class AbstractEntity implements Serializable {
         return dataModificacao;
     }
 
+    public Long getVersion() {
+        return version;
+    }
+
     public void inativar(){
         this.ativo = false;
     }

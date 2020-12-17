@@ -8,9 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 public class Historico {
@@ -26,6 +24,7 @@ public class Historico {
     private LocalDateTime dataAcao = LocalDateTime.now();
     private Usuario usuarioAcao;
     private String dados;
+    private Long version;
 
     public Historico() {
     }
@@ -34,9 +33,9 @@ public class Historico {
         this.tabela = builder.tabela;
         this.idRegistro = builder.idRegistro;
         this.tipoAcao = builder.tipoAcao;
-        this.dataAcao = builder.dataAcao;
         this.usuarioAcao = builder.usuarioAcao;
         this.dados = builder.dados;
+        this.version = builder.version;
     }
 
     public static Builder builder(){return new Builder();}
@@ -46,9 +45,9 @@ public class Historico {
         private TabelaEnum tabela;
         private Long idRegistro;
         private AcaoEnum tipoAcao;
-        private LocalDateTime dataAcao;
         private Usuario usuarioAcao;
         private String dados;
+        private Long version;
 
         public Builder withTabela(TabelaEnum tabela) {
             this.tabela = tabela;
@@ -65,11 +64,6 @@ public class Historico {
             return this;
         }
 
-        public Builder withDataAcao(LocalDateTime dataAcao) {
-            this.dataAcao = dataAcao;
-            return this;
-        }
-
         public Builder withUsuarioAcao(Usuario usuarioAcao) {
             this.usuarioAcao = usuarioAcao;
             return this;
@@ -77,6 +71,11 @@ public class Historico {
 
         public Builder withDados(String dados) {
             this.dados = dados;
+            return this;
+        }
+
+        public Builder withVersion(Long version) {
+            this.version = version;
             return this;
         }
 
@@ -111,6 +110,10 @@ public class Historico {
         return dados;
     }
 
+    public Long getVersion() {
+        return version;
+    }
+
     @Override
     public String toString() {
         return "Historico{" +
@@ -121,6 +124,7 @@ public class Historico {
                 ", dataAcao=" + dataAcao +
                 ", usuarioAcao=" + usuarioAcao +
                 ", dados='" + dados + '\'' +
+                ", version=" + version +
                 '}';
     }
 }

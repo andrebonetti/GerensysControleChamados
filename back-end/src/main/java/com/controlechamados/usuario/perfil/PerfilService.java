@@ -3,10 +3,9 @@ package com.controlechamados.usuario.perfil;
 import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.models.EntityService;
 import com.controlechamados.models.enums.TabelaEnum;
+import com.controlechamados.usuario.perfil.dto.PerfilCompleteGridDTO;
 import com.controlechamados.usuario.perfil.dto.PerfilFormAtualizacaoDTO;
 import com.controlechamados.usuario.perfil.dto.PerfilFormCriacaoDTO;
-import com.controlechamados.usuario.perfil.dto.PerfilCompleteGridDTO;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -19,9 +18,8 @@ public class PerfilService extends EntityService{
 
     private final PerfilRepository perfilDAO;
 
-    @Autowired
     public PerfilService(HistoricoService historicoService, PerfilRepository perfilDAO) {
-        super( historicoService, TabelaEnum.PERFIL );
+        super( historicoService, TabelaEnum.PERFIL, perfilDAO );
         this.perfilDAO = perfilDAO;
     }
 

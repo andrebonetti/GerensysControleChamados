@@ -2,7 +2,7 @@ package com.controlechamados.fila;
 
 import com.controlechamados.models.AbstractEntity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Entity
 public class Fila extends AbstractEntity {
@@ -15,39 +15,82 @@ public class Fila extends AbstractEntity {
         //to serialize
     }
 
-    private Fila(Builder builder) {
+    private Fila(BuilderCreate builder) {
         this.nome = builder.nome;
         this.ordem = builder.ordem;
         this.colorStyle = builder.colorStyle;
     }
 
-    public static Builder builder() {
-        return new Builder();
+    private void update(BuilderUpdate builderUpdate){
+        this.nome = builderUpdate.nome;
+        this.ordem = builderUpdate.ordem;
+        this.colorStyle = builderUpdate.colorStyle;
     }
 
-    public static final class Builder {
+    public static BuilderCreate builderCreate() {
+        return new BuilderCreate();
+    }
+
+    public BuilderUpdate builderUpdate(){
+        return new BuilderUpdate(this);
+    }
+
+    public static final class BuilderUpdate {
+
+        private Fila fila;
 
         private String nome;
         private String colorStyle;
         private Integer ordem;
 
-        public Builder withNome(String nome) {
+        public BuilderUpdate(Fila fila) {
+            this.fila = fila;
+        }
+
+        public BuilderUpdate withNome(String nome) {
             this.nome = nome;
             return this;
         }
 
-        public Builder withColorStyle(String colorStyle) {
+        public BuilderUpdate withColorStyle(String colorStyle) {
             this.colorStyle = colorStyle;
             return this;
         }
 
-        public Builder withOrdem(Integer ordem) {
+        public BuilderUpdate withOrdem(Integer ordem) {
             this.ordem = ordem;
             return this;
         }
 
-        public Fila build() {
-            return new Fila( this );
+        public Fila build(){
+            fila.update( this );
+            return fila;
+        }
+    }
+
+    public static final class BuilderCreate {
+
+        private String nome;
+        private String colorStyle;
+        private Integer ordem;
+
+        public BuilderCreate withNome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public BuilderCreate withColorStyle(String colorStyle) {
+            this.colorStyle = colorStyle;
+            return this;
+        }
+
+        public BuilderCreate withOrdem(Integer ordem) {
+            this.ordem = ordem;
+            return this;
+        }
+
+        public Fila build(){
+            return new Fila(this);
         }
     }
 
@@ -65,7 +108,7 @@ public class Fila extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "Fila{" +
+        return "{" +
                 "nome='" + nome + '\'' +
                 ", colorStyle='" + colorStyle + '\'' +
                 ", ordem=" + ordem +
