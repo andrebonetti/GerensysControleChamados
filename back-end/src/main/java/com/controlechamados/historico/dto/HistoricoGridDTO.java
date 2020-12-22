@@ -17,6 +17,7 @@ public class HistoricoGridDTO {
     }
 
     public HistoricoGridDTO(Builder builder){
+        this.id = builder.id;
         this.tabela = builder.tabela;
         this.idRegistro = builder.idRegistro;
         this.tipoAcao = builder.tipoAcao;

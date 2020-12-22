@@ -1,15 +1,19 @@
 package com.controlechamados.usuario;
 
 import com.controlechamados.usuario.dto.*;
-import com.controlechamados.usuario.perfil.Perfil;
 import com.controlechamados.usuario.perfil.PerfilConverter;
-import com.controlechamados.usuario.perfil.dto.PerfilCompleteGridDTO;
 import com.controlechamados.usuario.perfil.dto.PerfilSimpleGridDTO;
 import com.controlechamados.utils.MaskConverter;
+
+import java.util.Objects;
 
 public class UsuarioConverter {
 
     public static UsuarioSimpleGridDTO toSimpleGridDto(Usuario usuario) {
+
+        if(Objects.isNull(usuario)){
+            return new UsuarioSimpleGridDTO();
+        }
 
         return new UsuarioSimpleGridDTO().builder()
                 .withNome( usuario.getNome() )

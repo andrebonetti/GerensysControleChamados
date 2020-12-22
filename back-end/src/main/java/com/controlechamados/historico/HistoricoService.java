@@ -1,12 +1,15 @@
 package com.controlechamados.historico;
 
-import com.controlechamados.fila.dto.FilaCompleteGridDTO;
+import com.controlechamados.historico.dto.HistoricoGridDTO;
 import com.controlechamados.historico.dto.HistoricoParam;
 import com.controlechamados.usuario.Usuario;
 import com.controlechamados.usuario.UsuarioMock;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class HistoricoService {
@@ -17,22 +20,29 @@ public class HistoricoService {
         this.historicoDAO = historicoDAO;
     }
 
-    public List<FilaCompleteGridDTO> findAll() {
+    public List<HistoricoGridDTO> findAll() {
 
-//        return StreamSupport.stream(
-//                historicoDAO.findAll()
-//                        .spliterator(), false )
-//                .map( FilaConverter::toCompleteGridDTO )
-//                .collect( Collectors.toList() );
-        return null;
+        return StreamSupport.stream(
+                historicoDAO.findAll()
+                        .spliterator(), false )
+                .map( HistoricoConverter::toGridDTO )
+                .collect( Collectors.toList() );
     }
 
-    public FilaCompleteGridDTO findById(Long id){
-//        Fila fila = historicoDAO.findById( id )
-//                .orElseThrow( () -> new EntityNotFoundException( "Fila não encontrada" ) );
-//
-//        return FilaConverter.toCompleteGridDTO( fila );
-        return null;
+    public HistoricoGridDTO findById(Long id){
+        Historico historico = historicoDAO.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Historico não encontrado"));
+
+        return HistoricoConverter.toGridDTO( historico );
+    }
+
+    public List<HistoricoGridDTO> findRegistroById(Long id) {
+
+        return StreamSupport.stream(
+                historicoDAO.findAll()
+                        .spliterator(), false )
+                .map( HistoricoConverter::toGridDTO )
+                .collect( Collectors.toList() );
     }
 
     public void criarHistoricoRegistro(HistoricoParam historicoParam){

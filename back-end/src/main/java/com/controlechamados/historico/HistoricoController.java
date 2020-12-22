@@ -1,17 +1,11 @@
 package com.controlechamados.historico;
 
-import com.controlechamados.fila.FilaService;
-import com.controlechamados.fila.dto.FilaCompleteGridDTO;
-import com.controlechamados.fila.dto.FilaFormAtualizacaoDTO;
-import com.controlechamados.fila.dto.FilaFormCriacaoDTO;
+import com.controlechamados.historico.dto.HistoricoGridDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,16 +17,22 @@ public class HistoricoController {
         this.service = service;
     }
 
-    @GetMapping("/filas")
+    @GetMapping("/historicos")
     public ResponseEntity findAll(Pageable pageable) {
-        List<FilaCompleteGridDTO> filaCompleteGridDTOS = service.findAll();
-        return ResponseEntity.ok(filaCompleteGridDTOS);
+        List<HistoricoGridDTO> historicoGridDTOS = service.findAll();
+        return ResponseEntity.ok(historicoGridDTOS);
     }
 
-    @GetMapping("/filas/detalhe")
+    @GetMapping("/historicos/registro")
+    public ResponseEntity findRegistroById(Long id) {
+        List<HistoricoGridDTO> historicoGridDTOS = service.findRegistroById(id);
+        return ResponseEntity.ok(historicoGridDTOS);
+    }
+
+    @GetMapping("/historicos/detalhe")
     public ResponseEntity findById(Long id) {
-        FilaCompleteGridDTO filaCompleteGridDTO = service.findById(id);
-        return ResponseEntity.ok(filaCompleteGridDTO);
+        HistoricoGridDTO historicoGridDTO = service.findById(id);
+        return ResponseEntity.ok(historicoGridDTO);
     }
 
 }
