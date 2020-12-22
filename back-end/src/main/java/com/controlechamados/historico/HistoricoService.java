@@ -39,7 +39,7 @@ public class HistoricoService {
     public List<HistoricoGridDTO> findRegistroById(Long id) {
 
         return StreamSupport.stream(
-                historicoDAO.findAll()
+                historicoDAO.findByIdRegistro(id)
                         .spliterator(), false )
                 .map( HistoricoConverter::toGridDTO )
                 .collect( Collectors.toList() );
