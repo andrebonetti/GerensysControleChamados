@@ -13,3 +13,8 @@ CREATE TABLE `usuario` (
   `id_usuario_modificacao` bigint(20) DEFAULT NULL,
   `id_perfil` bigint(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+COMMIT;

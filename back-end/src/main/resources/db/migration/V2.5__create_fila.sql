@@ -12,7 +12,6 @@ CREATE TABLE `fila` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 ALTER TABLE `fila`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK4ymtx8yc39fkbihe9udpab91q` (`id_usuario_criacao`),
-  ADD KEY `FK82fp52qnboaf9vnmn8vj774vh` (`id_usuario_modificacao`);
+  ADD PRIMARY KEY (`id`);
+
 COMMIT;
