@@ -4,12 +4,12 @@ public class EmpresaFormAtualizacaoDTO {
 
     private String id;
     private String imagem;
-    private String nome;
+    private String razaoSocial;
 
-    public EmpresaFormAtualizacaoDTO(String id, String imagem, String nome) {
+    public EmpresaFormAtualizacaoDTO(String id, String imagem, String razaoSocial) {
         this.id = id;
         this.imagem = imagem;
-        this.nome = nome;
+        this.razaoSocial = razaoSocial;
     }
 
     public String getId() {
@@ -20,8 +20,8 @@ public class EmpresaFormAtualizacaoDTO {
         return imagem;
     }
 
-    public String getNome() {
-        return nome;
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class EmpresaFormAtualizacaoDTO {
         return "EmpresaFormAtualizacaoDTO{" +
                 "id='" + id + '\'' +
                 ", imagem='" + imagem + '\'' +
-                ", nome='" + nome + '\'' +
+                ", nome='" + razaoSocial + '\'' +
                 '}';
     }
 }

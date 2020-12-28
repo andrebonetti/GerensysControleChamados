@@ -8,7 +8,7 @@ public class EmpresaMock {
 
     public static Empresa empresaCase1() {
 
-        Empresa empresa = Empresa.builder()
+        Empresa empresa = Empresa.create()
                 .withRazaoSocial( "Nome case 1 MOCK" )
                 .withImagem( "Imagem case 1 MOCK" )
                 .build();
@@ -20,7 +20,7 @@ public class EmpresaMock {
 
     public static Empresa empresaCase2() {
 
-        Empresa empresa = Empresa.builder()
+        Empresa empresa = Empresa.create()
                 .withRazaoSocial( "Nome case 2 MOCK" )
                 .withImagem( "Imagem case 2 MOCK" )
                 .build();

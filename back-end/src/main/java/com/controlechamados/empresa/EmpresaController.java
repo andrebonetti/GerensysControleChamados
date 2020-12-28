@@ -2,7 +2,7 @@ package com.controlechamados.empresa;
 
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
-import com.controlechamados.empresa.dto.EmpresaGridDTO;
+import com.controlechamados.empresa.dto.EmpresaCompleteGridDTO;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,14 +25,14 @@ public class EmpresaController {
 
     @GetMapping("/empresas")
     public ResponseEntity findAll(Pageable pageable) {
-        List<EmpresaGridDTO> empresaGridDTOS = service.findAll();
-        return ResponseEntity.ok(empresaGridDTOS);
+        List<EmpresaCompleteGridDTO> empresaCompleteGridDTOS = service.findAll();
+        return ResponseEntity.ok(empresaCompleteGridDTOS);
     }
 
     @GetMapping("/empresas/detalhe")
     public ResponseEntity findById(String id) {
-        EmpresaGridDTO empresaGridDTO = service.findById( id );
-        return ResponseEntity.ok(empresaGridDTO);
+        EmpresaCompleteGridDTO empresaCompleteGridDTO = service.findById( id );
+        return ResponseEntity.ok(empresaCompleteGridDTO);
     }
 
     @PostMapping("/empresas/criar")

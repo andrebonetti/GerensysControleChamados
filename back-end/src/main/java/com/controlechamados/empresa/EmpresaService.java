@@ -2,7 +2,7 @@ package com.controlechamados.empresa;
 
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
-import com.controlechamados.empresa.dto.EmpresaGridDTO;
+import com.controlechamados.empresa.dto.EmpresaCompleteGridDTO;
 import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.models.EntityService;
 import com.controlechamados.models.enums.AcaoEnum;
@@ -24,23 +24,23 @@ public class EmpresaService extends EntityService{
         this.empresaDAO = empresaDAO;
     }
 
-    public List<EmpresaGridDTO> findAll() {
+    public List<EmpresaCompleteGridDTO> findAll() {
         List<Empresa> empresas = StreamSupport
                 .stream(empresaDAO.findAll().spliterator(), false)
                 .collect(Collectors.toList());
 
-        List<EmpresaGridDTO> empresaGridDTOS = empresas.stream()
-                .map( EmpresaConverter::toSimpleGridDTO )
+        List<EmpresaCompleteGridDTO> empresaCompleteGridDTOS = empresas.stream()
+                .map( EmpresaConverter::toCompleteGridDTO )
                 .collect( Collectors.toList() );
 
-        return empresaGridDTOS;
+        return empresaCompleteGridDTOS;
     }
 
-    public EmpresaGridDTO findById(String id){
+    public EmpresaCompleteGridDTO findById(String id){
         Empresa empresa = EmpresaMock.empresaCase1();
-        EmpresaGridDTO empresaGridDTO = EmpresaConverter.toSimpleGridDTO( empresa );
+        EmpresaCompleteGridDTO empresaCompleteGridDTO = EmpresaConverter.toCompleteGridDTO( empresa );
 
-        return empresaGridDTO;
+        return empresaCompleteGridDTO;
     }
 
     public void criar(EmpresaFormCriacaoDTO empresaFormCriacaoDTO){

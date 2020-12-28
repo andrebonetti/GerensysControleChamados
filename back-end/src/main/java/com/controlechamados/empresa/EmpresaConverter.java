@@ -2,23 +2,26 @@ package com.controlechamados.empresa;
 
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
-import com.controlechamados.empresa.dto.EmpresaGridDTO;
+import com.controlechamados.empresa.dto.EmpresaCompleteGridDTO;
+import com.controlechamados.empresa.dto.EmpresaSimpleGridDTO;
+import com.controlechamados.utils.MaskConverter;
 
 public class EmpresaConverter {
 
-    public static EmpresaGridDTO toSimpleGridDTO(Empresa empresa) {
+    public static EmpresaSimpleGridDTO toSimpleGridDTO(Empresa empresa) {
 
-        return EmpresaGridDTO.builder()
-                .withNome( empresa.getRazaoSocial() )
+        return EmpresaSimpleGridDTO.builder()
+                .withId(empresa.getId().toString())
+                .withRazaoSocial( empresa.getRazaoSocial() )
                 .withImagem( empresa.getImagem() )
-                .withPropertiesGridDto ( empresa )
                 .build();
     }
 
-    public static EmpresaGridDTO toCompleteGridDTO(Empresa empresa) {
+    public static EmpresaCompleteGridDTO toCompleteGridDTO(Empresa empresa) {
 
-        return EmpresaGridDTO.builder()
-                .withNome( empresa.getRazaoSocial() )
+        return EmpresaCompleteGridDTO.builder()
+                .withCnpj(empresa.getCnpj().toString())
+                .withRazaoSocial( empresa.getRazaoSocial() )
                 .withImagem( empresa.getImagem() )
                 .withPropertiesGridDto ( empresa )
                 .build();
@@ -26,16 +29,17 @@ public class EmpresaConverter {
 
     public static Empresa toEntity(EmpresaFormCriacaoDTO form) {
 
-        return Empresa.builder()
-                .withRazaoSocial( form.getNome() )
+        return Empresa.create()
+                .withCnpj(MaskConverter.toNumber(form.getCnpj()))
+                .withRazaoSocial( form.getRazaoSocial() )
                 .withImagem( form.getImagem() )
                 .build();
     }
 
     public static void toEntity(Empresa empresa, EmpresaFormAtualizacaoDTO form) {
 
-        empresa.atualizar()
-                .withRazaoSocial( form.getNome() )
+        empresa.update()
+                .withRazaoSocial( form.getRazaoSocial() )
                 .withImagem( form.getImagem() )
                 .build();
     }

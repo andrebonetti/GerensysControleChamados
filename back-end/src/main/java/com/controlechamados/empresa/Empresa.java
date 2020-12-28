@@ -2,74 +2,100 @@ package com.controlechamados.empresa;
 
 import com.controlechamados.models.AbstractEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import java.util.Objects;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Empresa extends AbstractEntity {
 
+    @NotNull
+    @Column(nullable = false)
     private Long cnpj;
+
+    @NotNull
+    @Column(nullable = false)
     private String razaoSocial;
+
     private String imagem;
 
     public Empresa() {
         //to serialize
     }
 
-    public Empresa(Builder builder){
-        update(builder);
-    }
-
-    private void update(Builder builder){
+    public Empresa(CreateBuilder builder){
         this.imagem = builder.imagem;
         this.razaoSocial = builder.razaoSocial;
+        this.cnpj = builder.cnpj;
     }
 
-    public static Builder builder(){
-        return new Builder();
+    private void update(UpdateBuilder updateBuilder){
+        this.razaoSocial = updateBuilder.razaoSocial;
+        this.imagem = updateBuilder.imagem;
     }
 
-    public Builder atualizar(){
-        return new Builder(this);
+    public static CreateBuilder create(){
+        return new CreateBuilder();
     }
 
-    public final static class Builder{
+    public UpdateBuilder update(){
+        return new UpdateBuilder(this);
+    }
 
-        private Empresa empresa;
+    public final static class CreateBuilder{
 
         private Long cnpj;
         private String razaoSocial;
         private String imagem;
 
-        public Builder() {
+        public CreateBuilder() {
         }
 
-        public Builder(Empresa empresa){
-            this.empresa = empresa;
-        }
-
-        public Builder withImagem(String imagem) {
+        public CreateBuilder withImagem(String imagem) {
             this.imagem = imagem;
             return this;
         }
 
-        public Builder withRazaoSocial(String nome) {
+        public CreateBuilder withRazaoSocial(String nome) {
             this.razaoSocial = nome;
             return this;
         }
 
-        public Builder withCnpj(Long cnpj) {
+        public CreateBuilder withCnpj(Long cnpj) {
             this.cnpj = cnpj;
             return this;
         }
 
         public Empresa build(){
-            if(Objects.nonNull( empresa )){
-                empresa.update( this );
-                return empresa;
-            }else{
-                return new Empresa(this);
-            }
+            return new Empresa(this);
+        }
+
+    }
+
+    public final static class UpdateBuilder {
+
+        private Empresa empresa;
+
+        private String razaoSocial;
+        private String imagem;
+
+        public UpdateBuilder(Empresa empresa){
+            this.empresa = empresa;
+        }
+
+        public UpdateBuilder withImagem(String imagem) {
+            this.imagem = imagem;
+            return this;
+        }
+
+        public UpdateBuilder withRazaoSocial(String nome) {
+            this.razaoSocial = nome;
+            return this;
+        }
+
+        public Empresa build(){
+            empresa.update( this );
+            return empresa;
         }
 
     }
@@ -82,17 +108,23 @@ public class Empresa extends AbstractEntity {
         return razaoSocial;
     }
 
+    public Long getCnpj() {
+        return cnpj;
+    }
+
     @Override
     public String toString() {
         return "Empresa{" +
-                "imagem='" + imagem + '\'' +
-                ", nome='" + razaoSocial + '\'' +
+                "cnpj=" + cnpj +
+                ", razaoSocial='" + razaoSocial + '\'' +
+                ", imagem='" + imagem + '\'' +
                 ", id=" + id +
                 ", ativo=" + ativo +
                 ", usuarioCriacao=" + usuarioCriacao +
-                ", usuarioModificaocao=" + usuarioModificacao +
+                ", usuarioModificacao=" + usuarioModificacao +
                 ", dataCriacao=" + dataCriacao +
                 ", dataModificacao=" + dataModificacao +
+                ", version=" + version +
                 '}';
     }
 }

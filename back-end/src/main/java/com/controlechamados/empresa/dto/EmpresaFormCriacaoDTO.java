@@ -2,27 +2,38 @@ package com.controlechamados.empresa.dto;
 
 public class EmpresaFormCriacaoDTO {
 
+    private String cnpj;
+    private String razaoSocial;
     private String imagem;
-    private String nome;
 
-    public EmpresaFormCriacaoDTO(String imagem, String nome) {
+    public EmpresaFormCriacaoDTO() {
+        // to serialize
+    }
+
+    public EmpresaFormCriacaoDTO(String cnpj, String razaoSocial, String imagem) {
+        this.cnpj = cnpj;
+        this.razaoSocial = razaoSocial;
         this.imagem = imagem;
-        this.nome = nome;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public String getRazaoSocial() {
+        return razaoSocial;
     }
 
     public String getImagem() {
         return imagem;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     @Override
     public String toString() {
-        return "Empresa{" +
+        return "EmpresaFormCriacaoDTO{" +
+                "cnpj='" + cnpj + '\'' +
+                ", razaoSocial='" + razaoSocial + '\'' +
                 ", imagem='" + imagem + '\'' +
-                ", nome='" + nome + '\'' +
                 '}';
     }
 }

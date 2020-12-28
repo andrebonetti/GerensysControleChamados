@@ -3,7 +3,7 @@ package com.controlechamados.chamado.dto;
 import com.controlechamados.chamado.categoria.subcategoria.dto.SubCategoriaGridDTO;
 import com.controlechamados.chamado.formularioinput.dro.FormularioInputGridDTO;
 import com.controlechamados.chamado.solucaoTecnica.dto.SolucaoTecnicaGridDTO;
-import com.controlechamados.empresa.dto.EmpresaGridDTO;
+import com.controlechamados.empresa.dto.EmpresaSimpleGridDTO;
 import com.controlechamados.fila.dto.FilaCompleteGridDTO;
 import com.controlechamados.usuario.dto.UsuarioSimpleGridDTO;
 
@@ -14,7 +14,7 @@ public class ChamadoGridDTO {
     private String id;
     private String titulo;
     private SubCategoriaGridDTO subCategoria;
-    private EmpresaGridDTO empresa;
+    private EmpresaSimpleGridDTO empresa;
     private UsuarioSimpleGridDTO usuarioResponsavel;
     private UsuarioSimpleGridDTO usuarioCriacao;
     private FilaCompleteGridDTO fila;
@@ -57,7 +57,7 @@ public class ChamadoGridDTO {
         return subCategoria;
     }
 
-    public EmpresaGridDTO getEmpresa() {
+    public EmpresaSimpleGridDTO getEmpresa() {
         return empresa;
     }
 
@@ -94,7 +94,7 @@ public class ChamadoGridDTO {
         private String id;
         private String titulo;
         private SubCategoriaGridDTO subCategoria;
-        private EmpresaGridDTO empresa;
+        private EmpresaSimpleGridDTO empresa;
         private UsuarioSimpleGridDTO usuarioResponsavel;
         private UsuarioSimpleGridDTO usuarioCriacao;
         private FilaCompleteGridDTO fila;
@@ -118,7 +118,7 @@ public class ChamadoGridDTO {
             return this;
         }
 
-        public Builder withEmpresa(EmpresaGridDTO empresa) {
+        public Builder withEmpresa(EmpresaSimpleGridDTO empresa) {
             this.empresa = empresa;
             return this;
         }

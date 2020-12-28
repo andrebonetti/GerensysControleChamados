@@ -5,6 +5,7 @@ import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.usuario.Usuario;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -17,8 +18,11 @@ public class AbstractEntity implements Serializable {
     protected Long id;
 //TODO RETURN    public UUID id;
 
+    @NotNull
+    @Column(nullable = false)
     protected Boolean ativo = Boolean.TRUE;
 
+//TODO RETURN NOT NULL    @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario_criacao")
     protected Usuario usuarioCriacao;
@@ -27,11 +31,15 @@ public class AbstractEntity implements Serializable {
     @JoinColumn(name = "id_usuario_modificacao")
     protected Usuario usuarioModificacao;
 
+    @NotNull
+    @Column(nullable = false)
     protected LocalDateTime dataCriacao = LocalDateTime.now();
 
     @Column(columnDefinition = "TIMESTAMP")
     protected LocalDateTime dataModificacao;
 
+    @NotNull
+    @Column(nullable = false)
     @Version
     protected Long version;
 

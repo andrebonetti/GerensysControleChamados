@@ -14,6 +14,7 @@ public class FilaConverter {
                 .withQuantidade(123)
 //                TODO CALCULAR
                 .withColorStyle(fila.getColorStyle())
+                .withPropertiesGridDto(fila)
                 .build();
 
     }

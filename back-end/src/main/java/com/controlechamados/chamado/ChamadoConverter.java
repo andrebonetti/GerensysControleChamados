@@ -5,7 +5,7 @@ import com.controlechamados.chamado.categoria.subcategoria.dto.SubCategoriaGridD
 import com.controlechamados.chamado.dto.ChamadoFormDTO;
 import com.controlechamados.chamado.dto.ChamadoGridDTO;
 import com.controlechamados.empresa.EmpresaConverter;
-import com.controlechamados.empresa.dto.EmpresaGridDTO;
+import com.controlechamados.empresa.dto.EmpresaSimpleGridDTO;
 import com.controlechamados.fila.FilaConverter;
 import com.controlechamados.fila.dto.FilaCompleteGridDTO;
 import com.controlechamados.usuario.UsuarioConverter;
@@ -16,7 +16,7 @@ public class ChamadoConverter {
     public static ChamadoGridDTO toGridDto(Chamado chamado) {
 
         SubCategoriaGridDTO subCategoriaGridDTO = SubCategoriaConverter.toGridDTO( chamado.getSubCategoria() );
-        EmpresaGridDTO empresaGridDTO = EmpresaConverter.toSimpleGridDTO( chamado.getEmpresa() );
+        EmpresaSimpleGridDTO empresaCompleteGridDTO = EmpresaConverter.toSimpleGridDTO( chamado.getEmpresa() );
         UsuarioSimpleGridDTO usuarioCriacaoGridDTO = UsuarioConverter.toSimpleGridDto( chamado.getUsuarioCriacao() );
         FilaCompleteGridDTO filaCompleteGridDTO = FilaConverter.toCompleteGridDTO( chamado.getFila() );
 
@@ -32,7 +32,7 @@ public class ChamadoConverter {
                 .withId( chamado.getId().toString() )
                 .withTitulo( chamado.getTitulo() )
                 .withSubCategoria( subCategoriaGridDTO )
-                .withEmpresa( empresaGridDTO )
+                .withEmpresa(empresaCompleteGridDTO)
                 .withUsuarioCriacao( usuarioCriacaoGridDTO )
                 .withFila(filaCompleteGridDTO)
                 .build();

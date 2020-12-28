@@ -9,7 +9,7 @@ public class MaskConverter {
     public static Long toNumber(String text){
         String numberFormat = toNumberFormat( text );
 
-        return Long.parseLong( numberFormat );
+        return Validators.isNull(numberFormat) ? null : Long.parseLong( numberFormat );
     }
 
     public static String toNumberFormatNotPad(String text){

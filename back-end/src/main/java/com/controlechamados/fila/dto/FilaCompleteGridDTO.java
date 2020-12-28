@@ -1,5 +1,7 @@
 package com.controlechamados.fila.dto;
 
+import com.controlechamados.models.AbstractEntity;
+import com.controlechamados.models.BuilderEntityGridDTO;
 import com.controlechamados.models.dto.EntityGridDTO;
 
 public class FilaCompleteGridDTO extends EntityGridDTO {
@@ -16,13 +18,15 @@ public class FilaCompleteGridDTO extends EntityGridDTO {
         this.nome = builder.nome;
         this.quantidade = builder.quantidade;
         this.colorStyle = builder.colorStyle;
+
+        this.construct(builder);
     }
 
     public static Builder builder() {
         return new Builder();
     }
 
-    public static final class Builder {
+    public static final class Builder extends BuilderEntityGridDTO {
 
         private String nome;
         private Integer quantidade;
@@ -40,6 +44,11 @@ public class FilaCompleteGridDTO extends EntityGridDTO {
 
         public Builder withColorStyle(String colorStyle) {
             this.colorStyle = colorStyle;
+            return this;
+        }
+
+        public Builder withPropertiesGridDto(AbstractEntity abstractEntity) {
+            super.setCompletePropertiesGridDto( abstractEntity );
             return this;
         }
 
