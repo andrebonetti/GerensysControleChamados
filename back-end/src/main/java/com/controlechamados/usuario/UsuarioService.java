@@ -1,6 +1,5 @@
 package com.controlechamados.usuario;
 
-import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.models.EntityService;
 import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
@@ -21,16 +20,17 @@ import java.util.stream.StreamSupport;
 @Service
 public class UsuarioService extends EntityService{
 
+    @Autowired
     private final UsuarioRepository usuarioDAO;
+
+    @Autowired
     private final PerfilRepository perfilDAO;
 
     @Autowired
-    public UsuarioService(HistoricoService historicoService
-            , UsuarioRepository usuarioDAO
+    public UsuarioService( UsuarioRepository usuarioDAO
             , PerfilRepository perfilDAO) {
-        super( historicoService
-                , TabelaEnum.USUARIO
-                , perfilDAO);
+        super( TabelaEnum.USUARIO
+                , usuarioDAO);
         this.usuarioDAO = usuarioDAO;
         this.perfilDAO = perfilDAO;
     }

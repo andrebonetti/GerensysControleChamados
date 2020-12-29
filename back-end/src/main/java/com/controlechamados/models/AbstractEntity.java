@@ -3,6 +3,7 @@ package com.controlechamados.models;
 import com.controlechamados.models.chains.PropriedadePorAcaoChain;
 import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.usuario.Usuario;
+import com.controlechamados.usuario.UsuarioRepository;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,13 +17,12 @@ public class AbstractEntity implements Serializable {
     @GeneratedValue
     @Column(name = "id", updatable = false, nullable = false)
     protected Long id;
-//TODO RETURN    public UUID id;
 
     @NotNull
     @Column(nullable = false)
     protected Boolean ativo = Boolean.TRUE;
 
-//TODO RETURN NOT NULL    @NotNull
+    @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario_criacao")
     protected Usuario usuarioCriacao;
@@ -74,12 +74,20 @@ public class AbstractEntity implements Serializable {
         return version;
     }
 
+    public void setUsuarioCriacao(Usuario usuario){
+        this.usuarioCriacao = usuario;
+    }
+
     public void inativar(){
         this.ativo = false;
     }
 
+    public void setPropriedadePorAcao(AcaoEnum acaoEnum, UsuarioRepository usuarioDAO){
+        PropriedadePorAcaoChain.validar( this, acaoEnum, usuarioDAO );
+    }
+
     public void setPropriedadePorAcao(AcaoEnum acaoEnum){
-        PropriedadePorAcaoChain.validar( this, acaoEnum );
+        PropriedadePorAcaoChain.validar( this, acaoEnum, null );
     }
 
     @Override

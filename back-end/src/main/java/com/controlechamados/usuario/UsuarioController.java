@@ -1,6 +1,5 @@
 package com.controlechamados.usuario;
 
-import com.controlechamados.usuario.UsuarioService;
 import com.controlechamados.usuario.dto.UsuarioCompleteGridDTO;
 import com.controlechamados.usuario.dto.UsuarioFormAtualizacaoDTO;
 import com.controlechamados.usuario.dto.UsuarioFormCriacaoDTO;

@@ -4,23 +4,28 @@ import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.historico.dto.HistoricoParam;
 import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
+import com.controlechamados.usuario.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EntityService {
 
-    private HistoricoService historicoService;
     private TabelaEnum tabelaEnum;
     private CrudRepository dao;
+
+    @Autowired
+    private HistoricoService historicoService;
+
+    @Autowired
+    private UsuarioRepository usuarioDAO;
 
     public EntityService() {
     }
 
-    public EntityService(HistoricoService historicoService,
-         TabelaEnum tabelaEnum,
+    public EntityService(TabelaEnum tabelaEnum,
          CrudRepository crudRepository) {
-        this.historicoService = historicoService;
         this.tabelaEnum = tabelaEnum;
         this.dao = crudRepository;
     }
@@ -35,7 +40,7 @@ public class EntityService {
 
     protected void preSave(AbstractEntity abstractEntity, AcaoEnum acaoEnum){
 
-        abstractEntity.setPropriedadePorAcao( acaoEnum );
+        abstractEntity.setPropriedadePorAcao( acaoEnum , this.usuarioDAO);
 
     }
 

@@ -4,10 +4,7 @@ import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.usuario.Usuario;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -23,7 +20,11 @@ public class Historico {
     private AcaoEnum tipoAcao;
     private LocalDateTime dataAcao = LocalDateTime.now();
     private Usuario usuarioAcao;
+
+    @Lob
+    @Column( length = 100000 )
     private String dados;
+
     private Long version;
 
     public Historico() {

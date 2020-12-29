@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class Empresa extends AbstractEntity {
 
     @NotNull
-    @Column(nullable = false)
+    @Column(nullable = false,unique=true)
     private Long cnpj;
 
     @NotNull
@@ -114,7 +114,7 @@ public class Empresa extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "Empresa{" +
+        return "{" +
                 "cnpj=" + cnpj +
                 ", razaoSocial='" + razaoSocial + '\'' +
                 ", imagem='" + imagem + '\'' +

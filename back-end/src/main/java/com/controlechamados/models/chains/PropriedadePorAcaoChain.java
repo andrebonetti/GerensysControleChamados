@@ -2,12 +2,16 @@ package com.controlechamados.models.chains;
 
 import com.controlechamados.models.AbstractEntity;
 import com.controlechamados.models.enums.AcaoEnum;
+import com.controlechamados.usuario.Usuario;
+import com.controlechamados.usuario.UsuarioRepository;
+
+import javax.persistence.EntityNotFoundException;
 
 public class PropriedadePorAcaoChain {
 
-    public static void validar(AbstractEntity abstractEntity, AcaoEnum acaoEnum){
+    public static void validar(AbstractEntity abstractEntity, AcaoEnum acaoEnum, UsuarioRepository usuarioDAO){
 
-        PropriedadesCriacao propriedadesCriacao = new PropriedadesCriacao();
+        PropriedadesCriacao propriedadesCriacao = new PropriedadesCriacao(usuarioDAO);
         PropriedadesAtualizacao propriedadesAtualizacao = new PropriedadesAtualizacao();
         PropriedadesInativacao propriedadesInativacao = new PropriedadesInativacao();
         PropriedadesMock propriedadesMock = new PropriedadesMock();
@@ -32,11 +36,19 @@ public class PropriedadePorAcaoChain {
     private static class PropriedadesCriacao implements PropriedadePorAcao{
 
         private PropriedadePorAcao proximo;
+        private UsuarioRepository usuarioDAO;
+
+        public PropriedadesCriacao(UsuarioRepository usuarioDAO) {
+            this.usuarioDAO = usuarioDAO;
+        }
 
         @Override
         public void set(AbstractEntity abstractEntity, AcaoEnum acaoEnum) {
             if(AcaoEnum.CRIACAO.equals( acaoEnum )){
-//TODO RETURN                abstractEntity.usuarioCriacao = UsuarioMock.usuarioMock();
+
+                Usuario usuarioTest = usuarioDAO.findById(3L)
+                        .orElseThrow(() -> new EntityNotFoundException("Usuario TEST não encontrado"));
+                abstractEntity.setUsuarioCriacao(usuarioTest);
             }else{
                 proximo.set( abstractEntity, acaoEnum );
             }

@@ -1,12 +1,12 @@
 package com.controlechamados.empresa;
 
+import com.controlechamados.empresa.dto.EmpresaCompleteGridDTO;
 import com.controlechamados.empresa.dto.EmpresaFormAtualizacaoDTO;
 import com.controlechamados.empresa.dto.EmpresaFormCriacaoDTO;
-import com.controlechamados.empresa.dto.EmpresaCompleteGridDTO;
-import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.models.EntityService;
 import com.controlechamados.models.enums.AcaoEnum;
 import com.controlechamados.models.enums.TabelaEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,10 +17,12 @@ import java.util.stream.StreamSupport;
 @Service
 public class EmpresaService extends EntityService{
 
+    @Autowired
     private final EmpresaRepository empresaDAO;
 
-    public EmpresaService(HistoricoService historicoService, EmpresaRepository empresaDAO) {
-        super( historicoService, TabelaEnum.EMPRESA, empresaDAO );
+    @Autowired
+    public EmpresaService(EmpresaRepository empresaDAO) {
+        super( TabelaEnum.EMPRESA, empresaDAO );
         this.empresaDAO = empresaDAO;
     }
 

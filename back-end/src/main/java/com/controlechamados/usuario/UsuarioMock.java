@@ -9,7 +9,7 @@ public class UsuarioMock {
     public static Usuario usuarioResponsavel() {
         Perfil perfilAdministrador = PerfilMock.perfilAdministrador();
 
-        Usuario usuario = new Usuario().builder()
+        Usuario usuario = new Usuario().createBuilder()
                 .withNome( "Nome Responsavel MOCK" )
                 .withEmail( "Email Responsavel MOCK" )
                 .withImagem( "Imagem Responsavel MOCK" )
@@ -17,7 +17,7 @@ public class UsuarioMock {
                 .withSenha( "Senha Responsavel MOCK" )
                 .build();
 
-        usuario.setPropriedadePorAcao( AcaoEnum.CRIACAO );
+        usuario.setPropriedadePorAcao( AcaoEnum.MOCK );
 
         return usuario;
     }
@@ -26,7 +26,8 @@ public class UsuarioMock {
 
         Perfil perfilOperador = PerfilMock.perfilOperador();
 
-        Usuario usuario = new Usuario().builder()
+        Usuario usuario = new Usuario().createBuilder()
+                .setId(3L)
                 .withNome( "Nome usuarioCriacao MOCK" )
                 .withEmail( "Email usuarioCriacao MOCK" )
                 .withImagem( "Imagem usuarioCriacao MOCK" )
@@ -34,7 +35,7 @@ public class UsuarioMock {
                 .withSenha( "Senha usuarioCriacao MOCK" )
                 .build();
 
-        usuario.setPropriedadePorAcao( AcaoEnum.CRIACAO );
+        usuario.setPropriedadePorAcao( AcaoEnum.MOCK );
 
         return usuario;
     }
@@ -43,7 +44,7 @@ public class UsuarioMock {
 
         Perfil perfilOperador = PerfilMock.perfilOperador();
 
-        Usuario usuario = new Usuario().builder()
+        Usuario usuario = new Usuario().createBuilder()
                 .withNome( "Nome usuarioModificacao MOCK" )
                 .withEmail( "Email usuarioModificacao MOCK" )
                 .withImagem( "Imagem usuarioModificacao MOCK" )
@@ -51,7 +52,7 @@ public class UsuarioMock {
                 .withSenha( "Senha usuarioModificacao MOCK" )
                 .build();
 
-        usuario.setPropriedadePorAcao( AcaoEnum.CRIACAO );
+        usuario.setPropriedadePorAcao( AcaoEnum.MOCK );
 
         return usuario;
     }
@@ -60,7 +61,7 @@ public class UsuarioMock {
 
         Perfil perfilOperador = PerfilMock.perfilOperador();
 
-        Usuario usuario = new Usuario().builder()
+        Usuario usuario = new Usuario().createBuilder()
                 .withNome( "Nome usuarioMOCK MOCK" )
                 .withEmail( "Email usuarioMOCK MOCK" )
                 .withImagem( "Imagem usuarioMOCK MOCK" )

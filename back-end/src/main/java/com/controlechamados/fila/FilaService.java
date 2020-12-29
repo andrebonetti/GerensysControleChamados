@@ -21,8 +21,7 @@ public class FilaService extends EntityService{
 
     public FilaService(HistoricoService historicoService
             , FilaRepository filaDAO) {
-        super( historicoService
-                , TabelaEnum.USUARIO
+        super( TabelaEnum.USUARIO
                 , filaDAO);
         this.filaDAO = filaDAO;
     }

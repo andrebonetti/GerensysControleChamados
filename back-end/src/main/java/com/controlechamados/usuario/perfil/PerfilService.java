@@ -1,6 +1,5 @@
 package com.controlechamados.usuario.perfil;
 
-import com.controlechamados.historico.HistoricoService;
 import com.controlechamados.models.EntityService;
 import com.controlechamados.models.enums.TabelaEnum;
 import com.controlechamados.usuario.perfil.dto.PerfilCompleteGridDTO;
@@ -18,8 +17,8 @@ public class PerfilService extends EntityService{
 
     private final PerfilRepository perfilDAO;
 
-    public PerfilService(HistoricoService historicoService, PerfilRepository perfilDAO) {
-        super( historicoService, TabelaEnum.PERFIL, perfilDAO );
+    public PerfilService(PerfilRepository perfilDAO) {
+        super( TabelaEnum.PERFIL, perfilDAO );
         this.perfilDAO = perfilDAO;
     }
 

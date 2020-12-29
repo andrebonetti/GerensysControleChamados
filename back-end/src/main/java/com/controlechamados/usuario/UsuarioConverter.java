@@ -41,7 +41,7 @@ public class UsuarioConverter {
     public static Usuario toEntity(UsuarioFormCriacaoDTO usuarioFormCriacaoDTO
             , UsuarioReferenceDTO usuarioReferenceDTO){
 
-        return Usuario.builder()
+        return Usuario.createBuilder()
             .withCpf( MaskConverter.toNumber(usuarioFormCriacaoDTO.getCpf()) )
             .withNome( usuarioFormCriacaoDTO.getNome() )
             .withEmail( usuarioFormCriacaoDTO.getEmail() )
