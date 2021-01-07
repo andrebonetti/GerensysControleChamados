@@ -35,7 +35,7 @@ public class AbstractEntity implements Serializable {
     @Column(nullable = false)
     protected LocalDateTime dataCriacao = LocalDateTime.now();
 
-    @Column(columnDefinition = "TIMESTAMP")
+    @Column(columnDefinition = "TIMESTAMP",nullable = true)
     protected LocalDateTime dataModificacao;
 
     @NotNull

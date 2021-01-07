@@ -34,6 +34,10 @@ public class EntityService {
 
         preSave ( abstractEntity,acaoEnum );
         dao.save( abstractEntity );
+
+
+
+        
         posSave( abstractEntity,acaoEnum );
 
     }

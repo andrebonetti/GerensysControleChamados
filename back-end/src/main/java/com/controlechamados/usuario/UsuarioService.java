@@ -57,8 +57,7 @@ public class UsuarioService extends EntityService{
         Usuario usuario = UsuarioConverter.toEntity( usuarioFormCriacaoDTO
                 , findReferences( usuarioFormCriacaoDTO ) );
 
-        usuarioDAO.save( usuario );
-//TODO  RETURN save(usuario,AcaoEnum.CRIACAO);
+        save(usuario,AcaoEnum.CRIACAO);
     }
 
     public void atualizar(UsuarioFormAtualizacaoDTO usuarioFormAtualizacaoDTO){

@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "controle-chamados-gerensys-hiper"
+    }
+  },
+  "defaultProject": "controle-chamados-gerensys-hiper",
+  "cli": {
+    "analytics": "dfa07114-3d1f-4a2e-89a4-086d323428b7"
+  }
 }
