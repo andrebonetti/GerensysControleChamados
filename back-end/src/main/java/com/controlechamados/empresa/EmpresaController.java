@@ -21,6 +21,7 @@ public class EmpresaController {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping("/")
     public ResponseEntity findAll(Pageable pageable) {
         List<EmpresaCompleteGridDTO> empresaCompleteGridDTOS = service.findAll();

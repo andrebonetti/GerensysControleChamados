@@ -58,6 +58,7 @@ import { InputTextAreaComponent } from './templates/form/input-text-area/input-t
 import { NgDragDropModule } from 'ng-drag-drop';
 import { EmpresasComponent } from './pages/empresas/empresas.component';
 import { EmpresaFiltroComponent } from './pages/empresas/empresa-filtro/empresa-filtro.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { EmpresaFiltroComponent } from './pages/empresas/empresa-filtro/empresa-
     NgbModule,
     FontAwesomeModule,
     UiSwitchModule,
-    NgDragDropModule.forRoot()
+    NgDragDropModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

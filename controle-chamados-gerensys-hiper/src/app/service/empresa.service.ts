@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { MensagemService } from './mensagem.service';
-import { EmpresaDTO } from "../models/empresa";
+import { EmpresaDTO,EmpresaCompleteGridDTO } from "../models/empresa";
 import { empresaMOCK } from "../mock/mock-empresa";
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpresaService {
 
-  constructor(private mensagemService: MensagemService) { }
+  private heroesUrl = `http://localhost:8085/empresas/`;
 
-  getEmpresas(): Observable<EmpresaDTO[]> {
-    this.mensagemService.add('EmpresaService: empresas obtidas');
-    return of(empresaMOCK.empresas);
+  constructor(private mensagemService: MensagemService
+    ,private http: HttpClient,) { }
+
+  getEmpresas() : Observable<EmpresaCompleteGridDTO[]> {
+    return this.http.get<EmpresaCompleteGridDTO[]>(`${ this.heroesUrl }`);
   }
+
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmpresaDTO } from 'src/app/models/empresa';
+import { EmpresaDTO, EmpresaCompleteGridDTO } from 'src/app/models/empresa';
 import { EmpresaService } from 'src/app/service/empresa.service';
 import { MensagemService } from 'src/app/service/mensagem.service';
 
@@ -10,18 +10,18 @@ import { MensagemService } from 'src/app/service/mensagem.service';
 })
 export class EmpresasComponent implements OnInit {
 
-  empresasDTO : EmpresaDTO[];
+  empresasDTO : EmpresaCompleteGridDTO[];
 
   constructor(
     private mensagemService: MensagemService,
     private empresaService : EmpresaService) { }
 
   ngOnInit(): void {
-    this.getUsuarios();
+    this.getEmpresas();
   }
 
-  getUsuarios(): void {
-    this.empresaService.getEmpresas().subscribe(empresas => this.empresasDTO = empresas);
+  getEmpresas(): void {
+    this.empresaService.getEmpresas().subscribe(empresas => this.empresasDTO = empresas );
   }
 
 }

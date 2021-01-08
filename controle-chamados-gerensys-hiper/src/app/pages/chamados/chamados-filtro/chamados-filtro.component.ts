@@ -118,7 +118,8 @@ export class ChamadosFiltroComponent implements OnInit {
   }
 
   getEmpresas() : void{
-    this.empresaService.getEmpresas().subscribe( empresas => this.inputEmpresas.content = empresas );
+    this.empresaService.getEmpresas()
+    // this.empresaService.getEmpresas().subscribe( empresas => this.inputEmpresas.content = empresas );
   }
 
 }
